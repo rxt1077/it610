@@ -1,0 +1,97 @@
+= Systems Administration with Containers
+
+== What is a container?
+
+A container is a fully contained Linux system that is configured exactly how
+the development / operations team wants it to be configured.
+
+* uses chroot / cgoups for isolation
+* allows multiple independant Linux environments to run on one host
+* more lightweight than virtual machines (VMs)
+* typically coordinated through a daemon process (docker for example)
+
+== Docker on a Desktop Machine
+
+[plantuml, container-desktop, svg, width=50%]
+....
+@startuml
+rectangle host [
+    <b>Host OS
+    ---
+    Windows
+    MacOS
+]
+rectangle vm [
+    <b>Virtual Machine Running Linux
+    ---
+    Hyper-V
+    VirtualBox
+    HyperKit
+]
+rectangle docker as "Docker"
+rectangle container1 as "Container 1"
+rectangle container2 as "Container 2"
+rectangle container3 as "Container 3"
+
+host --> vm
+vm --> docker
+docker --> container1
+docker --> container2
+docker --> container3
+@enduml
+....
+
+== Docker on a Server
+
+[plantuml, container-server, svg, width=75%]
+....
+@startuml
+rectangle host [
+    <b>Host OS
+    ---
+    Linux
+]
+rectangle docker as "Docker"
+rectangle container1 as "Container 1"
+rectangle container2 as "Container 2"
+rectangle container3 as "Container 3"
+
+host --> docker
+docker --> container1
+docker --> container2
+docker --> container3
+@enduml
+....
+
+== Pets vs. Cattle
+
+* containers have a brief lifecycle
+* the configuration information for an image matters (Dockerfile)
+* the actual information inside the running container does not
+* store your data somewhere that isn't inside a container
+
+=== Containers vs. Images
+
+[plantuml, containers-vs-images, svg, width=75%]
+....
+@startuml
+rectangle image [
+    <b>Image
+    ---
+    Ubuntu 18.04 with custom software / configuration
+]
+rectangle container1 as "Container 1"
+rectangle container2 as "Container 2"
+rectangle container3 as "Container 3"
+image --> container1 : docker run image
+image --> container2 : docker run image
+image --> container3 : docker run image
+....
+
+== Takeaway
+
+* traditional Linux systems administration still matters
+* focus on _how_ you set up something more than maintaining a set up you made
+  earlier
+* you should be able to make a script that deploys servers on demand
+* everything is code

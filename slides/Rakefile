@@ -1,0 +1,33 @@
+require 'asciidoctor'
+require 'asciidoctor-diagram'
+require 'asciidoctor-revealjs'
+
+outputdir = 'output'
+imagesdir = 'images'
+revealjs_theme = 'solarized'
+
+desc 'Cleans and sets up output directory'
+task :dirs do
+  remove_dir outputdir
+  mkdir outputdir
+  cp_r 'images', outputdir
+  cp_r 'reveal.js', outputdir
+end
+
+desc 'Builds all adoc files into a reveal.js presentations'
+task :slides => [:dirs] do
+  files = FileList['*.adoc']
+  files.each do |file|
+    puts "Converting #{file}..."
+    Asciidoctor.convert_file(
+      file,
+      to_dir: "#{outputdir}",
+      backend: 'revealjs',
+      safe: :unsafe,
+      attributes: "revealjs_theme=#{revealjs_theme} imagesdir=#{imagesdir} source-highlighter=rouge",
+    )
+  end
+end
+
+desc 'Builds all slides'
+task :default => [:slides]

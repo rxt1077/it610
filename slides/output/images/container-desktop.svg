@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="453px" preserveAspectRatio="none" style="width:369px;height:453px;" version="1.1" viewBox="0 0 369 453" width="369px" zoomAndPan="magnify"><defs><filter height="300%" id="f1m9phxbvm8ymh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[da9746410650acf9fab14ea35e32d13b]
+entity host--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="80.8281" style="stroke: #000000; stroke-width: 1.5;" width="88" x="138" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="56" x="148" y="32.5332">Host OS</text><line style="stroke: #000000; stroke-width: 1.0;" x1="139" x2="225" y1="35.6094" y2="35.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="56" x="154" y="54.1426">Windows</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="46" x="154" y="71.752">MacOS</text><!--MD5=[feb13187a4e12c0f7e43ab86a34517b0]
+entity vm--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="98.4375" style="stroke: #000000; stroke-width: 1.5;" width="234" x="65" y="149"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="214" x="75" y="173.5332">Virtual Machine Running Linux</text><line style="stroke: #000000; stroke-width: 1.0;" x1="66" x2="298" y1="176.6094" y2="176.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="51" x="81" y="195.1426">Hyper-V</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="63" x="81" y="212.752">VirtualBox</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="53" x="81" y="230.3613">HyperKit</text><!--MD5=[7c0f197cad09c4d86c8b8989e1030b9e]
+entity docker--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="65" x="149.5" y="307"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="159.5" y="331.5332">Docker</text><!--MD5=[8e653cf1508c8de73e0d49c732987513]
+entity container1--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="94" x="6" y="405"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="16" y="429.5332">Container 1</text><!--MD5=[9f0d3a1f4493e59367b52fc0f20ff9bb]
+entity container2--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="94" x="135" y="405"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="145" y="429.5332">Container 2</text><!--MD5=[10e6fcd240979d4457e8143441327951]
+entity container3--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="37.6094" style="stroke: #000000; stroke-width: 1.5;" width="94" x="264" y="405"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="74" x="274" y="429.5332">Container 3</text><!--MD5=[d53af427261df455ba622883d6330984]
+link host to vm--><path d="M182,89.027 C182,105.876 182,125.786 182,143.891 " fill="none" id="host-&gt;vm" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="182,148.945,186,139.945,182,143.945,178,139.945,182,148.945" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[767ce72ad121edf5ff431e7a4cfc4a20]
+link vm to docker--><path d="M182,247.355 C182,265.897 182,286.232 182,301.439 " fill="none" id="vm-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="182,306.796,186,297.796,182,301.796,178,297.796,182,306.796" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[95c96fd1c0dcea559c676623e10111de]
+link docker to container1--><path d="M157.736,345.0569 C136.162,361.1122 104.5875,384.6093 81.7516,401.6035 " fill="none" id="docker-&gt;container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="77.5937,404.6977,87.2018,402.5334,81.6048,401.7126,82.4256,396.1156,77.5937,404.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e6d44d7033759f0971ab0aa0d3e6deca]
+link docker to container2--><path d="M182,345.0569 C182,360.5126 182,382.8647 182,399.6731 " fill="none" id="docker-&gt;container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="182,404.6977,186,395.6977,182,399.6977,178,395.6977,182,404.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[421e3df7766b093a2ba80d8586cd4561]
+link docker to container3--><path d="M206.264,345.0569 C227.838,361.1122 259.412,384.6093 282.248,401.6035 " fill="none" id="docker-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="286.406,404.6977,281.5749,396.1151,282.3952,401.7122,276.7981,402.5325,286.406,404.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[9c18dbc194519caad4cf3c638343cdd7]
+@startuml
+rectangle host [
+    <b>Host OS
+    - - -
+    Windows
+    MacOS
+]
+rectangle vm [
+    <b>Virtual Machine Running Linux
+    - - -
+    Hyper-V
+    VirtualBox
+    HyperKit
+]
+rectangle docker as "Docker"
+rectangle container1 as "Container 1"
+rectangle container2 as "Container 2"
+rectangle container3 as "Container 3"
+
+host - -> vm
+vm - -> docker
+docker - -> container1
+docker - -> container2
+docker - -> container3
+@enduml
+
+PlantUML version 1.2019.12(Sun Nov 03 05:24:54 EST 2019)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 13.0.1+9
+Operating System: Windows 10
+Default Encoding: Cp1252
+Language: en
+Country: US
+--></g></svg>

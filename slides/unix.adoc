@@ -1,0 +1,86 @@
+= UNIX Systems
+
+== Multics
+
+* MIT, AT&T, and GE
+* Timesharing system for mainframes
+* Monolithic
+* Mainframe time was expensive
+* http://web.mit.edu/multics-history/[Unwieldy code]
+
+== What's next?
+
+[quote, Dennis Ritchie]
+What we wanted to preserve was not just a good environment in which to do
+programming, but a system around which a fellowship could form. We knew from
+experience that the essence of communal computing, as supplied by remote-access,
+time-shared machines, is not just to type programs into a terminal instead of a
+keypunch, but to encourage close communication.
+
+== Inception
+
+* Smaller group of developers (Ken Thompson, Dennis Ritchie, Doug McIlroy, Joe Ossanna…)
+* Smaller code base
+* Simulations on old Multics mainframes later developed on PDP-7/PDP-11/20
+* Man pages were a HUGE development
+* Anti-trust suit means they have to give it away
+
+== Growth
+
+* Rewritten in C
+* Takes over Bell Labs
+* BSD Unix developed as an alternative to Bell Labs restrictive licensing
+* Standards develop (System V, POSIX)
+* Alternatives grow in parallel (Minix, Linux, etc.)
+
+[.columns]
+== Key Concepts
+
+[.column]
+* Do one thing well
+* Everything is a file
+* Pipes
+* Document
+
+[.column]
+* RTFM
+* Steep learning curve = high productivity
+* Multiuser by design
+* Networking by design
+* Uptime
+
+== https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg[UNIX Family Tree]
+
+== Linux
+
+* Developed in 1991 by Linus Torvalds, meant for x86 but lots of ports today
+* Linux is the kernel, there are many distributions
+
+=== Debian Based Distributions
+
+* Debian
+* Ubuntu
+** Mint
+
+=== Redhat Based Distributions
+
+* RHEL (Redhat Enterprise Linux)
+* CentOS
+* Amazon Linux
+
+=== Other Distributions
+
+* Arch
+* Slackware
+
+== What's next?
+
+* Microkernels?
+* https://www.redox-os.org/[Redox?]
+* Functional Package Management? (https://guix.gnu.org/[GUIX], https://guix.gnu.org/[Nix])
+
+
+
+== Counterpoint
+
+http://dreamsongs.com/RiseOfWorseIsBetter.html[The Rise of Worse is Better]
