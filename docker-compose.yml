@@ -3,4 +3,4 @@ services:
   doc-build:
     build: .
     volumes:
-      - ..:/docs
+      - .:/docs
