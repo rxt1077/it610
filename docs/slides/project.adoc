@@ -1,0 +1,68 @@
+= Project
+
+== Introduction
+
+[.shrink]
+* The project constitutes a large portion of your grade because it is designed
+  to simulate a real-world experience.
+* By the midterm check-in you should have your project working in a single
+  container. You will be using Docker for this purpose.
+* By the final check-in you should have you project working with multiple
+  containers. You can use Docker Compose or minikube for this purpose.
+* The project proposal assignment is _not_ graded, but the proposal and our
+  dialog in the discussion serves as a contract for the deliverables you will
+  be graded on. You can think of it like an SLA.
+
+== Goals
+
+[.shrink]
+* You will be designing and implementing a custom deployment of some software.
+* The configuration and documentation are what you will be graded on.
+* The software you choose to use is up to you.
+* Having a clear plan about how the server will be managed is critical to its
+  continued operation and this should be documented as well.
+* Documenting the process is important and is part of your grade.
+
+== Staying motivated
+
+* Something you are personally interested in learning more about
+* Something that you may be able to use at your place of employment
+
+[.columns]
+== How do I choose?
+
+[.column]
+* What problem are you trying to solve?
+* What type of server are you going to create?
+* Who will it be created for?
+
+[.column]
+* Will the operations of this server be something you hand-off to another team,
+  or will it be something you handle yourself?
+* What best practices will you implement to make it manageable?
+
+== Places to look for inspiration
+
+* https://hub.docker.com/search?q=&type=image[Docker Hub]
+* https://app.vagrantup.com/boxes/search[Vagrant Cloud]
+
+== Example 1
+
+I will be creating a container image for a https://scuttlebutt.nz/[Scuttlebutt]
+Pub server. I will build off of the Ubuntu base image from Docker Hub. This
+server will allow people who want to use the Scuttlebutt social network to
+connect with their friends. Ultimately I would like to make this image
+available to anyone who wants to run their own Pub server. I will document the
+process of creation and create a users guide for people who want to run the
+image themselves. Lastly, I will create a maintenance checklist that system
+administrators can use to be sure that things are running correctly.
+
+== Example 2
+
+I will be creating a container image for an auto parts database. It will be
+built off of the MariaDB image from Docker Hub and will support running a PHP
+web application to edit the items in the database. I will document the process
+of creating the image and well as create a _Getting Started_ guide for the
+developer that will be using the image to create the PHP application. The image
+will initially be run on the developer's machine in Docker and later be deployed
+on a company's internal network.

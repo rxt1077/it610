@@ -1,0 +1,115 @@
+= Best Practices
+
+image::sysadmin-funny.png[width=50%]
+
+== Define your role and the problem you are addressing
+
+* *Scope creep* - https://en.wikipedia.org/wiki/Scope_creep[continuous or
+  uncontrolled growth in a project's scope]
+* https://www.bmc.com/blogs/sla-template-examples/[Even (especially) internally, an SLA can help]
+* Who is going to maintain this?
+* Who is going to admin this?
+* Don't be in charge of the coffee maker
+
+== https://en.wikipedia.org/wiki/KISS_principle[KISS]
+
+* Do you _really_ need that feature?
+* Are you using an open source solution?
+* What happens if you get sick / leave?
+* Does the work flow make sense?
+
+[.columns]
+== Document, document, document
+
+[.column.shrink]
+* Collaborative documentation is important:
+** Google Docs
+** Wikis
+** OneNote
+** https://www.gitbook.com/[GitBook]
+** https://antora.org/[Antora]
+** Knowledge Bases
+** A git repository and Markdown
+
+[.column.shrink]
+* https://www.markdowntutorial.com/[Learn markdown BTW, it’ll take a minute]
+* Use https://pandoc.org/[pandoc] for people who want HTML / PDFs / etc.
+* Write things down like your pedantic sysadmin prof is looking over your
+  shoulder... they might be.
+* You will forget and others need to know
+
+[.columns]
+== https://en.wikipedia.org/wiki/Don%27t_repeat_yourself[Don't Repeat Yourself (DRY)]
+
+[.column.shrink]
+* https://xkcd.com/1205/[Write a script]
+** Bash
+** https://www.manning.com/books/learn-windows-powershell-in-a-month-of-lunches-third-edition[Powershell]
+** Python
+** Ansible / Puppet / Chef
+** https://www.vagrantup.com/[Vagrant for VMs]
+** https://www.docker.com/[Docker for containers]
+
+[.column.shrink]
+* Does your script follow the previous KISS principal?
+* Is there data being replicated (including account info)?
+* Should this be using other services? https://en.wikipedia.org/wiki/Single_sign-on[SSO]?
+  https://en.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol[LDAP]?
+* Start small, build up
+
+[.columns]
+== Build human resource capacity
+
+[.column]
+image::wires.jpg[]
+
+[.column]
+* Take the time to explain how it works
+* Talk to users, sysadmins, and management
+* Avoid the ego-boost of being a linchpin
+* Be approachable and friendly
+
+[.bg]
+== Have a disaster recovery plan
+
+image::fire.jpg[background, size=cover]
+
+* If you have backups and you’ve never practiced recovering from a backup, you
+  don’t have backups
+* Storage is cheaper than data
+* If your good, you'll be a hero. If you're _really_ good, no one will even
+  know.
+
+== Use permissions and virtualization. Avoid root access
+
+[.shrink]
+* Can I get root? No
+* Just about everything can be handled through permissions
+* But I’m a dev and I need... No
+* But I’m the CTO and I say... No
+* I have root on my router at home and it’s only caught on fire three times.
+  I think that... No
+* I’m not saying to be mean, remember to build HR capacity, but very few
+  things still require root access.
+
+== Logging
+
+* Logs are important, have / use a system
+* Make them easy to get to and easy to search
+* Don’t be afraid to read. What else are you going to do in the morning before
+  your brain has had coffee?
+
+== Keep learning / stay positive
+
+* Don’t be afraid to admit you don’t know something
+* Don’t be afraid to try something new
+* Avoid information hoarders
+* Avoid negative people
+* Share your knowledge
+
+== System Administration is dead! Long live system administration.
+
+* A systems architect is a large-scale sysadmin with a nice title (and
+  hopefully a bigger paycheck).
+* Systems administration is _at the core_ of DevOps. It is the Ops.
+* Prior knowledge is useful, this stuff was designed in the 70s.

@@ -1,0 +1,40 @@
+/* Remove border around images
+.reveal section img { 
+    border: none;
+    box-shadow: none;
+} */
+
+/* Shrink callout text 
+.reveal .colist td {
+    font-size: 1.5rem;
+} */
+
+/* Shrink admonitions and give them a border 
+.reveal div.admonitionblock table {
+    font-size: 1.8rem; 
+    border: 3px solid grey;
+} */
+
+/* General shrink class for smaller text */
+.reveal .shrink {
+    font-size: 1.5rem;
+}
+
+/* Shrink heading sizes
+.reveal h1 {
+    font-size: 3em;
+} 
+.reveal h2 {
+    font-size: 1.5em;
+} */
+
+/* Horizontal description lists should have the term centered
+.reveal td.hdlist1 {
+    vertical-align: middle;
+} */
+
+/* Explicitly set the background color */
+.reveal .bg {
+    background: #fdf6e3;
+}
+
