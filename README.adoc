@@ -1,0 +1,14 @@
+= doc-build
+
+This is a quick little ruby environment for building
+https://asciidoctor.org/[Asciidoctor] documents and syncing them with websites.
+It is currently used to create slides, books, and exercise documents that are
+posted to https://web.njit.edu/~rxt1077/.
+
+It is typically used as a submodule within a class git repository. Dockerfile
+and docker-compose.yml will need to be symlinked in the root of the repository.
+
+.Currently Supported Packages
+* asciidoctor
+* asciidoctor-diagram
+* asciidoctor-revealjs
