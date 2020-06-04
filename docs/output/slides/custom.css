@@ -1,8 +1,8 @@
-/* Remove border around images
+/* Remove border around images */
 .reveal section img { 
     border: none;
     box-shadow: none;
-} */
+}
 
 /* Shrink callout text 
 .reveal .colist td {

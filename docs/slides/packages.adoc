@@ -1,0 +1,109 @@
+= Package Management in Linux
+
+image::packages.png[width=30%]
+
+== What is Linux?
+
+[plantuml, linux, svg, width=100%]
+....
+@startuml
+rectangle distro as "GNU/Linux Distribution" {
+    rectangle compile as "Compiled with GNU Tools" { 
+        rectangle kernel as "Linux Kernel"
+        rectangle lib as "Libraries (some GNU)"
+        rectangle app as "Applications (some GNU)"
+
+        kernel <-> lib
+        lib <-> app
+    }
+}
+@enduml
+....
+
+== Purpose
+
+* Linux systems are made up of a large collection of software
+* Package management makes it easy to upgrade/install/remove individual pieces
+  of software
+* What kind of software are we talking about?
+* Dependency tracking is the largest hurdle and different distributions handle
+  it in different ways
+
+== Package Management by Distro
+
+There are many different linux distributions available. Let's look at how some
+of them handle package management.
+
+=== Slackware
+* tarballs of files
+* simplest and oldest
+* No dependency tracking
+
+=== Debian/Ubuntu
+* dpkgs usually installed with apt or another front end
+* allows scripting
+* has _extensive_ dependency management
+
+=== Redhat/CentOS/Fedora
+* RPMs usually installed with yum or another front end
+* allows scripting
+* has extensive dependency management
+
+=== Gentoo
+* source based ebuilds (BSD lineage)
+* allows scripting
+* has dependency management
+
+=== Arch (BTW...)
+* PKGBUILD source system that creates binary packages
+* packages can be installed with pacman
+* allows scripting
+* has dependency management
+
+== Rolling Releases vs. Point Releases
+
+* Most distributions have point releases where MAJOR changes will be a new version and the old versions will continue to be supported for a certain amount of time (LTS)
+* Arch and Gentoo use the rolling release model where each package is updated to the latest version as it becomes available
+
+== "Why should I update? Everything works."
+
+[.shrink]
+* Security patches
+* Mature software in a point release actually doesn’t change that much
+* What if something breaks?
+** Backups and filesystem snapshots
+** https://unix.stackexchange.com/questions/79050/can-i-rollback-an-apt-get-upgrade-if-something-goes-wrong[“Rollback” apt]
+** Triage your updates
+** What if something is GOING to break?
+
+== apt: Advanced Package Tool
+
+[.shrink]
+* Used in debian based systems to allow updating and installing packages from repositories
+* Partly a front end for dpkg
+* Most of the things you used to use apt-get for can now be done with the apt binary
+* apt update: Download package lists from repositories
+* apt upgrade: Upgrade packages from repositories
+* apt full-upgrade: Remove packages if needed to make dependencies work (used to be apt-get dist-upgrade)
+
+== Functional Package Management
+
+* This is a relatively new way of doing things where you can have multiple
+  versions of packages in isolation. Each package has _exactly_ what it wants.
+* Both examples we will talk about also offer stand-alone package managers since
+  the packages are installed in an independent store. This has helped with
+  adoption.
+
+=== https://nixos.org/[NixOS]
+
+* Declarative system structure
+* Atomic upgrades
+* Rollbacks
+* Reproducible system configurations (container replacers?)
+* Lots of symlinks!
+
+=== https://guix.gnu.org/[GUIX] (pronounced GEEKS)
+
+* Based on Nix, so everything mentioned previously
+* Guile scheme as base language instead of a DSL
+* Emphasis on free (as in freedom) software
