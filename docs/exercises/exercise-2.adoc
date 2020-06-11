@@ -33,10 +33,15 @@ Successfully built c3766b487a7e
 Successfully tagged exercise-2:latest
 SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to doubl
 e check and reset permissions for sensitive files and directories.
-PS C:\Users\rxt1077\it610\exercises\2> docker run -it -v "output:/output" exercise-2 bash
+PS C:\Users\rxt1077\it610\exercises\2> docker run -it -v "$(pwd)/output:/output" exercise-2 bash
 root@9d2796906f2c:/# <1>
 ----
-<1> Notice how the prompt changed? We are now executing commands inside our container.
+<1> Notice how the prompt changed? We are now executing commands inside our
+container.
+
+WARNING: Be sure the path for the bind mount is absolute! It will fail silently
+otherwise. `$(pwd)/output:/output` should give the absolute path in Windows and
+MacOS.
 
 == Installing GAM
 
@@ -58,18 +63,20 @@ where you can find the `gam` binary.
 
 Follow
 http://www.sj-vs.net/creating-a-simple-debian-deb-package-based-on-a-directory-structure/[this
-guide] to set up the directory structure and build a package in the `/output`
-directory. Remember, the `/output` directory on the container is linked to the
-`output` directory on the host.
+guide] to set up the directory structure and build a package on the container.
+Unfortunately you can't use the `/output` directory to build your package on
+a Windows host due to
+https://docs.docker.com/docker-for-windows/troubleshoot/#permissions-errors-on-data-directories-for-shared-volumes[permissions
+issues].
 
-You can use your host OS file managers/text editors in the `output` directory or
-if you are feeling adventurous you can `apt-get install neovim`,
-`apt-get install vim`, `apt-get install nano`, or any other terminal editor
-directly on the container and use them.
+You can use text editors on the host and save your files in the `output`
+directory to copy into the container or you can install an editor to use inside
+the container: `apt-get install neovim`, `apt-get install vim`, `apt-get
+install nano`, etc.
 
 Make yourself the Maintainer in the metadata, take some credit for your hard
-work! When you are all done, type `exit` to exit the shell. Your `.deb` file
-should be in the `output` directory on the host
+work! When you are all done, copy the `.deb` file to the `/output` directory
+and type `exit` to exit the shell.
 
 == Creating a Dockerfile for an Image That Uses Your Package
 

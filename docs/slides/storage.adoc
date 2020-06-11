@@ -1,0 +1,122 @@
+= Storage
+
+image::https://i.redd.it/h542jp0kc4451.jpg[width=50%]
+
+== Mounting in *nix
+
+[.shrink]
+* All sorts of things can be mounted at points in the file system
+* Checkout the output of the mount command
+* df shows disk usage for currently mounted things
+* /etc/fstab shows you what things are typically mounted at boot
+* Things can be mounted on top of one another!
+* Block devices are typically mounted in /mnt or /media
+* Docker will bind mount directories or mount volumes INTO your containers
+
+== Filesystems
+
+[.shrink]
+* Kernel modules can be loaded to support file systems
+* FUSE - file systems can also be setup in userspace
+* What is currently supported? (cat /proc/filesystems)
+* We often think of filesystems on block devices
+* lsblk will show you your block devices
+* fdisk (or cfdisk) can be used to see the partition scheme of a disk
+** /dev/sda is the disk
+** /dev/sda1 is the partition
+** /dev/sdb is the NEXT disk
+** YES YOU CAN DESTROY EVERYTHING
+
+[.columns.shrink]
+== Filesystems in Docker
+
+[.column]
+* Docker uses an overlay fs (implementation differs depending on underlying OS)
+* The filesystem a container sees is the thin, top-most layer
+* Copy-on-Write (COW) means layers can be shared and copies are only made when needed
+
+.Development Environment
+[.column]
+--
+[plantuml, dockerfs, svg]
+....
+@startuml
+
+rectangle host as "Host OS (Windows)"
+rectangle linux as "Linux via Hyper-V"
+rectangle overlay2 as "overlay2 storage driver"
+rectangle layer1 as "Layer 1 - Ubuntu"
+rectangle layer2 as "Layer 2 - Rust Packages"
+rectangle layer3 as "Layer 3 - My Code"
+
+layer3 <--> layer2
+layer2 <--> layer1
+layer1 <--> overlay2
+overlay2 <--> linux
+linux <--> host
+
+@enduml
+....
+--
+
+[.columns]
+== Common Filesystems by OS
+
+[.column.shrink]
+DOS:: fat12, fat16, fat32, vfat (probably the most widely supported)
+Windows:: NTFS, ReFS
+Linux:: ext2, ext3, ext4, reiserfs, btrfs, zfs
+
+.Key Features
+[.column.shrink]
+* scalability
+* cryptography
+* resilience (CoW, atomic transactions)
+* replication
+
+[.columns]
+== Network File Systems
+
+[.column.shrink]
+* SMB
+* NFS
+* AFS (you should know this one)
+* These are usually a daemon running in the background, but can be implemented
+  partially in the kernel or with FUSE.
+
+.Common Problems
+[.column.shrink]
+* keeping things in sync
+* permissions
+* minimizing bandwidth usage
+* caching
+
+== RAID
+
+Redundant Array of Inexpensive/Independant Disks
+
+[.shrink]
+RAID 0:: Striping for speed, make sure your controller can handle the bps
+RAID 1:: Redundancy for high availability. Make sure your controller can handle hot-swapping
+RAID 5:: Striping AND redundancy. Minimum three disks. A SINGLE lost disk can be recovered from but it takes a while to rebuild the array.
+RAID 1 + 0:: Combination of RAID 0 and 1 for speed AND redundancy. More resilient than RAID 5 but less efficient usage of space.
+
+== Questions for Discussion
+
+[quanda]
+What’s the difference between a file system and a database?::
+{empty}
+Are certain file systems better for databases?::
+{empty}
+Why do you need to know about networked file systems when using containers?::
+{empty}
+Why does Docker use different overlay solutions for differnt underlying filesystems?::
+{empty}
+
+== Resources
+
+* https://www.ufsexplorer.com/articles/file-systems-basics.php[Understanding file systems]
+* https://docs.microsoft.com/en-us/windows-server/storage/refs/refs-overview[Resilient File System (ReFS) overview]
+* https://www.freebsd.org/doc/handbook/zfs.html[FreeBSD Handbook: Chapter 19. The Z File System (ZFS)]
+* https://en.wikipedia.org/wiki/Category:Network_file_systems[Wikipedia List of Network File Systems]
+* http://www.raid-calculator.com/[RAID Calculator].
