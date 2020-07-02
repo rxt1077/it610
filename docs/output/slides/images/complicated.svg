@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="517px" preserveAspectRatio="none" style="width:722px;height:517px;" version="1.1" viewBox="0 0 722 517" width="722px" zoomAndPan="magnify"><defs><filter height="300%" id="f1f21yy79jir5w" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[881662c4693a831621542c52e93c49f5]
+cluster Orchestration System--><rect fill="#FFFFFF" filter="url(#f1f21yy79jir5w)" height="490" style="stroke: #000000; stroke-width: 1.5;" width="697" x="14" y="16"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="172" x="276.5" y="30.9951">Orchestration System</text><!--MD5=[03a4480e88c44ad4d90070b2fbd97706]
+cluster Node 1 (Seattle)--><rect fill="#FFFFFF" filter="url(#f1f21yy79jir5w)" height="263" style="stroke: #000000; stroke-width: 1.5;" width="170" x="272" y="139"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="128" x="293" y="153.9951">Node 1 (Seattle)</text><!--MD5=[17ba6857f4ed567380fb0b4eb3a7410f]
+cluster Node 2 (New York)--><rect fill="#FFFFFF" filter="url(#f1f21yy79jir5w)" height="263" style="stroke: #000000; stroke-width: 1.5;" width="242" x="461" y="235"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="149" x="507.5" y="249.9951">Node 2 (New York)</text><!--MD5=[fbe7885eafd5c591f547461772667a50]
+cluster Node 3 (Chicago)--><rect fill="#FFFFFF" filter="url(#f1f21yy79jir5w)" height="263" style="stroke: #000000; stroke-width: 1.5;" width="242" x="22" y="43"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="136" x="75" y="57.9951">Node 3 (Chicago)</text><!--MD5=[8e653cf1508c8de73e0d49c732987513]
+entity container1--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="140" x="289" y="262"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="120" x="299" y="284.9951">Database Service</text><!--MD5=[9f0d3a1f4493e59367b52fc0f20ff9bb]
+entity container2--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="154" x="280" y="358"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="290" y="380.9951">Distributed Storage</text><!--MD5=[10e6fcd240979d4457e8143441327951]
+entity container3--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="99" x="309.5" y="166"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="319.5" y="188.9951">Web Server</text><!--MD5=[904a62e76f142b8b7f07ae45baf48c6d]
+entity container4--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="226" x="469" y="358"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="206" x="479" y="380.9951">Database Service (secondary)</text><!--MD5=[d4742913ce3b5c2d20ca2c76a2bfdc11]
+entity container5--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="154" x="469" y="454"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="479" y="476.9951">Distributed Storage</text><!--MD5=[df17f1a3d8201a27f6a781179b1644ea]
+entity container6--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="99" x="532.5" y="262"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="542.5" y="284.9951">Web Server</text><!--MD5=[7c51b88d7951721275921809f05a6df4]
+entity container7--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="226" x="30" y="166"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="206" x="40" y="188.9951">Database Service (secondary)</text><!--MD5=[4f39298cd6fda4dda1c47c984b995559]
+entity container8--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="154" x="100" y="262"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="134" x="110" y="284.9951">Distributed Storage</text><!--MD5=[0f7f7215587b73a46f5d1c37d0ab2b1e]
+entity container9--><rect fill="#FEFECE" filter="url(#f1f21yy79jir5w)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="99" x="93.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="79" x="103.5" y="92.9951">Web Server</text><!--MD5=[ce44848f3a09e1c1c59fb2b15c23f449]
+link container2 to container5--><path d="M397.3924,396.5168 C429.3425,412.7454 473.7374,435.2952 505.671,451.5154 " fill="none" id="container2-container5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="510.2892,453.8612,504.0766,446.219,505.8314,451.5968,500.4535,453.3515,510.2892,453.8612" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="392.5495,394.0569,398.7621,401.6991,397.0073,396.3213,402.3852,394.5666,392.5495,394.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7d48fe7b1cf37466317d03b2def3fad9]
+link container5 to container8--><path d="M463.7502,458.1226 C392.6179,444.9527 296.2802,423.9571 264,402 C226.9927,376.8275 200.4329,330.387 186.9928,302.6346 " fill="none" id="container5-container8" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="184.7924,298.0135,185.0501,307.859,186.9419,302.5279,192.2731,304.4197,184.7924,298.0135" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="468.8269,459.0572,460.6999,453.4938,463.9095,458.1519,459.2514,461.3615,468.8269,459.0572" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[910e4a91754ccb3d6c09b7c22d25d800]
+link container8 to container2--><path d="M215.469,300.5168 C245.7729,316.6789 287.8321,339.1105 318.2169,355.3157 " fill="none" id="container8-container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="322.9897,357.8612,316.9309,350.0965,318.5779,355.5083,313.1662,357.1553,322.9897,357.8612" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="210.8566,298.0569,216.9156,305.8215,215.2684,300.4097,220.6801,298.7626,210.8566,298.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[ca94076a3e34fff44eef078823afdff9]
+link container1 to container4--><path d="M405.6895,300.0995 C443.5941,316.4172 496.8056,339.3244 534.837,355.6966 " fill="none" id="container1-container4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="539.865,357.8612,533.1801,350.6285,535.2725,355.8842,530.0168,357.9765,539.865,357.8612" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="400.9446,298.0569,407.6294,305.2897,405.5371,300.034,410.7928,297.9417,400.9446,298.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[155c64e2486b5929ef2801a70c0d416d]
+link container7 to container1--><path d="M197.0883,203.9868 C220.3663,212.9466 247.7485,223.9681 272,235 C288.4123,242.4659 306.1539,251.467 321.3082,259.4508 " fill="none" id="container7-container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="325.9238,261.893,319.8395,254.1482,321.5043,259.5546,316.098,261.2194,325.9238,261.893" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="192.1859,202.1069,199.157,209.0642,196.8544,203.8972,202.0214,201.5946,192.1859,202.1069" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f82625b16a933ab8192fbce32a8f292c]
+link container3 to container1--><path d="M359,207.0611 C359,221.9786 359,241.3455 359,256.3736 " fill="none" id="container3-container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="359,261.6977,363,252.6977,359,256.6977,355,252.6977,359,261.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="359,202.0569,355,211.0569,359,207.0569,363,211.0569,359,202.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[7066116c22d9b9290194d72f38916eaa]
+link container6 to container4--><path d="M582,303.0611 C582,317.9786 582,337.3455 582,352.3736 " fill="none" id="container6-container4" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="582,357.6977,586,348.6977,582,352.6977,578,348.6977,582,357.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="582,298.0569,578,307.0569,582,303.0569,586,307.0569,582,298.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[948ebc9ffd745e4a3c6dd25a2fbf35eb]
+link container9 to container7--><path d="M143,111.0611 C143,125.9786 143,145.3455 143,160.3736 " fill="none" id="container9-container7" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="143,165.6977,147,156.6977,143,160.6977,139,156.6977,143,165.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="143,106.0569,139,115.0569,143,111.0569,147,115.0569,143,106.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[55672075f5f70506ede04515cf8b643d]
+link container1 to container2--><path d="M358.5196,303.0611 C358.2088,317.9786 357.8053,337.3455 357.4922,352.3736 " fill="none" id="container1-container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="357.3813,357.6977,361.5681,348.7831,357.4856,352.6988,353.5699,348.6162,357.3813,357.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="358.6238,298.0569,354.437,306.9715,358.5195,303.0558,362.4352,307.1384,358.6238,298.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[23c73d93e659f8b93330e6fa64b1b2dd]
+link container4 to container5--><path d="M573.3521,399.0611 C567.709,414.1095 560.3679,433.6857 554.712,448.7681 " fill="none" id="container4-container5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="552.8634,453.6977,559.7688,446.6752,554.619,449.016,552.2782,443.8662,552.8634,453.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="575.2287,394.0569,568.3232,401.0793,573.473,398.7385,575.8138,403.8884,575.2287,394.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[63a61ad41e1feb62cfe52c6fc5af8a24]
+link container7 to container8--><path d="M151.1675,207.0611 C156.4971,222.1095 163.4303,241.6857 168.772,256.7681 " fill="none" id="container7-container8" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="170.5179,261.6977,171.2837,251.8787,168.8486,256.9846,163.7427,254.5495,170.5179,261.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="149.3951,202.0569,148.6293,211.8759,151.0644,206.77,156.1703,209.2051,149.3951,202.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d694fbaaa5c04df69ca709f8d6d1ab0d]
+@startuml
+rectangle "Orchestration System" {
+  rectangle "Node 1 (Seattle)" {
+    rectangle "Database Service" as container1
+    rectangle "Distributed Storage" as container2
+    rectangle "Web Server" as container3
+  }
+  rectangle "Node 2 (New York)" {
+    rectangle "Database Service (secondary)" as container4
+    rectangle "Distributed Storage" as container5
+    rectangle "Web Server" as container6
+  }
+  rectangle "Node 3 (Chicago)" {
+    rectangle "Database Service (secondary)" as container7
+    rectangle "Distributed Storage" as container8
+    rectangle "Web Server" as container9
+  }
+}
+
+container2 <- -> container5
+container5 <- -> container8
+container8 <- -> container2
+
+container1 <- -> container4
+container7 <- -> container1
+
+container3 <- -> container1
+container6 <- -> container4
+container9 <- -> container7
+
+container1 <- -> container2
+container4 <- -> container5
+container7 <- -> container8
+@enduml
+
+PlantUML version 1.2020.06(Sun Apr 05 12:38:32 UTC 2020)
+(APACHE source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.7+10-post-Debian-3deb10u1
+Operating System: Linux
+Default Encoding: ANSI_X3.4-1968
+Language: en
+Country: US
+--></g></svg>

@@ -1,0 +1,128 @@
+= Container Orchestration
+
+== Purpose
+
+* It is relatively rare to run just one container
+* Modern applications are made up of multiple containers working with each other
+* Resilient applications are made up of multiple containers running on multiple
+  nodes
+* Scalable applications may require containers to be brought up or shut down in
+  response to workload
+* Handling monitoring, starting, stopping, and updating containers _is_
+  orchestration.
+
+== It Gets Complicated
+
+[plantuml, complicated, svg]
+....
+@startuml
+rectangle "Orchestration System" {
+  rectangle "Node 1 (Seattle)" {
+    rectangle "Database Service" as container1
+    rectangle "Distributed Storage" as container2
+    rectangle "Web Server" as container3
+  }
+  rectangle "Node 2 (New York)" {
+    rectangle "Database Service (secondary)" as container4
+    rectangle "Distributed Storage" as container5
+    rectangle "Web Server" as container6
+  }
+  rectangle "Node 3 (Chicago)" {
+    rectangle "Database Service (secondary)" as container7
+    rectangle "Distributed Storage" as container8
+    rectangle "Web Server" as container9
+  }
+}
+
+container2 <--> container5
+container5 <--> container8
+container8 <--> container2
+
+container1 <--> container4
+container7 <--> container1
+
+container3 <--> container1
+container6 <--> container4
+container9 <--> container7
+
+container1 <--> container2
+container4 <--> container5
+container7 <--> container8
+@enduml
+....
+
+== Networking
+
+* Containers need to be able to talk to each other on a virtual network
+* This network may or may not traverse real networks
+* This network may or may not traverse nodes
+* https://docs.docker.com/network/[Docker supports many network types]: bridge,
+  host, overlay, macvlan, none
+* Isolation is a security feature, but use common sense
+
+== Service Discovery
+
+* Containers need to be able to find each other
+* This can be handled with services: https://etcd.io/[etcd],
+  https://www.consul.io/[consul], https://kubernetes.io[k8s]
+* This can be handled through DNS:
+  https://docs.docker.com/compose/networking/[Docker Compose]
+
+== Logging
+
+* Logs from all of the containers need to be aggregated
+* This is trending towards being one of the jobs of the orchestration system:
+  https://docs.docker.com/compose/networking/[k8s],
+  https://docs.docker.com/engine/reference/commandline/service_logs/[Docker
+  (Compose / Swarm)]
+* You can (and maybe should) still do this externally! Things like rsyslog will
+  still work.
+
+== Options
+
+[.shrink]
+Docker Compose:: Uses a docker-compose.yml file to describe multiple services.
+Allows for many of the Docker options you are familiar with.
+Docker Swarm:: Extends the Docker Compose syntax to allow replication and
+running on multiple nodes.
+Kubernetes:: Uses its own syntax for container orchestration. Can use multiple
+container runtimes (docker, containerd, etc.).
+
+== Docker Compose Example
+
+[source, yml]
+----
+version '3'
+
+volumes:
+  web_data:
+    external: true
+
+services:
+  app:
+    image: nginx:alpine
+    ports:
+      - 80:80
+    volumes:
+      - web_data:/usr/share/nginx/html:ro
+  app2:
+    image: nginx:alpine
+    ports:
+      - 8080:80
+    volumes:
+      - web_data:/usr/share/nginx/html:ro
+  app3:
+    build: ./app3
+----
+
+== Docker Compose Tips / Resources
+
+[.shrink]
+* It's YAML, watch your whitespace
+* https://docs.docker.com/compose/gettingstarted/[Get started with Docker Compose]
+* https://docs.docker.com/compose/compose-file/[Compose file version 3 reference]
+* Docker Compose expects a docker-compose.yml in the working directory
+* Commands start with docker-compose and are similar to docker: build, run,
+  exec, up, down
+* If you change a Dockerfile, don't forget to rebuild!
+* Use multiple consoles to make seeing what's going on easier

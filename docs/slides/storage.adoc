@@ -93,7 +93,7 @@ Linux:: ext2, ext3, ext4, reiserfs, btrfs, zfs
 
 == RAID
 
-Redundant Array of Inexpensive/Independant Disks
+Redundant Array of Inexpensive/Independent Disks
 
 [.shrink]
 RAID 0:: Striping for speed, make sure your controller can handle the bps
@@ -110,7 +110,7 @@ Are certain file systems better for databases?::
 {empty}
 Why do you need to know about networked file systems when using containers?::
 {empty}
-Why does Docker use different overlay solutions for differnt underlying filesystems?::
+Why does Docker use different overlay solutions for different underlying filesystems?::
 {empty}
 
 == Resources

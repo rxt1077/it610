@@ -90,7 +90,7 @@ top_secret=# \q <3>
 
 Now we will start another container, that uses the same volumes as our postgres
 container. On the new container we will use the `tar` command to make a
-compressed archive the the database directory.
+compressed archive the database directory.
 
 [source, console]
 ----

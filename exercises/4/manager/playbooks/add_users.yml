@@ -1,0 +1,41 @@
+---
+- hosts: dev
+  tasks:
+  - name: Adding user chaz
+    user:
+      name: chaz
+      comment: Charles Murphy
+  - name: Authorizing chaz's ssh key
+    authorized_key:
+      user: chaz
+      state: present
+      key: "{{ lookup('file', 'keys/chaz.pub') }}"
+  - name: Adding user robert
+    user:
+      name: robert
+      comment: Robert De Niro
+  - name: Authorizing robert's ssh key
+    authorized_key:
+      user: robert
+      state: present
+      key: "{{ lookup('file', 'keys/robert.pub') }}"
+- hosts: testing
+  tasks:
+  - name: Adding user curtis
+    user:
+      name: curtis
+      comment: Curtis Mayfield
+  - name: Authorizing curtis's ssh key
+    authorized_key:
+      user: curtis
+      state: present
+      key: "{{ lookup('file', 'keys/curtis.pub') }}"
+  - name: Adding user robert
+    user:
+      name: robert
+      comment: Robert De Niro
+  - name: Authorizing robert's ssh key
+    authorized_key:
+      user: robert
+      state: present
+      key: "{{ lookup('file', 'keys/robert.pub') }}"

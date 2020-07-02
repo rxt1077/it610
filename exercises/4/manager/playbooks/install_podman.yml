@@ -1,0 +1,16 @@
+---
+- hosts: all
+  vars:
+    ubuntu_version: 20.04
+  tasks:
+  - name: add Kubic signing key
+    apt_key:
+      url: https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}/Release.key 
+      state: present
+  - name: add Kubic sources
+    apt_repository:
+      repo: deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_{{ ubuntu_version }}/ /
+  - name: install podman
+    apt:
+      name: podman
+      update_cache: yes
