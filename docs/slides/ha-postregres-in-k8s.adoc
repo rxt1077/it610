@@ -1,0 +1,245 @@
+= High-Availability Postgres in Kubernetes
+
+== Goals
+
+* implement a primary / standby replication setup for PostgreSQL
+* two *Services* will be provided: read/write and read
+* Kubernetes will handle the initialization and monitoring
+* we will be using YAML files to pass objects to `kubectl apply`
+
+== *PersistentVolumeClaims*
+
+* lets the cluster know that you are expecting certain storage resources
+* we are looking for a place to store our primary database files
+* claims are fulfilled by a StorageClass that is built into minikube
+  (https://platform9.com/blog/tutorial-dynamic-provisioning-of-persistent-storage-in-kubernetes-with-minikube[details]).
+
+=== Example
+
+[source, yml]
+----
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: db-primary-pv-claim
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 512M
+----
+
+=== Supported accessModes:
+
+This claim will be used by our one db-rw pod, so we don’t have to worry about
+shared access. The supported accessModes are:
+
+* ReadWriteOnce - can be mounted read / write by only one pod
+* ReadOnlyMany – can be mounted read-only by many pods
+* ReadWriteMany – can be mounted as read-write by many pods
+
+== *Services*
+
+* exposes an application on a group of pods
+* two Services
+** db-rw Service which connects to our primary PostgreSQL instance
+** db-r Service which connects to our standby PostgreSQL instances
+* Unlike Docker Compose, even on our internal network we have to explicitly
+  state which ports we make available.
+
+=== Example
+
+[source, yml]
+----
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-rw
+  labels:
+    app: db-rw
+  spec:
+    selector:
+      app: db-rw
+    ports:
+      - protocol: TCP
+        port: 5432
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-r
+  labels:
+    app: db-r
+spec:
+  selector:
+    app: db-r
+  ports:
+    - protocol: TCP
+      port: 5432
+----
+
+=== selectors
+
+* the selector field above defines how a *Service* knows which pods to utilize
+* all pods with the app label db-r are used by the db-r
+* a similar rule is applied to the db-rw *Service*
+* both services accept incoming connections on port 5432 and route those
+  connections to 5432.
+* if there are multiple pods in a *Service* a load balancing scheme is used by
+  default.
+
+=== Service Discovery
+
+* Kubernetes *Services* make things easier
+* You want to connect to a read-only database instance? Use the hostname db-r
+* You want to connect to a read-write database instance? use the hostname db-rw
+* DNS resolution, load-balancing, and routing are set up automatically
+
+== *Deployments*
+
+* tells Kubernetes how to create and monitor pods
+* the bulk of our work will be done in the db-r and db-rw *Deployments*
+
+=== Primary PostgreSQL *Deployment*
+
+[source, yml]
+----
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-rw
+  labels:
+    app: db-rw
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: db-rw
+  template:
+    metadata:
+      labels:
+        app: db-rw
+    spec:
+      containers:
+        - name: db-rw
+          image: postgres:12.2
+          env:
+            - name: POSTGRES_PASSWORD
+              value: "changeme"
+            - name: POSTGRES_REPLICA_PASSWORD
+              value: "changeme"
+          command:
+            - bash
+            - "-c"
+            - |
+              set -ex
+
+              if [ -s "/var/lib/postgresql/data/PG_VERSION" ]; then
+                echo "Database already exists, not creating a new one."
+              else
+                rm -rf /var/lib/postgresql/data/*
+                chown postgres /var/lib/postgresql/data
+
+                su -c "initdb --username=postgres --pwfile=<(echo \"$POSTGRES_PASSWORD\")" postgres
+
+                # Start a temporary server listening on localhost
+                su -c "pg_ctl -D /var/lib/postgresql/data -w start" postgres
+
+                # Create a user for replication operations and initialize our
+                # example database
+                psql -v ON_ERROR_STOP=1 --username postgres --dbname postgres <<EOF
+                  CREATE USER repuser REPLICATION LOGIN ENCRYPTED PASSWORD '$POSTGRES_REPLICA_PASSWORD';
+                  CREATE DATABASE example;
+                  \c example
+                  CREATE TABLE users(
+                    email VARCHAR(255) PRIMARY KEY,
+                    hash VARCHAR(255) NOT NULL
+                  );
+              EOF
+              # ^ this EOF has to be in line with the YAML scalar block
+
+                # Stop the temporary server
+                su -c "pg_ctl -D /var/lib/postgresql/data -m fast -w stop" postgres
+
+                # Set up authentication parameters
+                echo "host replication all all md5" >> /var/lib/postgresql/data/pg_hba.conf
+                echo "host all all all md5" >> /var/lib/postgresql/data/pg_hba.conf
+              fi
+
+              # Now run the server
+              su -c postgres postgres
+          volumeMounts:
+            - name: db-primary-storage
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: db-primary-storage
+          persistentVolumeClaim:
+            claimName: db-primary-pv-claim
+----
+
+=== Secondary PostgreSQL *Deployment*
+
+[source, yml]
+----
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-r
+  labels:
+    app: db-r
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: db-r
+  template:
+    metadata:
+      labels:
+        app: db-r
+    spec:
+      containers:
+        - name: db-r
+          image: postgres:12.2
+          env:
+            - name: POSTGRES_REPLICA_PASSWORD
+              value: "changeme"
+          command:
+            - bash
+            - "-c"
+            - |
+              set -ex
+
+              # Set up our password in .pgpass so we can connect to replicate
+              # without a prompt
+              echo "db-rw:5432:replication:repuser:$POSTGRES_REPLICA_PASSWORD" >> /var/lib/postgresql/.pgpass
+              chown postgres /var/lib/postgresql/.pgpass
+              chmod 600 /var/lib/postgresql/.pgpass
+
+              # we may start before their are WALs, so we need to make this directory
+              mkdir -p /var/lib/postgresql/data/pg_wal
+              chown postgres /var/lib/postgresql/data/pg_wal
+
+              # Clone the database from db-rw
+              rm -rf /var/lib/postgresql/data/*
+              chown postgres /var/lib/postgresql/data
+              chmod -R 700 /var/lib/postgresql/data
+              su -c "pg_basebackup -h db-rw -D /var/lib/postgresql/data -U repuser -w -v -P -X stream" postgres
+
+              # Add connection info 
+              cat << EOF >> /var/lib/postgresql/data/postgresql.conf
+                primary_conninfo = 'host=db-rw port=5432 user=repuser password=$POSTGRES_REPLICA_PASSWORD'
+              EOF
+
+              # Notify postgres that this is a standby server
+              touch /var/lib/postgresql/data/standby.signal
+
+              # Now run the server
+              su -c postgres postgres
+---
+----
