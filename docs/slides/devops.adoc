@@ -1,0 +1,68 @@
+= DevOps and Beyond!
+
+== Traditional Sysadmin
+
+* Configure
+* Operate
+* Maintain
+
+== The Infamous Figure Eight
+
+image::devops.jpg[]
+
+== CI/CD
+
+* Automation applied to testing and deployment
+* Continuous Integration is the automatic testing of changes
+* Continuous Deployment is the automatic deployment of changes
+* Incremental updates are the new normal
+* A git push should be able to trigger the whole process
+
+== DevOps Engineer
+
+* Hardware in the cloud
+* Everything is code
+* YAML engineers
+* Can do what the sysadmin could do and then some
+* Creates/maintains the CI/CD pipelines
+
+== Is the Sysadmin Dead?
+
+* Nope, they’re just learning to code
+* They have the expertise in uptime and hardware problems which translate to
+  software problems
+* An empowered sysadmin can do more, much more
+* Experience matters
+
+== Where we are now
+
+[.shrink]
+* Failure is an option, do it quickly
+* Virtualize everything
+* Continuous deployment is expected
+* Rapid automated response
+* Downtime for maintenance is passe
+* Run on anything (heck Amazon is making chips now)
+* Automate, automate, automate
+* Save configurations, not images
+
+== Tools that make it possible
+
+* Automation tools: scripts, Ansible, etc.
+* VMs - EC2, Google Cloud, Linode
+* Containers - Docker, RKT, LXC, Podman
+* Deterministic packages / package managers
+* Serverless solutions: AWS Lambda
+
+== How do you keep up?
+
+[.shrink]
+* I’ve given you overviews of lots of tools, they aren’t the only ones
+* Concepts > Use Instances
+* Read, share, contribute
+* Learn from past mistakes
+* Don’t believe the hype, think for yourself
+* Argue and learn
+* Insular sysadmin culture is dead
+* Personal thoughts on the future: distributed, decentralized, mesh,
+  deterministic, code as literacy
