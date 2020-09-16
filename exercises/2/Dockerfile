@@ -1,3 +1,5 @@
-FROM ubuntu:20.04
-RUN apt-get update
-RUN apt-get install -y curl python3
+FROM centos
+RUN yum -y update
+RUN yum -y install httpd
+COPY httpd.conf /etc/httpd/conf/
+CMD httpd -DFOREGROUND

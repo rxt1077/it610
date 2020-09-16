@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Exercise 6</title>
+<title>Exercise 5</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,58 +439,68 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Exercise 6</h1>
+<h1>Exercise 5</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Inside the <code>exercises/6</code> directory you will find a <code>db-k8s.yml</code> file that has
-all of the objects we discussed during the presentation. Your goal for this
-exercise is to <code>apply</code> those objects to your local Kubernetes instance using
-kubectl and explore the running system using the <code>get</code>, <code>describe</code>, and <code>logs</code>
-commands. Feel free to try some database operations as well, you can get a
-bash prompt on any pod using <code>kubectl exec</code> just like you would with Docker.</p>
+<p>In this exercise you will be using a local Kubernetes option and going through
+the <a href="https://kubernetes.io/docs/tutorials/hello-minikube/">Hello Minikube</a>
+tutorial. Despite its name,
+<a href="https://kubernetes.io/docs/tutorials/hello-minikube/">Hello Minikube</a> should
+work on any Kubernetes cluster.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can also complete this using the Katacoda terminal, but in the future
+you <em>will</em> need a local k8s environment as you will be providing/creating your
+own YAML files.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_questions">Questions</h2>
+<h2 id="_deliverables">Deliverables</h2>
 <div class="sectionbody">
-<div class="dlist quanda">
-<dl>
-<dt>A systems architect was using a stock Docker Hub image with a custom ENTRYPOINT point script she had designed. This required a Dockerfile, BASH script, and a directory to store them. When she migrated to Kubernetes she was able to do this all in one YAML file. Describe how this is possible.</dt>
-<dd>
+<div class="paragraph">
+<p>Once you have completed
+<a href="https://kubernetes.io/docs/tutorials/hello-minikube/">Hello Minikube</a>, please
+answer the following questions in the text box submission for this assignment:</p>
+</div>
+<div class="qlist qanda">
+<ol>
+<li>
+<p><em>Which local Kubernetes option did you choose and why?</em></p>
 <p></p>
-</dd>
-<dt>Why are <strong>Services</strong> essential to replication?</dt>
-<dd>
+</li>
+<li>
+<p><em>What was the hardest part of following the tutorial?</em></p>
 <p></p>
-</dd>
-<dt>Why do we define two <strong>Deployments</strong> for our example?</dt>
-<dd>
+</li>
+<li>
+<p><em>What is the <em>most</em> confusing Kubernetes object you now know about? Why is it confusing?</em></p>
 <p></p>
-</dd>
-<dt>How can our database deployment be improved?</dt>
-<dd>
+</li>
+<li>
+<p><em>What does Kubernetes provide that plain Docker doesn&#8217;t?</em></p>
 <p></p>
-</dd>
-<dt>Compare and contrast Kubernetes <strong>PersistentVolumeClaims</strong> with Docker compose named volumes.</dt>
-<dd>
-<p></p>
-</dd>
-<dt>What does Kubernetes do when the <code>db-r</code> pod fails because <code>db-rw</code> is not up yet?</dt>
-<dd>
-<p></p>
-</dd>
-</dl>
+</li>
+</ol>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-16 21:30:37 UTC
+Last updated 2020-07-09 21:10:05 UTC
 </div>
 </div>
 </body>

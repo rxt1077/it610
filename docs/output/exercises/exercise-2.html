@@ -445,211 +445,141 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this exercise we will be:</p>
+<p>In this exercise, you will be helping to create a Docker image for a container
+that runs the <a href="https://httpd.apache.org/">Apache HTTP server</a> on
+<a href="https://www.centos.org/">CentOS</a>. The final container should run Apache as the
+<code>www</code> user in the <code>www</code> group.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Installing <a href="https://github.com/jay0lee/GAM">GAM</a> on an Unbuntu container via
-their installation script.</p>
-</li>
-<li>
-<p>Creating a Debian package for GAM.</p>
-</li>
-<li>
-<p>Creating a Dockerfile for a container that installs GAM from your package.</p>
-</li>
-</ol>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Imagine you are working with a junior sysadmin who is designing a Docker image
+to serve web pages. The company you work for has a policy that all web servers
+must be run by a user named <code>www</code> within their environment. Your partner is
+familiar with CentOS so they have decided to use that as the basis for their
+image. They give you a Dockerfile that isn&#8217;t quite working and a few tips on
+what they think needs to be done. Your job is to fix the Dockerfile so that it
+builds a working image the meets the requirements.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_running_the_ubuntu_container">Running the Ubuntu Container</h2>
+<h2 id="_analysis">Analysis</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><code>git pull</code> the <a href="https://github.com/rxt1077/it610.git">class repo</a> to get the most
-up-to-date version. You may need to <code>git stash</code> your changes if you have made
-any: <a href="https://git-scm.com/docs/git-stash" class="bare">https://git-scm.com/docs/git-stash</a>.</p>
-</div>
-<div class="paragraph">
-<p><code>cd</code> into <code>exercises/2</code> and build the container, tagging it as <code>exercise-2</code>.
-Then interactively run <code>bash</code> on the container, bind mounting <code>output</code> on the
-host to <code>/output</code> on the container:</p>
+<p>This is what they have so far (you&#8217;ll find this in the class git repo as well):</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\2&gt;</span><span class="w"> </span>docker build <span class="nt">-t</span> exercise-2 <span class="nb">.</span>
-<span class="go">Sending build context to Docker daemon   2.56kB
-Step 1/3 : FROM ubuntu:20.04
-</span><span class="gp"> ---&gt;</span><span class="w"> </span>1d622ef86b13
-<span class="go">Step 2/3 : RUN apt-get update
-</span><span class="gp"> ---&gt;</span><span class="w"> </span>Using cache
-<span class="gp"> ---&gt;</span><span class="w"> </span>fded07b64335
-<span class="go">Step 3/3 : RUN apt-get install -y curl python3
-</span><span class="gp"> ---&gt;</span><span class="w"> </span>Using cache
-<span class="gp"> ---&gt;</span><span class="w"> </span>c3766b487a7e
-<span class="go">Successfully built c3766b487a7e
-Successfully tagged exercise-2:latest
-SECURITY WARNING: You are building a Docker image from Windows against a non-Windows Docker host. All files and directories added to build context will have '-rwxr-xr-x' permissions. It is recommended to doubl
-e check and reset permissions for sensitive files and directories.
-</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\2&gt;</span><span class="w"> </span>docker run <span class="nt">-it</span> <span class="nt">-v</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">/output:/output"</span> exercise-2 bash
-<span class="go">root@9d2796906f2c:/<i class="conum" data-value="1"></i><b>(1)</b>
-</span></code></pre>
+<pre class="rouge highlight"><code data-lang="docker"><span class="k">FROM</span><span class="s"> centos</span>
+<span class="k">RUN </span>yum <span class="nt">-y</span> update
+<span class="k">RUN </span>yum <span class="nt">-y</span> <span class="nb">install </span>httpd
+<span class="k">COPY</span><span class="s"> httpd.conf /etc/httpd/conf/</span>
+<span class="k">CMD</span><span class="s"> httpd -DFOREGROUND</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Try building and running this image by executing the following commands within
+the exercise-2 directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">$</span><span class="w"> </span>docker build <span class="nt">-t</span> exercise2 <span class="nb">.</span> <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="gp">$</span><span class="w"> </span>docker run <span class="nt">-p</span> 8000:8000 exercise2 <i class="conum" data-value="2"></i><b>(2)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>Notice how the prompt changed? We are now executing commands inside our
-container.</td>
+<td>Don&#8217;t forget the <code>.</code> here! You&#8217;re building the Dockerfile <em>in the current
+directory</em>. <code>-t exercise2</code> tells Docker to tag (name) the image <code>exercise2</code></td>
 </tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
 <tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-Be sure the path for the bind mount is absolute! It will fail silently
-otherwise. <code>$(pwd)/output:/output</code> should give the absolute path in Windows and
-MacOS.
-</td>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td><code>-p 8000:8000</code> forwards port 8000 on the localhost to 8000 on the container</td>
 </tr>
 </table>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installing_gam">Installing GAM</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Read the GAM README.md in <a href="https://github.com/jay0lee/GAM">their GitHub
-repository</a> and follow the directions to install GAM from the BASH prompt on
-the running container.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The script will ask you if you have a full browser. You can say 'N', but
-it really shouldn&#8217;t matter.
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-The script will ask if you want to set up a Google API project for
-GAM. Say 'N' because will will not actually be linking this to a real Google
-admin account.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Read the output from the installation script <em>carefully</em>. You will need to know
-where you can find the <code>gam</code> binary.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_creating_a_debian_package">Creating a Debian Package</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Follow
-<a href="http://www.sj-vs.net/creating-a-simple-debian-deb-package-based-on-a-directory-structure/">this
-guide</a> to set up the directory structure and build a package on the container.
-Unfortunately you can&#8217;t use the <code>/output</code> directory to build your package on
-a Windows host due to
-<a href="https://docs.docker.com/docker-for-windows/troubleshoot/#permissions-errors-on-data-directories-for-shared-volumes">permissions
-issues</a>.</p>
-</div>
-<div class="paragraph">
-<p>You can use text editors on the host and save your files in the <code>output</code>
-directory to copy into the container or you can install an editor to use inside
-the container: <code>apt-get install neovim</code>, <code>apt-get install vim</code>, <code>apt-get
-install nano</code>, etc.</p>
-</div>
-<div class="paragraph">
-<p>Make yourself the Maintainer in the metadata, take some credit for your hard
-work! When you are all done, copy the <code>.deb</code> file to the <code>/output</code> directory
-and type <code>exit</code> to exit the shell.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_creating_a_dockerfile_for_an_image_that_uses_your_package">Creating a Dockerfile for an Image That Uses Your Package</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Take a look at the Dockerfile in the main exercise directory:
-<code>it610/exercises/2</code>. Makeyour own Dockerfile in the <code>output</code> directory that
-copies your <code>.deb</code> package into the image and installs it with <code>dpkg -i</code>.</p>
-</div>
-<div class="paragraph">
-<p>Relevant documentation can be found here:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://docs.docker.com/engine/reference/builder/#from">Dockerfile reference: FROM</a></p>
-</li>
-<li>
-<p><a href="https://docs.docker.com/engine/reference/builder/#copy">Dockerfile reference: COPY</a></p>
-</li>
-<li>
-<p><a href="https://docs.docker.com/engine/reference/builder/#run">Dockerfile reference: RUN</a></p>
-</li>
-<li>
-<p><a href="https://linux.die.net/man/1/dpkg">dpkg man page</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_questions">Questions</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Please answer the following questions in the text submission section of the
-assignment:</p>
 </div>
 <div class="qlist qanda">
+<div class="title">Food for thought&#8230;&#8203;</div>
 <ol>
 <li>
-<p><em>Are there any security concerns with installing an application like GAM via a shell script? Give examples.</em></p>
+<p><em>Does this work?</em></p>
 <p></p>
 </li>
 <li>
-<p><em>What is the GAM installation script written in? What does it do?</em></p>
+<p><em>Is httpd running as <code>www</code>?</em></p>
 <p></p>
 </li>
 <li>
-<p><em>What are the advantages of having a deb package for GAM as opposed to just using the installation script? What are the disadvantages?</em></p>
-<p></p>
-</li>
-<li>
-<p><em>What was the hardest part of this exercise?</em></p>
+<p><em>How could you check?</em></p>
 <p></p>
 </li>
 </ol>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_modifications">Modifications</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Change the Dockerfile so that Apache runs as <code>www</code> and it still works.</p>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s some advice:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You will have to create a user named <code>www</code> and possibly a <code>www</code> group. Add RUN
+commands to the Dockerfile to use the tools we talked about in class.</p>
+</li>
+<li>
+<p><code>/var/run/httpd</code> and <code>/var/log/httpd</code> will need to be owned by this user
+(possibly recursively).</p>
+</li>
+<li>
+<p>The <a href="https://docs.docker.com/engine/reference/builder/#user">USER command</a> can
+be used right before CMD to make Docker use a different USER.</p>
+</li>
+<li>
+<p>Using the syntax in the Analysis section, you should be able to see if
+httpd is running by going to <a href="https://localhost:8000" class="bare">https://localhost:8000</a> when your container is
+running.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_submission">Submission</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Submit the text of your final Dockerfile to receive credit for this exercise.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Feel free to leave me a comment telling my <em>why</em> this is not the best way
+to solve this problem. <em>Reading the comments in httpd.conf may point you in the
+right direction</em>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-05 01:43:13 UTC
+Last updated 2020-09-16 17:13:58 UTC
 </div>
 </div>
 <style>

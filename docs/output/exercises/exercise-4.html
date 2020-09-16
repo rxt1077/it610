@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Exercise 4</title>
+<title>Exercise 3</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,81 +439,471 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Exercise 4</h1>
+<h1>Exercise 3</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this exercise we will be exploring Docker Compose <em>and</em> Ansible, a strange
-but not unheard of combination. Here is the scenario:</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>You work for InnoTech, a company that designs custom web apps. InnoTech has
-three employees: You (ops), Robert De Niro (the boss), Charlie Murphy (dev),
-and Curtis Mayfield (QA). They need two environments set up where they have
-<em>complete</em> control: dev and testing. They want to run a container runtime
-called <a href="https://podman.io/">podman</a>.</p>
-</div>
-<div class="paragraph">
-<p>Fortunately, due to a nagging professor you had, you designed a system that
-automates as much of this process as possible. You have docker running on a
-server (we&#8217;re going to use our own machine for this part) and a
-<code>docker-compose.yml</code> file that sets up three services: manager, dev, and
-testing. Once you bring everything up, you can start a bash shell on
-manager and use Ansible to handle the heavy lifting of setting up
-environments.</p>
-</div>
-<div class="paragraph">
-<p>Unfortunately, last night you drank some bad pickle juice and it has caused
-you to lose your short-term memory. You can&#8217;t remember what you did, or how
-you did it. The code looks brand-new to you, and it&#8217;s like you&#8217;ve never used
-Docker Compose or Ansible before.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_goal">Goal</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Update the <a href="https://github.com/rxt1077/it610">class repo</a> and take a look at
-"your" code in the <code>exercises/4</code> directory. See if you can:</p>
+<p>In this exercise we will be</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Figure out what it is doing</p>
+<p>Creating a new volume in Docker</p>
 </li>
 <li>
-<p>Bring everything up with <code>docker-compose up</code></p>
+<p>Running a postgres container with the volume mounted</p>
 </li>
 <li>
-<p>Start a bash shell on the manager service</p>
+<p>Creating a new database on the volume</p>
 </li>
 <li>
-<p>Run the playbooks in the /playbooks directory</p>
+<p>Backing up the volume</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_submission">Submission</h2>
+<h2 id="_creating_a_volume">Creating a Volume</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Send me a screen shot of the output after the playbooks have run.</p>
+<p>Create a volume with the <code>volume create</code> command and check to see if it is
+there with the <code>volume ls</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker volume create exercise3-db
+<span class="go">exercise3-db
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker volume <span class="nb">ls</span>
+<span class="go">DRIVER              VOLUME NAME
+local               db-data</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_running_postgresql">Running PostgreSQL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now let&#8217;s run a postgres container in the background with our volume mounted in
+<code>/var/lib/postgresql/data</code>, which is the path where the PostgreSQL database
+information is stored by default:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker run <span class="nt">-d</span> <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>exercise3-db,target<span class="o">=</span>/var/lib/postgresql/data <span class="nt">-e</span> <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>changeme postgres <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="go">Unable to find image 'postgres:latest' locally
+latest: Pulling from library/postgres
+8559a31e96f4: Pull complete
+</span><span class="gp">&lt;snip&gt;</span><span class="w">
+</span><span class="go">Digest: sha256:9ba6355d27ba9cd0acda1e28afaae4a5b7b2301bbbdc91794dcfca95ab08d2ef
+Status: Downloaded newer image for postgres:latest
+99dc65697ce9c13d7ae97c042687f25fa70addcc24539371d4476d21bac50cec
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker ps <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
+99dc65697ce9        postgres            "docker-entrypoint.s…"   27 seconds ago      Up 27 seconds       5432/tcp            boring_pike</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Here is an explanation of the options:
+<div class="ulist">
+<ul>
+<li>
+<p><code>d</code>: run in the background</p>
+</li>
+<li>
+<p><code>--mount source=exercise3-db,target=/var/lib/postgresql/data</code>: mount the
+<code>exercise3-db</code> local volume in the <code>/var/lib/postgresql/data</code> directory of the
+container</p>
+</li>
+<li>
+<p><code>-e POSTGRES_PASSWORD=changeme</code>: set the environment variable fo the postgres
+password to <code>changeme</code>. PostgreSQL won&#8217;t start without a password.</p>
+</li>
+<li>
+<p><code>postgres</code>: run the postgres image</p>
+</li>
+</ul>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>This is just to confirm that it is running</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>You can also check the logs to see how things went with
+<code>docker logs &lt;CONTAINER ID&gt;</code> where <code>&lt;CONTAINER ID&gt;</code> is the id from your <code>ps</code> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_a_new_database">Creating a New Database</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The easiest way to create a new database on our running container would be with
+the psql command. Fortunately the psql command is already on our container so we
+can <code>exec</code> it from there. Let&#8217;s connect to our database and put some data in there:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;CONTAINER ID&gt; psql <span class="nt">--username</span><span class="o">=</span>postgres <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="go">psql (12.3 (Debian 12.3-1.pgdg100+1))
+Type "help" for help.
+
+</span><span class="gp">postgres=#</span><span class="w"> </span>CREATE DATABASE top_secret<span class="p">;</span> <i class="conum" data-value="2"></i><b>(2)</b>
+<span class="go">CREATE DATABASE
+</span><span class="gp">postgres=#</span><span class="w"> </span><span class="se">\c</span> top_secret
+<span class="go">You are now connected to database "top_secret" as user "postgres".
+</span><span class="gp">top_secret=#</span><span class="w"> </span>CREATE TABLE spies <span class="o">(</span>name VARCHAR<span class="o">(</span>64<span class="o">))</span><span class="p">;</span>
+<span class="go">CREATE TABLE
+</span><span class="gp">top_secret=#</span><span class="w"> </span>INSERT INTO spies <span class="o">(</span>name<span class="o">)</span> VALUES <span class="o">(</span><span class="s1">'Bob'</span><span class="o">)</span><span class="p">;</span>
+<span class="go">INSERT 0 1
+</span><span class="gp">top_secret=#</span><span class="w"> </span><span class="se">\q</span> <i class="conum" data-value="3"></i><b>(3)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Here is an explanation of the options:
+<div class="ulist">
+<ul>
+<li>
+<p><code>exec</code>: run a command <em>on an already running container</em></p>
+</li>
+<li>
+<p><code>-it</code>: run interactively</p>
+</li>
+<li>
+<p><code>&lt;CONTAINER ID&gt;</code>: your container id as listed in the <code>ps</code> output above</p>
+</li>
+<li>
+<p><code>psql</code>: run the psql command (command line SQL client)</p>
+</li>
+<li>
+<p><code>--username=postgres</code>: this argument is passed to the <code>psql</code> command, it says
+you want to connect as the default postgres user</p>
+</li>
+</ul>
+</div></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>These psql commands create a bit of data for us to use</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td><code>\q</code> exits psql</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backing_up_the_database_directory">Backing up the Database Directory</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now we will start another container, that uses the same volumes as our postgres
+container. On the new container we will use the <code>tar</code> command to make a
+compressed archive the database directory.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">--volumes-from</span> &lt;CONTAINER ID&gt; <span class="nt">-v</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">:/backup"</span> ubuntu <span class="nb">tar </span>zcf /backup/db-backup.tar.gz /var/lib/postgresql/data <i class="conum" data-value="1"></i><b>(1)</b>
+<span class="go">tar: Removing leading `/' from member names
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span><span class="nb">ls</span>
+<span class="go">
+
+    Directory: C:\Users\rxt1077\it610\exercises\3
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        6/11/2020   4:20 PM        5740117 db-backup.tar.gz</span></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>This is a long command, so lets take it argument-by-argument:
+<div class="ulist">
+<ul>
+<li>
+<p><code>run</code>: start a new container and run a command on it</p>
+</li>
+<li>
+<p><code>--rm</code>: don&#8217;t archive this container when we are done, it&#8217;s temporary</p>
+</li>
+<li>
+<p><code>--volumes-from &lt;CONTAINER ID&gt;</code>: give us the same volumes at the same
+mountpoints as our running postgres container</p>
+</li>
+<li>
+<p><code>-v "$(pwd):/backup"</code>: bind mount the local working directory to
+<code>/backup</code> on the container we are creating</p>
+</li>
+<li>
+<p><code>ubuntu</code>: use the <code>ubuntu</code> base image</p>
+</li>
+<li>
+<p><code>tar zcf /backup/db-backup.tar.gz /var/lib/postgresql/data</code>: this is the
+command that is run on the container. It creates a compressed tar archive
+from the database directory.</p>
+</li>
+</ul>
+</div></td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_deliverables">Deliverables</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Submit your <code>db-backup.tar.gz</code> file as your work for this exercise.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_resources">Resources</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.docker.com/storage/volumes/">Docker Documentation: Use volumes</a></p>
+</li>
+<li>
+<p><a href="https://hub.docker.com/_/postgres">Docker Hub: postgres</a></p>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-07-02 21:28:52 UTC
+Last updated 2020-06-11 23:06:40 UTC
 </div>
 </div>
+<style>
+pre.rouge table td { padding: 5px; }
+pre.rouge table pre { margin: 0; }
+pre.rouge .cm {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cp {
+  color: #999999;
+  font-weight: bold;
+}
+pre.rouge .c1 {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .cs {
+  color: #999999;
+  font-weight: bold;
+  font-style: italic;
+}
+pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cpf {
+  color: #999988;
+  font-style: italic;
+}
+pre.rouge .err {
+  color: #a61717;
+  background-color: #e3d2d2;
+}
+pre.rouge .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+pre.rouge .ge {
+  color: #000000;
+  font-style: italic;
+}
+pre.rouge .gr {
+  color: #aa0000;
+}
+pre.rouge .gh {
+  color: #999999;
+}
+pre.rouge .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+pre.rouge .go {
+  color: #888888;
+}
+pre.rouge .gp {
+  color: #555555;
+}
+pre.rouge .gs {
+  font-weight: bold;
+}
+pre.rouge .gu {
+  color: #aaaaaa;
+}
+pre.rouge .gt {
+  color: #aa0000;
+}
+pre.rouge .kc {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kd {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kn {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kp {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kr {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .kt {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .k, pre.rouge .kv {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .mf {
+  color: #009999;
+}
+pre.rouge .mh {
+  color: #009999;
+}
+pre.rouge .il {
+  color: #009999;
+}
+pre.rouge .mi {
+  color: #009999;
+}
+pre.rouge .mo {
+  color: #009999;
+}
+pre.rouge .m, pre.rouge .mb, pre.rouge .mx {
+  color: #009999;
+}
+pre.rouge .sb {
+  color: #d14;
+}
+pre.rouge .sc {
+  color: #d14;
+}
+pre.rouge .sd {
+  color: #d14;
+}
+pre.rouge .s2 {
+  color: #d14;
+}
+pre.rouge .se {
+  color: #d14;
+}
+pre.rouge .sh {
+  color: #d14;
+}
+pre.rouge .si {
+  color: #d14;
+}
+pre.rouge .sx {
+  color: #d14;
+}
+pre.rouge .sr {
+  color: #009926;
+}
+pre.rouge .s1 {
+  color: #d14;
+}
+pre.rouge .ss {
+  color: #990073;
+}
+pre.rouge .s, pre.rouge .sa, pre.rouge .dl {
+  color: #d14;
+}
+pre.rouge .na {
+  color: #008080;
+}
+pre.rouge .bp {
+  color: #999999;
+}
+pre.rouge .nb {
+  color: #0086B3;
+}
+pre.rouge .nc {
+  color: #445588;
+  font-weight: bold;
+}
+pre.rouge .no {
+  color: #008080;
+}
+pre.rouge .nd {
+  color: #3c5d5d;
+  font-weight: bold;
+}
+pre.rouge .ni {
+  color: #800080;
+}
+pre.rouge .ne {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nf, pre.rouge .fm {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nl {
+  color: #990000;
+  font-weight: bold;
+}
+pre.rouge .nn {
+  color: #555555;
+}
+pre.rouge .nt {
+  color: #000080;
+}
+pre.rouge .vc {
+  color: #008080;
+}
+pre.rouge .vg {
+  color: #008080;
+}
+pre.rouge .vi {
+  color: #008080;
+}
+pre.rouge .nv, pre.rouge .vm {
+  color: #008080;
+}
+pre.rouge .ow {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .o {
+  color: #000000;
+  font-weight: bold;
+}
+pre.rouge .w {
+  color: #bbbbbb;
+}
+pre.rouge {
+  background-color: #f8f8f8;
+}
+</style>
 </body>
 </html>
