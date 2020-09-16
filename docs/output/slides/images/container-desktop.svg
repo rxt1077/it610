@@ -9,7 +9,7 @@ link host to vm--><path d="M191,85.3573 C191,102.0734 191,121.8553 191,139.7848 
 link vm to docker--><path d="M191,238.2134 C191,256.7719 191,277.2986 191,292.604 " fill="none" id="vm-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="191,297.9933,195,288.9933,191,292.9933,187,288.9933,191,297.9933" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[95c96fd1c0dcea559c676623e10111de]
 link docker to container1--><path d="M165.6075,334.0569 C143.0297,350.1122 109.9869,373.6093 86.0889,390.6035 " fill="none" id="docker-&gt;container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="81.7376,393.6977,91.3902,391.7416,85.8123,390.8,86.7539,385.2221,81.7376,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e6d44d7033759f0971ab0aa0d3e6deca]
 link docker to container2--><path d="M191,334.0569 C191,349.5126 191,371.8647 191,388.6731 " fill="none" id="docker-&gt;container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="191,393.6977,195,384.6977,191,388.6977,187,384.6977,191,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[421e3df7766b093a2ba80d8586cd4561]
-link docker to container3--><path d="M216.3925,334.0569 C238.9703,350.1122 272.0131,373.6093 295.9111,390.6035 " fill="none" id="docker-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="300.2624,393.6977,295.2461,385.2221,296.1877,390.8,290.6098,391.7416,300.2624,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d04eae577ff5e17f7ef4a92cdb86cf49]
+link docker to container3--><path d="M216.3925,334.0569 C238.9703,350.1122 272.0131,373.6093 295.9111,390.6035 " fill="none" id="docker-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="300.2624,393.6977,295.2461,385.2221,296.1877,390.8,290.6098,391.7416,300.2624,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5caeb3092922e057ee0c37923e33f061]
 @startuml
 rectangle host [
     <b>Host OS
@@ -40,7 +40,7 @@ PlantUML version 1.2020.06(Sun Apr 05 12:38:32 UTC 2020)
 (APACHE source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
-Java Version: 11.0.7+10-post-Debian-3deb10u1
+Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
 Default Encoding: ANSI_X3.4-1968
 Language: en

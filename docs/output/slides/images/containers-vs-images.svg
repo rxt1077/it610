@@ -5,7 +5,7 @@ entity container2--><rect fill="#FEFECE" filter="url(#f11jtse3kv6vfn)" height="3
 entity container3--><rect fill="#FEFECE" filter="url(#f11jtse3kv6vfn)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="100" x="314" y="146"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="324" y="168.9951">Container 3</text><!--MD5=[834cc752e8e181bfde58e549276bcf3d]
 link image to container1--><path d="M124.7609,69.0247 C109.883,77.1025 95.5109,87.0084 84,99 C72.86,110.6052 65.7911,127.3406 61.5428,140.9237 " fill="none" id="image-&gt;container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="60.103,145.77,66.5005,138.2819,61.527,140.9771,58.8318,136.0035,60.103,145.77" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="85" y="112.0669">docker run image</text><!--MD5=[b744b76f0ae9343a076da5f6cb36946f]
 link image to container2--><path d="M207.8325,69.0476 C207.0731,83.3117 206.5168,100.5229 207,116 C207.2498,124.0013 207.7333,132.7418 208.2403,140.5457 " fill="none" id="image-&gt;container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="208.5926,145.7781,211.9788,136.5296,208.2566,140.7894,203.9968,137.0672,208.5926,145.7781" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="208" y="112.0669">docker run image</text><!--MD5=[4c45752facd0bec6b303fba2e9005921]
-link image to container3--><path d="M282.7334,69.0326 C297.7436,77.3707 312.705,87.3764 325,99 C337.5201,110.8365 347.4345,127.5666 354.1339,141.0893 " fill="none" id="image-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="356.4554,145.9112,356.1549,136.0669,354.2863,141.4062,348.947,139.5375,356.4554,145.9112" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="339" y="112.0669">docker run image</text><!--MD5=[7c85ce34bd517693d3bfab4f135cfdb6]
+link image to container3--><path d="M282.7334,69.0326 C297.7436,77.3707 312.705,87.3764 325,99 C337.5201,110.8365 347.4345,127.5666 354.1339,141.0893 " fill="none" id="image-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="356.4554,145.9112,356.1549,136.0669,354.2863,141.4062,348.947,139.5375,356.4554,145.9112" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="339" y="112.0669">docker run image</text><!--MD5=[7462b8afdd9ab1256a7be3aec49ed41d]
 @startuml
 rectangle image [
     <b>Image
@@ -24,7 +24,7 @@ PlantUML version 1.2020.06(Sun Apr 05 12:38:32 UTC 2020)
 (APACHE source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
-Java Version: 11.0.7+10-post-Debian-3deb10u1
+Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
 Default Encoding: ANSI_X3.4-1968
 Language: en

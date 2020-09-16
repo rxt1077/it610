@@ -1,0 +1,74 @@
+= Terminal Tips and Tricks
+
+image::https://upload.wikimedia.org/wikipedia/commons/9/99/DEC_VT100_terminal.jpg[link=https://en.wikipedia.org/wiki/VT100, width=33%]
+
+== Terminal Environments
+
+* MacOS Terminal (Command+Space Terminal)
+* Windows PowerShell (WindowsKey, then type "powershell")
+* Windows Command Prompt (WindowsKey, then type "cmd")
+* Windows Terminal (download for free from Microsoft Store)
+
+[.columns]
+== Common Commands / Options
+
+[.column]
+[horizontal]
+cd:: change directory
+pwd:: print working directory
+ls:: list files
+<up>:: previous command
+
+[.column]
+[horizontal]
+<tab>:: complete a command
+.:: the current directory
+..:: the parent directory
+
+== PowerShell
+
+image::https://upload.wikimedia.org/wikipedia/commons/2/2f/PowerShell_5.0_icon.png[width=10%]
+
+* Has aliases for most BASH (Linux) commands
+* Needs to be run as admin to use some Hyper-V things
+* Both slashes are supported, but it prefers DOS style: C:\Users\rxt1077
+* Prompt starts with 'PS' and ends with '>'
+
+== Command Prompt
+
+image::https://upload.wikimedia.org/wikipedia/commons/b/b3/Command_Prompt_on_Windows_10_RTM.png[width=10%]
+
+* Older, uses DOS
+* Prompt give full location including drive: `C:\Users\rxt1077`
+* Probably worth avoiding
+
+== Windows Terminal
+
+image::https://upload.wikimedia.org/wikipedia/commons/0/01/Windows_Terminal_Logo_256x256.png[width=10%]
+
+* New, free to download
+* Supports multiple tabs
+* Runs PowerShell
+* Much more adaptible and better supported
+
+== MacOS Terminal
+
+image::https://upload.wikimedia.org/wikipedia/commons/b/b3/Terminalicon2.png[width=10%]
+
+* Uses BASH (like Linux)
+* Uses the backslash: `/Users/rxt1077`
+* `~` refers to your home directory
+* can use `sudo` to execute as root
+
+== How to run a shell inside a new container
+
+[source, console]
+----
+PS C:\Users\rxt1077> docker run -it ubuntu bash <1>
+root@2417eb604422:/# <2>
+----
+<1> The `-it` switch tells it we want to run interactively
+<2> Notice the prompt change
+
+You could do a similar command with `exec` to run a shell inside a running
+container

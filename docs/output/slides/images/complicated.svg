@@ -22,7 +22,7 @@ link container6 to container4--><path d="M582,303.0611 C582,317.9786 582,337.345
 link container9 to container7--><path d="M143,111.0611 C143,125.9786 143,145.3455 143,160.3736 " fill="none" id="container9-container7" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="143,165.6977,147,156.6977,143,160.6977,139,156.6977,143,165.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="143,106.0569,139,115.0569,143,111.0569,147,115.0569,143,106.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[55672075f5f70506ede04515cf8b643d]
 link container1 to container2--><path d="M358.5196,303.0611 C358.2088,317.9786 357.8053,337.3455 357.4922,352.3736 " fill="none" id="container1-container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="357.3813,357.6977,361.5681,348.7831,357.4856,352.6988,353.5699,348.6162,357.3813,357.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="358.6238,298.0569,354.437,306.9715,358.5195,303.0558,362.4352,307.1384,358.6238,298.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[23c73d93e659f8b93330e6fa64b1b2dd]
 link container4 to container5--><path d="M573.3521,399.0611 C567.709,414.1095 560.3679,433.6857 554.712,448.7681 " fill="none" id="container4-container5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="552.8634,453.6977,559.7688,446.6752,554.619,449.016,552.2782,443.8662,552.8634,453.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="575.2287,394.0569,568.3232,401.0793,573.473,398.7385,575.8138,403.8884,575.2287,394.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[63a61ad41e1feb62cfe52c6fc5af8a24]
-link container7 to container8--><path d="M151.1675,207.0611 C156.4971,222.1095 163.4303,241.6857 168.772,256.7681 " fill="none" id="container7-container8" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="170.5179,261.6977,171.2837,251.8787,168.8486,256.9846,163.7427,254.5495,170.5179,261.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="149.3951,202.0569,148.6293,211.8759,151.0644,206.77,156.1703,209.2051,149.3951,202.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[d694fbaaa5c04df69ca709f8d6d1ab0d]
+link container7 to container8--><path d="M151.1675,207.0611 C156.4971,222.1095 163.4303,241.6857 168.772,256.7681 " fill="none" id="container7-container8" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="170.5179,261.6977,171.2837,251.8787,168.8486,256.9846,163.7427,254.5495,170.5179,261.6977" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="149.3951,202.0569,148.6293,211.8759,151.0644,206.77,156.1703,209.2051,149.3951,202.0569" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[f7a7805d7634d68df712ad3bc7d7750a]
 @startuml
 rectangle "Orchestration System" {
   rectangle "Node 1 (Seattle)" {
@@ -62,7 +62,7 @@ PlantUML version 1.2020.06(Sun Apr 05 12:38:32 UTC 2020)
 (APACHE source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
-Java Version: 11.0.7+10-post-Debian-3deb10u1
+Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
 Default Encoding: ANSI_X3.4-1968
 Language: en

@@ -5,7 +5,7 @@ entity kernel--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.296
 entity lib--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="165" x="168.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="145" x="178.5" y="92.9951">Libraries (some GNU)</text><!--MD5=[4541fb81c80c07473fe4b07432ef0971]
 entity app--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="191" x="368.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="171" x="378.5" y="92.9951">Applications (some GNU)</text><!--MD5=[dbe72b5c78c2610e63decf41cdf2f8a9]
 link kernel to lib--><path d="M138.918,88 C146.9877,88 155.0574,88 163.1271,88 " fill="none" id="kernel-lib" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="168.1517,88,159.1517,84,163.1517,88,159.1517,92,168.1517,88" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="133.8223,88,142.8223,92,138.8223,88,142.8223,84,133.8223,88" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e5bf8febc4a53cdf490911cc607420c4]
-link lib to app--><path d="M338.9212,88 C347.0517,88 355.1821,88 363.3126,88 " fill="none" id="lib-app" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="368.3749,88,359.3749,84,363.3749,88,359.3749,92,368.3749,88" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="333.7871,88,342.7871,92,338.7871,88,342.7871,84,333.7871,88" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[a202a72a1cc7d51af605b909c47b0394]
+link lib to app--><path d="M338.9212,88 C347.0517,88 355.1821,88 363.3126,88 " fill="none" id="lib-app" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="368.3749,88,359.3749,84,363.3749,88,359.3749,92,368.3749,88" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="333.7871,88,342.7871,92,338.7871,88,342.7871,84,333.7871,88" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c466208c6778f5a3782f5603da881a32]
 @startuml
 rectangle distro as "GNU/Linux Distribution" {
     rectangle compile as "Compiled with GNU Tools" {
@@ -23,7 +23,7 @@ PlantUML version 1.2020.06(Sun Apr 05 12:38:32 UTC 2020)
 (APACHE source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
-Java Version: 11.0.7+10-post-Debian-3deb10u1
+Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
 Default Encoding: ANSI_X3.4-1968
 Language: en
