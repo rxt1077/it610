@@ -6,11 +6,18 @@
 * users can be found in `/etc/passwd`
 ** passwords used to be in `/etc/passwd`, now in `/etc/shadow`
 
+=== /etc/passwd format
+
+* `root:x:0:0:root:/root:/bin/bash`
+* username, password hash, user id, group id, friendly name, shell
+
+NOTE: Password hashes are actually in /etc/shadow
+
 == Groups
 
 * multiple users may need the same access
 * put those users in groups
-* groups can be found in `/etc/groups`
+* groups can be found in `/etc/group`
 * users also have a primary group specified in `/etc/passwd`
 
 [.columns]
@@ -38,7 +45,7 @@ image::perms.jpg[]
 === useradd/userdel/usermod
 
 [.shrink]
-* editing `/etc/passwd`, `/etc/shadow`, and `/etc/groups` can go poorly
+* editing `/etc/passwd`, `/etc/shadow`, and `/etc/group` can go poorly
 * these basic commands let you add, delete, and modify users from the command
   line
 * `useradd ryan -g users`: Add a user named ryan in the group users
