@@ -1,15 +1,88 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="441px" preserveAspectRatio="none" style="width:387px;height:441px;" version="1.1" viewBox="0 0 387 441" width="387px" zoomAndPan="magnify"><defs><filter height="300%" id="f1m9phxbvm8ymh" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[da9746410650acf9fab14ea35e32d13b]
-entity host--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="76.8906" style="stroke: #000000; stroke-width: 1.5;" width="94" x="144" y="8"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63" x="154" y="30.9951">Host OS</text><line style="stroke: #000000; stroke-width: 1.0;" x1="145" x2="237" y1="34.2969" y2="34.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="62" x="160" y="51.292">Windows</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="48" x="160" y="67.5889">MacOS</text><!--MD5=[feb13187a4e12c0f7e43ab86a34517b0]
-entity vm--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="93.1875" style="stroke: #000000; stroke-width: 1.5;" width="257" x="62.5" y="145"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="237" x="72.5" y="167.9951">Virtual Machine Running Linux</text><line style="stroke: #000000; stroke-width: 1.0;" x1="63.5" x2="318.5" y1="171.2969" y2="171.2969"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="54" x="78.5" y="188.292">Hyper-V</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="68" x="78.5" y="204.5889">VirtualBox</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="57" x="78.5" y="220.8857">HyperKit</text><!--MD5=[7c0f197cad09c4d86c8b8989e1030b9e]
-entity docker--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="70" x="156" y="298"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="50" x="166" y="320.9951">Docker</text><!--MD5=[8e653cf1508c8de73e0d49c732987513]
-entity container1--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="100" x="6" y="394"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="16" y="416.9951">Container 1</text><!--MD5=[9f0d3a1f4493e59367b52fc0f20ff9bb]
-entity container2--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="100" x="141" y="394"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="151" y="416.9951">Container 2</text><!--MD5=[10e6fcd240979d4457e8143441327951]
-entity container3--><rect fill="#FEFECE" filter="url(#f1m9phxbvm8ymh)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="100" x="276" y="394"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="80" x="286" y="416.9951">Container 3</text><!--MD5=[d53af427261df455ba622883d6330984]
-link host to vm--><path d="M191,85.3573 C191,102.0734 191,121.8553 191,139.7848 " fill="none" id="host-&gt;vm" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="191,144.7886,195,135.7886,191,139.7886,187,135.7886,191,144.7886" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[767ce72ad121edf5ff431e7a4cfc4a20]
-link vm to docker--><path d="M191,238.2134 C191,256.7719 191,277.2986 191,292.604 " fill="none" id="vm-&gt;docker" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="191,297.9933,195,288.9933,191,292.9933,187,288.9933,191,297.9933" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[95c96fd1c0dcea559c676623e10111de]
-link docker to container1--><path d="M165.6075,334.0569 C143.0297,350.1122 109.9869,373.6093 86.0889,390.6035 " fill="none" id="docker-&gt;container1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="81.7376,393.6977,91.3902,391.7416,85.8123,390.8,86.7539,385.2221,81.7376,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e6d44d7033759f0971ab0aa0d3e6deca]
-link docker to container2--><path d="M191,334.0569 C191,349.5126 191,371.8647 191,388.6731 " fill="none" id="docker-&gt;container2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="191,393.6977,195,384.6977,191,388.6977,187,384.6977,191,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[421e3df7766b093a2ba80d8586cd4561]
-link docker to container3--><path d="M216.3925,334.0569 C238.9703,350.1122 272.0131,373.6093 295.9111,390.6035 " fill="none" id="docker-&gt;container3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="300.2624,393.6977,295.2461,385.2221,296.1877,390.8,290.6098,391.7416,300.2624,393.6977" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[5caeb3092922e057ee0c37923e33f061]
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' contentScriptType='application/ecmascript' contentStyleType='text/css' height='441px' preserveAspectRatio='none' style='width:387px;height:441px;' version='1.1' viewBox='0 0 387 441' width='387px' zoomAndPan='magnify'>
+  <defs>
+    <filter height='300%' id='f1m9phxbvm8ymh' width='300%' x='-1' y='-1'>
+      <feGaussianBlur result='blurOut' stdDeviation='2.0'/>
+      <feColorMatrix in='blurOut' result='blurOut2' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0'/>
+      <feOffset dx='4.0' dy='4.0' in='blurOut2' result='blurOut3'/>
+      <feBlend in='SourceGraphic' in2='blurOut3' mode='normal'/>
+    </filter>
+  </defs>
+  <g>
+    <!--MD5=[da9746410650acf9fab14ea35e32d13b]
+entity host-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='76.8906' style='stroke: #000000; stroke-width: 1.5;' width='94' x='144' y='8'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacingAndGlyphs' textLength='63' x='154' y='30.9951'>
+      Host OS
+    </text>
+    <line style='stroke: #000000; stroke-width: 1.0;' x1='145' x2='237' y1='34.2969' y2='34.2969'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='62' x='160' y='51.292'>
+      Windows
+    </text>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='48' x='160' y='67.5889'>
+      MacOS
+    </text>
+    <!--MD5=[feb13187a4e12c0f7e43ab86a34517b0]
+entity vm-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='93.1875' style='stroke: #000000; stroke-width: 1.5;' width='257' x='62.5' y='145'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacingAndGlyphs' textLength='237' x='72.5' y='167.9951'>
+      Virtual Machine Running Linux
+    </text>
+    <line style='stroke: #000000; stroke-width: 1.0;' x1='63.5' x2='318.5' y1='171.2969' y2='171.2969'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='54' x='78.5' y='188.292'>
+      Hyper-V
+    </text>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='68' x='78.5' y='204.5889'>
+      VirtualBox
+    </text>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='57' x='78.5' y='220.8857'>
+      HyperKit
+    </text>
+    <!--MD5=[7c0f197cad09c4d86c8b8989e1030b9e]
+entity docker-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='70' x='156' y='298'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='50' x='166' y='320.9951'>
+      Docker
+    </text>
+    <!--MD5=[8e653cf1508c8de73e0d49c732987513]
+entity container1-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='100' x='6' y='394'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='80' x='16' y='416.9951'>
+      Container 1
+    </text>
+    <!--MD5=[9f0d3a1f4493e59367b52fc0f20ff9bb]
+entity container2-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='100' x='141' y='394'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='80' x='151' y='416.9951'>
+      Container 2
+    </text>
+    <!--MD5=[10e6fcd240979d4457e8143441327951]
+entity container3-->
+    <rect fill='#FEFECE' filter='url(#f1m9phxbvm8ymh)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='100' x='276' y='394'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='80' x='286' y='416.9951'>
+      Container 3
+    </text>
+    <!--MD5=[d53af427261df455ba622883d6330984]
+link host to vm-->
+    <path d='M191,85.3573 C191,102.0734 191,121.8553 191,139.7848 ' fill='none' id='host-&gt;vm' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='191,144.7886,195,135.7886,191,139.7886,187,135.7886,191,144.7886' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[767ce72ad121edf5ff431e7a4cfc4a20]
+link vm to docker-->
+    <path d='M191,238.2134 C191,256.7719 191,277.2986 191,292.604 ' fill='none' id='vm-&gt;docker' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='191,297.9933,195,288.9933,191,292.9933,187,288.9933,191,297.9933' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[95c96fd1c0dcea559c676623e10111de]
+link docker to container1-->
+    <path d='M165.6075,334.0569 C143.0297,350.1122 109.9869,373.6093 86.0889,390.6035 ' fill='none' id='docker-&gt;container1' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='81.7376,393.6977,91.3902,391.7416,85.8123,390.8,86.7539,385.2221,81.7376,393.6977' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[e6d44d7033759f0971ab0aa0d3e6deca]
+link docker to container2-->
+    <path d='M191,334.0569 C191,349.5126 191,371.8647 191,388.6731 ' fill='none' id='docker-&gt;container2' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='191,393.6977,195,384.6977,191,388.6977,187,384.6977,191,393.6977' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[421e3df7766b093a2ba80d8586cd4561]
+link docker to container3-->
+    <path d='M216.3925,334.0569 C238.9703,350.1122 272.0131,373.6093 295.9111,390.6035 ' fill='none' id='docker-&gt;container3' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='300.2624,393.6977,295.2461,385.2221,296.1877,390.8,290.6098,391.7416,300.2624,393.6977' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[354fcd4abc83ed38b22f81f5b36a5bed]
 @startuml
 rectangle host [
     <b>Host OS
@@ -42,7 +115,9 @@ Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
 Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
-Default Encoding: ANSI_X3.4-1968
+Default Encoding: UTF-8
 Language: en
-Country: US
---></g></svg>
+Country: null
+-->
+  </g>
+</svg>

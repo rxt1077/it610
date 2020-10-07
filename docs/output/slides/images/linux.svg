@@ -1,11 +1,55 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="133px" preserveAspectRatio="none" style="width:587px;height:133px;" version="1.1" viewBox="0 0 587 133" width="587px" zoomAndPan="magnify"><defs><filter height="300%" id="f8ib7iwzhxeqq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[2a8270ac86f2ebe7457ff8ef373ae6c5]
-cluster distro--><rect fill="#FFFFFF" filter="url(#f8ib7iwzhxeqq)" height="106" style="stroke: #000000; stroke-width: 1.5;" width="562" x="14" y="16"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="177" x="206.5" y="30.9951">GNU/Linux Distribution</text><!--MD5=[322bb05fe047ff1f4c7823591e1faee9]
-cluster compile--><rect fill="#FFFFFF" filter="url(#f8ib7iwzhxeqq)" height="71" style="stroke: #000000; stroke-width: 1.5;" width="546" x="22" y="43"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="199" x="195.5" y="57.9951">Compiled with GNU Tools</text><!--MD5=[5427960f0a0d6e728427509f19a12a87]
-entity kernel--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="103" x="30.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="83" x="40.5" y="92.9951">Linux Kernel</text><!--MD5=[6381cab0df0ee6548e755581de88eda0]
-entity lib--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="165" x="168.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="145" x="178.5" y="92.9951">Libraries (some GNU)</text><!--MD5=[4541fb81c80c07473fe4b07432ef0971]
-entity app--><rect fill="#FEFECE" filter="url(#f8ib7iwzhxeqq)" height="36.2969" style="stroke: #000000; stroke-width: 1.5;" width="191" x="368.5" y="70"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="171" x="378.5" y="92.9951">Applications (some GNU)</text><!--MD5=[dbe72b5c78c2610e63decf41cdf2f8a9]
-link kernel to lib--><path d="M138.918,88 C146.9877,88 155.0574,88 163.1271,88 " fill="none" id="kernel-lib" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="168.1517,88,159.1517,84,163.1517,88,159.1517,92,168.1517,88" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="133.8223,88,142.8223,92,138.8223,88,142.8223,84,133.8223,88" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[e5bf8febc4a53cdf490911cc607420c4]
-link lib to app--><path d="M338.9212,88 C347.0517,88 355.1821,88 363.3126,88 " fill="none" id="lib-app" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="368.3749,88,359.3749,84,363.3749,88,359.3749,92,368.3749,88" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="333.7871,88,342.7871,92,338.7871,88,342.7871,84,333.7871,88" style="stroke: #A80036; stroke-width: 1.0;"/><!--MD5=[c466208c6778f5a3782f5603da881a32]
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' contentScriptType='application/ecmascript' contentStyleType='text/css' height='133px' preserveAspectRatio='none' style='width:587px;height:133px;' version='1.1' viewBox='0 0 587 133' width='587px' zoomAndPan='magnify'>
+  <defs>
+    <filter height='300%' id='f8ib7iwzhxeqq' width='300%' x='-1' y='-1'>
+      <feGaussianBlur result='blurOut' stdDeviation='2.0'/>
+      <feColorMatrix in='blurOut' result='blurOut2' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0'/>
+      <feOffset dx='4.0' dy='4.0' in='blurOut2' result='blurOut3'/>
+      <feBlend in='SourceGraphic' in2='blurOut3' mode='normal'/>
+    </filter>
+  </defs>
+  <g>
+    <!--MD5=[2a8270ac86f2ebe7457ff8ef373ae6c5]
+cluster distro-->
+    <rect fill='#FFFFFF' filter='url(#f8ib7iwzhxeqq)' height='106' style='stroke: #000000; stroke-width: 1.5;' width='562' x='14' y='16'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacingAndGlyphs' textLength='177' x='206.5' y='30.9951'>
+      GNU/Linux Distribution
+    </text>
+    <!--MD5=[322bb05fe047ff1f4c7823591e1faee9]
+cluster compile-->
+    <rect fill='#FFFFFF' filter='url(#f8ib7iwzhxeqq)' height='71' style='stroke: #000000; stroke-width: 1.5;' width='546' x='22' y='43'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' font-weight='bold' lengthAdjust='spacingAndGlyphs' textLength='199' x='195.5' y='57.9951'>
+      Compiled with GNU Tools
+    </text>
+    <!--MD5=[5427960f0a0d6e728427509f19a12a87]
+entity kernel-->
+    <rect fill='#FEFECE' filter='url(#f8ib7iwzhxeqq)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='103' x='30.5' y='70'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='83' x='40.5' y='92.9951'>
+      Linux Kernel
+    </text>
+    <!--MD5=[6381cab0df0ee6548e755581de88eda0]
+entity lib-->
+    <rect fill='#FEFECE' filter='url(#f8ib7iwzhxeqq)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='165' x='168.5' y='70'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='145' x='178.5' y='92.9951'>
+      Libraries (some GNU)
+    </text>
+    <!--MD5=[4541fb81c80c07473fe4b07432ef0971]
+entity app-->
+    <rect fill='#FEFECE' filter='url(#f8ib7iwzhxeqq)' height='36.2969' style='stroke: #000000; stroke-width: 1.5;' width='191' x='368.5' y='70'/>
+    <text fill='#000000' font-family='sans-serif' font-size='14' lengthAdjust='spacingAndGlyphs' textLength='171' x='378.5' y='92.9951'>
+      Applications (some GNU)
+    </text>
+    <!--MD5=[dbe72b5c78c2610e63decf41cdf2f8a9]
+link kernel to lib-->
+    <path d='M138.918,88 C146.9877,88 155.0574,88 163.1271,88 ' fill='none' id='kernel-lib' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='168.1517,88,159.1517,84,163.1517,88,159.1517,92,168.1517,88' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='133.8223,88,142.8223,92,138.8223,88,142.8223,84,133.8223,88' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[e5bf8febc4a53cdf490911cc607420c4]
+link lib to app-->
+    <path d='M338.9212,88 C347.0517,88 355.1821,88 363.3126,88 ' fill='none' id='lib-app' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='368.3749,88,359.3749,84,363.3749,88,359.3749,92,368.3749,88' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <polygon fill='#A80036' points='333.7871,88,342.7871,92,338.7871,88,342.7871,84,333.7871,88' style='stroke: #A80036; stroke-width: 1.0;'/>
+    <!--MD5=[8807f0fb0ab785f68689584fb684f063]
 @startuml
 rectangle distro as "GNU/Linux Distribution" {
     rectangle compile as "Compiled with GNU Tools" {
@@ -25,7 +69,9 @@ Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM
 Java Version: 11.0.8+10-post-Debian-1deb10u1
 Operating System: Linux
-Default Encoding: ANSI_X3.4-1968
+Default Encoding: UTF-8
 Language: en
-Country: US
---></g></svg>
+Country: null
+-->
+  </g>
+</svg>

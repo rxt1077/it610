@@ -1,4 +1,4 @@
-= Exercise 3
+= Exercise 4
 
 In this exercise we will be
 
@@ -14,9 +14,9 @@ there with the `volume ls` command.
 
 [source, console]
 ----
-PS C:\Users\rxt1077\it610\exercises\3> docker volume create exercise3-db
-exercise3-db
-PS C:\Users\rxt1077\it610\exercises\3> docker volume ls
+PS C:\Users\rxt1077\it610\exercises\4> docker volume create exercise4-db
+exercise4-db
+PS C:\Users\rxt1077\it610\exercises\4> docker volume ls
 DRIVER              VOLUME NAME
 local               db-data
 ----
@@ -29,7 +29,7 @@ information is stored by default:
 
 [source, console]
 ----
-PS C:\Users\rxt1077\it610\exercises\3> docker run -d --mount source=exercise3-db,target=/var/lib/postgresql/data -e POSTGRES_PASSWORD=changeme postgres <1>
+PS C:\Users\rxt1077\it610\exercises\4> docker run -d --mount source=exercise4-db,target=/var/lib/postgresql/data -e POSTGRES_PASSWORD=changeme postgres <1>
 Unable to find image 'postgres:latest' locally
 latest: Pulling from library/postgres
 8559a31e96f4: Pull complete
@@ -37,14 +37,14 @@ latest: Pulling from library/postgres
 Digest: sha256:9ba6355d27ba9cd0acda1e28afaae4a5b7b2301bbbdc91794dcfca95ab08d2ef
 Status: Downloaded newer image for postgres:latest
 99dc65697ce9c13d7ae97c042687f25fa70addcc24539371d4476d21bac50cec
-PS C:\Users\rxt1077\it610\exercises\3> docker ps <2>
+PS C:\Users\rxt1077\it610\exercises\4> docker ps <2>
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 99dc65697ce9        postgres            "docker-entrypoint.s…"   27 seconds ago      Up 27 seconds       5432/tcp            boring_pike
 ----
 <1> Here is an explanation of the options:
 * `d`: run in the background
-* `--mount source=exercise3-db,target=/var/lib/postgresql/data`: mount the
-  `exercise3-db` local volume in the `/var/lib/postgresql/data` directory of the
+* `--mount source=exercise4-db,target=/var/lib/postgresql/data`: mount the
+  `exercise4-db` local volume in the `/var/lib/postgresql/data` directory of the
   container
 * `-e POSTGRES_PASSWORD=changeme`: set the environment variable fo the postgres
   password to `changeme`. PostgreSQL won't start without a password.
@@ -62,7 +62,7 @@ can `exec` it from there. Let's connect to our database and put some data in the
 
 [source, console]
 ----
-PS C:\Users\rxt1077\it610\exercises\3> docker exec -it <CONTAINER ID> psql --username=postgres <1>
+PS C:\Users\rxt1077\it610\exercises\4> docker exec -it <CONTAINER ID> psql --username=postgres <1>
 psql (12.3 (Debian 12.3-1.pgdg100+1))
 Type "help" for help.
 
@@ -94,12 +94,12 @@ compressed archive the database directory.
 
 [source, console]
 ----
-PS C:\Users\rxt1077\it610\exercises\3> docker run --rm --volumes-from <CONTAINER ID> -v "$(pwd):/backup" ubuntu tar zcf /backup/db-backup.tar.gz /var/lib/postgresql/data <1>
+PS C:\Users\rxt1077\it610\exercises\4> docker run --rm --volumes-from <CONTAINER ID> -v "$(pwd):/backup" ubuntu tar zcf /backup/db-backup.tar.gz /var/lib/postgresql/data <1>
 tar: Removing leading `/' from member names
-PS C:\Users\rxt1077\it610\exercises\3> ls
+PS C:\Users\rxt1077\it610\exercises\4> ls
 
 
-    Directory: C:\Users\rxt1077\it610\exercises\3
+    Directory: C:\Users\rxt1077\it610\exercises\4
 
 
 Mode                LastWriteTime         Length Name
@@ -126,4 +126,3 @@ Submit your `db-backup.tar.gz` file as your work for this exercise.
 
 * https://docs.docker.com/storage/volumes/[Docker Documentation: Use volumes]
 * https://hub.docker.com/_/postgres[Docker Hub: postgres]
-

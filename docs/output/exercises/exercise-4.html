@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.10">
-<title>Exercise 3</title>
+<title>Exercise 4</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -439,7 +439,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Exercise 3</h1>
+<h1>Exercise 4</h1>
 </div>
 <div id="content">
 <div id="preamble">
@@ -474,9 +474,9 @@ there with the <code>volume ls</code> command.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker volume create exercise3-db
-<span class="go">exercise3-db
-</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker volume <span class="nb">ls</span>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker volume create exercise4-db
+<span class="go">exercise4-db
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker volume <span class="nb">ls</span>
 <span class="go">DRIVER              VOLUME NAME
 local               db-data</span></code></pre>
 </div>
@@ -493,7 +493,7 @@ information is stored by default:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker run <span class="nt">-d</span> <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>exercise3-db,target<span class="o">=</span>/var/lib/postgresql/data <span class="nt">-e</span> <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>changeme postgres <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker run <span class="nt">-d</span> <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>exercise4-db,target<span class="o">=</span>/var/lib/postgresql/data <span class="nt">-e</span> <span class="nv">POSTGRES_PASSWORD</span><span class="o">=</span>changeme postgres <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="go">Unable to find image 'postgres:latest' locally
 latest: Pulling from library/postgres
 8559a31e96f4: Pull complete
@@ -501,7 +501,7 @@ latest: Pulling from library/postgres
 </span><span class="go">Digest: sha256:9ba6355d27ba9cd0acda1e28afaae4a5b7b2301bbbdc91794dcfca95ab08d2ef
 Status: Downloaded newer image for postgres:latest
 99dc65697ce9c13d7ae97c042687f25fa70addcc24539371d4476d21bac50cec
-</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker ps <i class="conum" data-value="2"></i><b>(2)</b>
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker ps <i class="conum" data-value="2"></i><b>(2)</b>
 <span class="go">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES
 99dc65697ce9        postgres            "docker-entrypoint.s…"   27 seconds ago      Up 27 seconds       5432/tcp            boring_pike</span></code></pre>
 </div>
@@ -517,8 +517,8 @@ Status: Downloaded newer image for postgres:latest
 <p><code>d</code>: run in the background</p>
 </li>
 <li>
-<p><code>--mount source=exercise3-db,target=/var/lib/postgresql/data</code>: mount the
-<code>exercise3-db</code> local volume in the <code>/var/lib/postgresql/data</code> directory of the
+<p><code>--mount source=exercise4-db,target=/var/lib/postgresql/data</code>: mount the
+<code>exercise4-db</code> local volume in the <code>/var/lib/postgresql/data</code> directory of the
 container</p>
 </li>
 <li>
@@ -553,7 +553,7 @@ can <code>exec</code> it from there. Let&#8217;s connect to our database and put
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;CONTAINER ID&gt; psql <span class="nt">--username</span><span class="o">=</span>postgres <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker <span class="nb">exec</span> <span class="nt">-it</span> &lt;CONTAINER ID&gt; psql <span class="nt">--username</span><span class="o">=</span>postgres <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="go">psql (12.3 (Debian 12.3-1.pgdg100+1))
 Type "help" for help.
 
@@ -616,12 +616,12 @@ compressed archive the database directory.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">--volumes-from</span> &lt;CONTAINER ID&gt; <span class="nt">-v</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">:/backup"</span> ubuntu <span class="nb">tar </span>zcf /backup/db-backup.tar.gz /var/lib/postgresql/data <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="rouge highlight"><code data-lang="console"><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span>docker run <span class="nt">--rm</span> <span class="nt">--volumes-from</span> &lt;CONTAINER ID&gt; <span class="nt">-v</span> <span class="s2">"</span><span class="si">$(</span><span class="nb">pwd</span><span class="si">)</span><span class="s2">:/backup"</span> ubuntu <span class="nb">tar </span>zcf /backup/db-backup.tar.gz /var/lib/postgresql/data <i class="conum" data-value="1"></i><b>(1)</b>
 <span class="go">tar: Removing leading `/' from member names
-</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\3&gt;</span><span class="w"> </span><span class="nb">ls</span>
+</span><span class="gp">PS C:\Users\rxt1077\it610\exercises\4&gt;</span><span class="w"> </span><span class="nb">ls</span>
 <span class="go">
 
-    Directory: C:\Users\rxt1077\it610\exercises\3
+    Directory: C:\Users\rxt1077\it610\exercises\4
 
 
 Mode                LastWriteTime         Length Name
@@ -691,7 +691,7 @@ from the database directory.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-11 23:06:40 UTC
+Last updated 2020-09-30 20:35:22 UTC
 </div>
 </div>
 <style>

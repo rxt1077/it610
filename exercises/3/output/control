@@ -1,0 +1,10 @@
+Package: gam
+Architecture: all
+Maintainer: Ryan Tolboom
+Depends:
+Priority: optional
+Version: 5.20
+Description: Allows command line GSuite admin commands
+ Simple utility to improve things
+ .
+ Use gam!
