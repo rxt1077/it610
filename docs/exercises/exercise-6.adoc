@@ -1,27 +1,55 @@
-= Exercise 5
+= Exercise 6
 
-In this exercise you will be using a local Kubernetes option and going through
-the https://kubernetes.io/docs/tutorials/hello-minikube/[Hello Minikube]
-tutorial. Despite its name,
-https://kubernetes.io/docs/tutorials/hello-minikube/[Hello Minikube] should
-work on any Kubernetes cluster.
+In this exercise you will be running an ownCloud instance, saving something to
+it and creating a backup strategy.
 
-NOTE: You can also complete this using the Katacoda terminal, but in the future
-you _will_ need a local k8s environment as you will be providing/creating your
-own YAML files.
+== Getting ownCloud Up and Running
 
-== Deliverables
+Read the following documentation from ownCloud:
 
-Once you have completed
-https://kubernetes.io/docs/tutorials/hello-minikube/[Hello Minikube], please
-answer the following questions in the text box submission for this assignment:
+* https://doc.owncloud.com/server/10.5/admin_manual/installation/docker/[
+  Installing with Docker]
+
+Pull the class git repo (you may need to stash your changes from last time) and
+look in the `exercises/6` directory. These files are directly from the first
+doc. Take a moment to familiarize yourself with them.
+
+Run `docker-compose up` in the `exercises/6` directory and note the information
+scrolling past. You should see that the `owncloud` service is stuck in a loop.
+It keeps trying to start, but can't because there is an app it can't update.
+
+You're `docker-compose.yml` file also has the adminer image running so you can
+connect to the database and directly manipulate the data stored in its tables.
+Read through
+https://central.owncloud.org/t/upgrade-how-to-disable-market-app/22468/2[this
+solution to the problem], then go to https://localhost:8081, log in to the
+database (credentials can be found by carefully reading the
+`docker-compose.yml` file), and run execute the SQL command specified. Once
+this is done, ownCloud should start up (check the `docker-compose.yml` output).
+
+Visit https://localhost:8080. If ownCloud is stuck in maintenance mode, you can
+use the following command to get back to regular mode: `docker-compose exec
+owncloud occ maintenance:mode --off`. Refresh and sign in using the credentials
+in the `.env` file. 
+
+== Exploring how ownCloud saves files
+
+Using the ownCloud web interface upload a file.
+
+From another terminal run `docker-compose run owncloud bash` to start a shell.
+Use this shell, as well as the contents of `docker-compose.yml` to answer the
+questions.
+
+== Questions
 
 [qanda]
-Which local Kubernetes option did you choose and why?::
+Where is the `files` volume mounted in your `owncloud` service?::
     {empty}
-What was the hardest part of following the tutorial?::
+Where is the file that you uploaded?::
     {empty}
-What is the _most_ confusing Kubernetes object you now know about? Why is it confusing?::
+How could you perform a backup _within_ the running owncloud container?::
     {empty}
-What does Kubernetes provide that plain Docker doesn't?::
+How could you perform a backup _outside_ the owncloud container?::
+    {empty}
+Our volume is currently local, but what type of volume would we typically use with ownCloud in a production environment?::
     {empty}
