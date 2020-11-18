@@ -1,4 +1,4 @@
-= Exercise 5
+= Exercise 7
 
 In this exercise you will be using a local Kubernetes option and going through
 the https://kubernetes.io/docs/tutorials/hello-minikube/[Hello Minikube]

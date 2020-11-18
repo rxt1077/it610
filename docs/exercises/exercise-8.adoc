@@ -1,6 +1,6 @@
-= Exercise 6
+= Exercise 8
 
-Inside the `exercises/6` directory you will find a `db-k8s.yml` file that has
+Inside the `exercises/8` directory you will find a `db-k8s.yml` file that has
 all of the objects we discussed during the presentation. Your goal for this
 exercise is to `apply` those objects to your local Kubernetes instance using
 kubectl and explore the running system using the `get`, `describe`, and `logs`

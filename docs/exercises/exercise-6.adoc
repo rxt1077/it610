@@ -15,8 +15,10 @@ look in the `exercises/6` directory. These files are directly from the first
 doc. Take a moment to familiarize yourself with them.
 
 Run `docker-compose up` in the `exercises/6` directory and note the information
-scrolling past. You should see that the `owncloud` service is stuck in a loop.
-It keeps trying to start, but can't because there is an app it can't update.
+scrolling past. You may see that the `owncloud` service is stuck in a loop.
+It keeps trying to start, but can't because there is an app it can't update. If
+that is the case, follow the rest of the directions. If not, skip to <<Exploring
+how ownCloud saves files>>.
 
 You're `docker-compose.yml` file also has the adminer image running so you can
 connect to the database and directly manipulate the data stored in its tables.
