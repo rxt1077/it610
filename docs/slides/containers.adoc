@@ -24,7 +24,7 @@ rectangle host [
 rectangle vm [
     <b>Virtual Machine Running Linux
     ---
-    Hyper-V
+    WSL2
     VirtualBox
     HyperKit
 ]

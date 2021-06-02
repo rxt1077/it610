@@ -20,21 +20,7 @@ MacOS::
 == Installing Docker
 
 Follow https://docs.docker.com/desktop/[these instructions] to install Docker
-Desktop. If for some reason your personal machine is not capable of running
-Docker Desktop, you can follow
-https://docs.docker.com/toolbox/toolbox_install_windows/[these instructions] to
-install Docker Toolbox.
-
-WARNING: If you have Windows 10 Home, you may want to consider
-https://docs.microsoft.com/en-us/education/windows/change-to-pro-education[
-upgrading to Windows 10 Education], which is available from
-https://ist.njit.edu/software-available-download/#w[IST].
-
-WARNING: They make it particularly tough to find the Docker Toolbox EXE (Windows)
-and PKG (MacOS) files. They are
-https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.exe[here]
-and https://github.com/docker/toolbox/releases/download/v19.03.1/DockerToolbox-19.03.1.pkg[here],
-respectively.
+Desktop.
 
 == Cloning https://github.com/rxt1077/it610[the class git repository.]
 
@@ -44,12 +30,11 @@ Yours should match what is show. The prompt will also usually show you what
 directory you are in.
 
 NOTE: In MacOS, you can use the Terminal application, in Windows you can use
-PowerShell as long as you are using Docker Desktop. If you are using Docker
-Toolbox, you will want to use the Docker Quickstart Terminal.
+PowerShell or Windows Terminal.
 
-NOTE: Depending on whether you are using Docker Quickstart Terminal,
-PowerShell, or MacOS Terminal, your prompt may look different. Don't be alarmed
-if it ends in a `$` instead of a `>`.
+NOTE: Depending on whether you are using Windows Terminal, PowerShell, or MacOS
+Terminal, your prompt may look different. Don't be alarmed if it ends in a `$`
+instead of a `>`.
 
 [source, console]
 ----
