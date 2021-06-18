@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.15">
-<title>Exercise 6</title>
+<title>Exercise 5</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -438,108 +438,80 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Exercise 6</h1>
+<h1>Exercise 5</h1>
 </div>
 <div id="content">
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this exercise you will be running an ownCloud instance, saving something to
-it and creating a backup strategy.</p>
+<p>In this exercise we will be exploring Docker Compose <em>and</em> Ansible, a strange
+but not unheard of combination. Here is the scenario:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>You work for InnoTech, a company that designs custom web apps. InnoTech has
+three employees: You (ops), Robert De Niro (the boss), Charlie Murphy (dev),
+and Curtis Mayfield (QA). They need two environments set up where they have
+<em>complete</em> control: dev and testing. They want to run a container runtime
+called <a href="https://podman.io/">podman</a>.</p>
+</div>
+<div class="paragraph">
+<p>Fortunately, due to a nagging professor you had, you designed a system that
+automates as much of this process as possible. You have docker running on a
+server (we&#8217;re going to use our own machine for this part) and a
+<code>docker-compose.yml</code> file that sets up three services: manager, dev, and
+testing. Once you bring everything up, you can start a bash shell on
+manager and use Ansible to handle the heavy lifting of setting up
+environments.</p>
+</div>
+<div class="paragraph">
+<p>Unfortunately, last night you drank some bad pickle juice and it has caused
+you to lose your short-term memory. You can&#8217;t remember what you did, or how
+you did it. The code looks brand-new to you, and it&#8217;s like you&#8217;ve never used
+Docker Compose or Ansible before.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_getting_owncloud_up_and_running">Getting ownCloud Up and Running</h2>
+<h2 id="_goal">Goal</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Read the following documentation from ownCloud:</p>
+<p>Update the <a href="https://github.com/rxt1077/it610">class repo</a> and take a look at
+"your" code in the <code>exercises/5</code> directory. See if you can:</p>
 </div>
-<div class="ulist">
-<ul>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="https://doc.owncloud.com/server/10.5/admin_manual/installation/docker/">
-Installing with Docker</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Pull the class git repo (you may need to stash your changes from last time) and
-look in the <code>exercises/6</code> directory. These files are directly from the first
-doc. Take a moment to familiarize yourself with them.</p>
-</div>
-<div class="paragraph">
-<p>Run <code>docker-compose up</code> in the <code>exercises/6</code> directory and note the information
-scrolling past. You may see that the <code>owncloud</code> service is stuck in a loop.
-It keeps trying to start, but can&#8217;t because there is an app it can&#8217;t update. If
-that is the case, follow the rest of the directions. If not, skip to <a href="#Exploring
-how ownCloud saves files">[Exploring
-how ownCloud saves files]</a>.</p>
-</div>
-<div class="paragraph">
-<p>You&#8217;re <code>docker-compose.yml</code> file also has the adminer image running so you can
-connect to the database and directly manipulate the data stored in its tables.
-Read through
-<a href="https://central.owncloud.org/t/upgrade-how-to-disable-market-app/22468/2">this
-solution to the problem</a>, then go to <a href="https://localhost:8081" class="bare">https://localhost:8081</a>, log in to the
-database (credentials can be found by carefully reading the
-<code>docker-compose.yml</code> file), and run execute the SQL command specified. Once
-this is done, ownCloud should start up (check the <code>docker-compose.yml</code> output).</p>
-</div>
-<div class="paragraph">
-<p>Visit <a href="https://localhost:8080" class="bare">https://localhost:8080</a>. If ownCloud is stuck in maintenance mode, you can
-use the following command to get back to regular mode: <code>docker-compose exec
-owncloud occ maintenance:mode --off</code>. Refresh and sign in using the credentials
-in the <code>.env</code> file.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exploring_how_owncloud_saves_files">Exploring how ownCloud saves files</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Using the ownCloud web interface upload a file.</p>
-</div>
-<div class="paragraph">
-<p>From another terminal run <code>docker-compose run owncloud bash</code> to start a shell.
-Use this shell, as well as the contents of <code>docker-compose.yml</code> to answer the
-questions.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_questions">Questions</h2>
-<div class="sectionbody">
-<div class="qlist qanda">
-<ol>
-<li>
-<p><em>Where is the <code>files</code> volume mounted in your <code>owncloud</code> service?</em></p>
-<p></p>
+<p>Figure out what it is doing</p>
 </li>
 <li>
-<p><em>Where is the file that you uploaded?</em></p>
-<p></p>
+<p>Bring everything up with <code>docker-compose up</code></p>
 </li>
 <li>
-<p><em>How could you perform a backup <em>within</em> the running owncloud container?</em></p>
-<p></p>
+<p>Start a bash shell on the manager service</p>
 </li>
 <li>
-<p><em>How could you perform a backup <em>outside</em> the owncloud container?</em></p>
-<p></p>
-</li>
-<li>
-<p><em>Our volume is currently local, but what type of volume would we typically use with ownCloud in a production environment?</em></p>
-<p></p>
+<p>Run the playbooks in the /playbooks directory</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_submission">Submission</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Send me a screen shot of the output after the playbooks have run.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-10-15 00:16:27 UTC
+Last updated 2020-10-07 21:12:18 UTC
 </div>
 </div>
 </body>

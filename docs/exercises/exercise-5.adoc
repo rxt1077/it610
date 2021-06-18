@@ -1,39 +1,57 @@
 = Exercise 5
 
-In this exercise we will be exploring Docker Compose _and_ Ansible, a strange
-but not unheard of combination. Here is the scenario:
+In this exercise you will be running an ownCloud instance, saving something to
+it and creating a backup strategy.
 
-====
-You work for InnoTech, a company that designs custom web apps. InnoTech has
-three employees: You (ops), Robert De Niro (the boss), Charlie Murphy (dev),
-and Curtis Mayfield (QA). They need two environments set up where they have
-_complete_ control: dev and testing. They want to run a container runtime
-called https://podman.io/[podman].
+== Getting ownCloud Up and Running
 
-Fortunately, due to a nagging professor you had, you designed a system that
-automates as much of this process as possible. You have docker running on a
-server (we're going to use our own machine for this part) and a
-`docker-compose.yml` file that sets up three services: manager, dev, and
-testing. Once you bring everything up, you can start a bash shell on
-manager and use Ansible to handle the heavy lifting of setting up
-environments.
+Read the following documentation from ownCloud:
 
-Unfortunately, last night you drank some bad pickle juice and it has caused
-you to lose your short-term memory. You can't remember what you did, or how
-you did it. The code looks brand-new to you, and it's like you've never used
-Docker Compose or Ansible before.
-====
+* https://doc.owncloud.com/server/10.5/admin_manual/installation/docker/[
+  Installing with Docker]
 
-== Goal
+Pull the class git repo (you may need to stash your changes from last time) and
+look in the `exercises/6` directory. These files are directly from the first
+doc. Take a moment to familiarize yourself with them.
 
-Update the https://github.com/rxt1077/it610[class repo] and take a look at
-"your" code in the `exercises/5` directory. See if you can:
+Run `docker-compose up` in the `exercises/5` directory and note the information
+scrolling past. You may see that the `owncloud` service is stuck in a loop.
+It keeps trying to start, but can't because there is an app it can't update. If
+that is the case, follow the rest of the directions. If not, skip to <<Exploring
+how ownCloud saves files>>.
 
-. Figure out what it is doing
-. Bring everything up with `docker-compose up`
-. Start a bash shell on the manager service
-. Run the playbooks in the /playbooks directory
+You're `docker-compose.yml` file also has the adminer image running so you can
+connect to the database and directly manipulate the data stored in its tables.
+Read through
+https://central.owncloud.org/t/upgrade-how-to-disable-market-app/22468/2[this
+solution to the problem], then go to https://localhost:8081, log in to the
+database (credentials can be found by carefully reading the
+`docker-compose.yml` file), and run execute the SQL command specified. Once
+this is done, ownCloud should start up (check the `docker-compose.yml` output).
 
-== Submission
+Visit https://localhost:8080. If ownCloud is stuck in maintenance mode, you can
+use the following command to get back to regular mode: `docker-compose exec
+owncloud occ maintenance:mode --off`. Refresh and sign in using the credentials
+in the `.env` file. 
 
-Send me a screen shot of the output after the playbooks have run.
+== Exploring how ownCloud saves files
+
+Using the ownCloud web interface upload a file.
+
+From another terminal run `docker-compose run owncloud bash` to start a shell.
+Use this shell, as well as the contents of `docker-compose.yml` to answer the
+questions.
+
+== Questions
+
+[qanda]
+Where is the `files` volume mounted in your `owncloud` service?::
+    {empty}
+Where is the file that you uploaded?::
+    {empty}
+How could you perform a backup _within_ the running owncloud container?::
+    {empty}
+How could you perform a backup _outside_ the owncloud container?::
+    {empty}
+Our volume is currently local, but what type of volume would we typically use with ownCloud in a production environment?::
+    {empty}
