@@ -1,4 +1,3 @@
-version: "3"
 services:
   manager:
     build: ./manager/
@@ -11,11 +10,16 @@ services:
     cap_add:
       - ALL
     volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - dev-containers:/var/lib/containers
   testing:
     build: ./base/
     privileged: true
     cap_add:
       - ALL
     volumes:
-      - "/sys/fs/cgroup:/sys/fs/cgroup:ro"
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - testing-containers:/var/lib/containers
+volumes:
+  dev-containers:
+  testing-containers:

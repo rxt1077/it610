@@ -1,4 +1,4 @@
-= Exercise 5
+= Exercise 6
 
 In this exercise we will be exploring Docker Compose _and_ Ansible, a strange
 but not unheard of combination. Here is the scenario:
@@ -27,7 +27,7 @@ Docker Compose or Ansible before.
 == Goal
 
 Update the https://github.com/rxt1077/it610[class repo] and take a look at
-"your" code in the `exercises/5` directory. See if you can:
+"your" code in the `exercises/6` directory. See if you can:
 
 . Figure out what it is doing
 . Bring everything up with `docker-compose up`
