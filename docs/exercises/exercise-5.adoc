@@ -7,7 +7,7 @@ it and creating a backup strategy.
 
 Read the following documentation from ownCloud:
 
-* https://doc.owncloud.com/server/10.5/admin_manual/installation/docker/[
+* https://doc.owncloud.com/server/10.8/admin_manual/installation/docker/[
   Installing with Docker]
 
 Pull the class git repo (you may need to stash your changes from last time) and
