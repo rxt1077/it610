@@ -6,10 +6,10 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install ubuntu packages
 RUN apt-get update
-RUN apt-get install -y git php composer php-curl php-ldap php-bcmath php-xml php-gd libapache2-mod-php
+RUN apt-get install -y git php composer php-curl php-ldap php-bcmath php-xml php-gd libapache2-mod-php php-mysql
 
 # Get Snipe-IT code
-RUN git clone --branch 5.2.0 https://github.com/snipe/snipe-it /var/www/snipe-it
+RUN git clone --branch v5.2.0 https://github.com/snipe/snipe-it /var/www/snipe-it
 RUN chown -R www-data /var/www/snipe-it
 WORKDIR /var/www/snipe-it
 

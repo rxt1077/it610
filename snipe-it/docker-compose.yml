@@ -1,0 +1,17 @@
+services:
+  web:
+    build: web
+    ports:
+      - 8000:80
+  db:
+    image: mariadb:10.6
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - data-volume:/var/lib/mysql 
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
+volumes:
+  data-volume:
