@@ -1,0 +1,44 @@
+= Deploying an Application on Kubernetes
+
+== App analysis
+
+* Which part faces the users?
+* Who are the admins?
+* Which parts are stateful?
+* What resources does this app require?
+* What is the baseline for use?
+
+== Containerizing the application
+
+* Developed internally
+* Deployed to an internal container registry
+* Usually the end result of a CI/CD pipeline 
+
+== Design k8s objects
+
+* Deployments
+* Services
+* Volumes
+
+== Testing
+
+* Can users use it?
+* Can the admins use it?
+* Does is scale?
+* Can you update?
+* Can you rollback?
+
+== Deploying Container Registry
+
+* self-hosted
+* https://hub.docker.com/[Docker Hub] (not private)
+* https://aws.amazon.com/ecr/[ECR]
+* https://cloud.google.com/container-registry[GCR]
+* https://azure.microsoft.com/en-us/services/container-registry/[ACR]
+
+== Deploying Kubernetes Cluster
+
+* Self-hosted
+* k8s on IaaS
+* k8s as a service: (https://aws.amazon.com/eks/[EKS], https://azure.microsoft.com/en-us/services/kubernetes-service/[AKS], https://cloud.google.com/kubernetes-engine[GKE])
+* What's the CR interop?

@@ -88,7 +88,7 @@ shell on it. That can all be done with a single command:
 ----
 PS C:\Users\rxt1077\it610\exercises\1> docker run -it exercise-1 bash <1>
 ----
-<1> `-it` 
+<1> The `-it` option means that you want to run this container interactively and communicate with it via a tty
 
 You are now _in_ a BASH shell running _inside_ a container of the custom image
 for this exercise 1. From this shell, use your systems administration skills to

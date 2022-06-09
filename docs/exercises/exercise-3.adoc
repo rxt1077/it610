@@ -61,9 +61,8 @@ where you can find the `gam` binary.
 
 == Creating a Debian Package
 
-Follow
-http://webcache.googleusercontent.com/search?q=cache:9zx50MkZ8tUJ:www.sj-vs.net/creating-a-simple-debian-deb-package-based-on-a-directory-structure/+&cd=1&hl=en&ct=clnk&gl=us&client=firefox-b-1-d/[this
-guide] to set up the directory structure and build a package on the container.
+Follow https://linuxconfig.org/easy-way-to-create-a-debian-package-and-local-package-repository[this guide] to set up the directory structure and build a package on the container.
+You only need to build the package as shown in the first part of the guide, you don't need to create a repository to host it.
 Unfortunately you can't use the `/output` directory to build your package on
 a Windows host due to
 https://docs.docker.com/docker-for-windows/troubleshoot/#permissions-errors-on-data-directories-for-shared-volumes[permissions

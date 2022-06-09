@@ -20,6 +20,13 @@ rectangle distro as "GNU/Linux Distribution" {
 @enduml
 ....
 
+== https://man7.org/linux/man-pages/man7/libc.7.html[libc]
+
+* Standard C Libraries on Linux
+* Used by all common UNIX tools
+* Most common is glibc (GNU libc), but there is also uClibc, dietlibc, and musl libc
+* Small libc libraries are increasingly popular in containers
+
 == Purpose
 
 * Linux systems are made up of a large collection of software
@@ -107,3 +114,14 @@ of them handle package management.
 * Based on Nix, so everything mentioned previously
 * Guile scheme as base language instead of a DSL
 * Emphasis on free (as in freedom) software
+
+== Specific Environment Package Managers
+
+* pip - Python package manager
+* npm - NodeJS package manager
+
+== Why talk about package management?
+
+* Many problems solved by complex virtualization solutions are actually package management issues
+* Applications may rely on environment package managers which can cause headaches
+* Knowing how to package things makes deployment much easier

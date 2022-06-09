@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: snipeit-deployment
+spec:
+  selector:
+    matchLabels:
+      app: snipeit
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: snipeit
+    spec:
+      containers:
+      - name: snipeit
+        image: snipeit:1.0.0
+        env:
+          # Use secret in real usage
+        - name: MYSQL_ROOT_PASSWORD
+          value: password
+        ports:
+        - containerPort: 80
+#TODO: Make a service with a LoadBalancer to access this from outside
