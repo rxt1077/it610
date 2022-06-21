@@ -7,32 +7,17 @@ it and creating a backup strategy.
 
 Read the following documentation from ownCloud:
 
-* https://doc.owncloud.com/server/10.8/admin_manual/installation/docker/[
-  Installing with Docker]
+* https://doc.owncloud.com/server/10.10/admin_manual/installation/docker/[Installing with Docker]
 
-Pull the class git repo (you may need to stash your changes from last time) and
-look in the `exercises/6` directory. These files are directly from the first
-doc. Take a moment to familiarize yourself with them.
+Pull the class git repo (you may need to stash your changes from last time) and look in the `exercises/5` directory.
+These files are directly from the first doc.
+Take a moment to familiarize yourself with them.
 
-Run `docker-compose up` in the `exercises/5` directory and note the information
-scrolling past. You may see that the `owncloud` service is stuck in a loop.
-It keeps trying to start, but can't because there is an app it can't update. If
-that is the case, follow the rest of the directions. If not, skip to <<Exploring
-how ownCloud saves files>>.
+Run `docker-compose up` in the `exercises/5` directory and note the information scrolling past.
 
-You're `docker-compose.yml` file also has the adminer image running so you can
-connect to the database and directly manipulate the data stored in its tables.
-Read through
-https://central.owncloud.org/t/upgrade-how-to-disable-market-app/22468/2[this
-solution to the problem], then go to https://localhost:8081, log in to the
-database (credentials can be found by carefully reading the
-`docker-compose.yml` file), and run execute the SQL command specified. Once
-this is done, ownCloud should start up (check the `docker-compose.yml` output).
+The `docker-compose.yml` file also has the adminer image running so you can connect to the database and directly manipulate the data stored in its tables.
 
-Visit https://localhost:8080. If ownCloud is stuck in maintenance mode, you can
-use the following command to get back to regular mode: `docker-compose exec
-owncloud occ maintenance:mode --off`. Refresh and sign in using the credentials
-in the `.env` file. 
+Visit https://localhost:8080 and sign in using the credentials in the `.env` file. 
 
 == Exploring how ownCloud saves files
 
