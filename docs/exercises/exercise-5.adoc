@@ -17,7 +17,7 @@ Run `docker-compose up` in the `exercises/5` directory and note the information 
 
 The `docker-compose.yml` file also has the adminer image running so you can connect to the database and directly manipulate the data stored in its tables.
 
-Visit https://localhost:8080 and sign in using the credentials in the `.env` file. 
+Visit http://localhost:8080 and sign in using the credentials in the `.env` file. 
 
 == Exploring how ownCloud saves files
 

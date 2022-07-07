@@ -459,39 +459,23 @@ it and creating a backup strategy.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://doc.owncloud.com/server/10.8/admin_manual/installation/docker/">
-Installing with Docker</a></p>
+<p><a href="https://doc.owncloud.com/server/10.10/admin_manual/installation/docker/">Installing with Docker</a></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Pull the class git repo (you may need to stash your changes from last time) and
-look in the <code>exercises/6</code> directory. These files are directly from the first
-doc. Take a moment to familiarize yourself with them.</p>
+<p>Pull the class git repo (you may need to stash your changes from last time) and look in the <code>exercises/5</code> directory.
+These files are directly from the first doc.
+Take a moment to familiarize yourself with them.</p>
 </div>
 <div class="paragraph">
-<p>Run <code>docker-compose up</code> in the <code>exercises/5</code> directory and note the information
-scrolling past. You may see that the <code>owncloud</code> service is stuck in a loop.
-It keeps trying to start, but can&#8217;t because there is an app it can&#8217;t update. If
-that is the case, follow the rest of the directions. If not, skip to <a href="#Exploring
-how ownCloud saves files">[Exploring
-how ownCloud saves files]</a>.</p>
+<p>Run <code>docker-compose up</code> in the <code>exercises/5</code> directory and note the information scrolling past.</p>
 </div>
 <div class="paragraph">
-<p>You&#8217;re <code>docker-compose.yml</code> file also has the adminer image running so you can
-connect to the database and directly manipulate the data stored in its tables.
-Read through
-<a href="https://central.owncloud.org/t/upgrade-how-to-disable-market-app/22468/2">this
-solution to the problem</a>, then go to <a href="https://localhost:8081" class="bare">https://localhost:8081</a>, log in to the
-database (credentials can be found by carefully reading the
-<code>docker-compose.yml</code> file), and run execute the SQL command specified. Once
-this is done, ownCloud should start up (check the <code>docker-compose.yml</code> output).</p>
+<p>The <code>docker-compose.yml</code> file also has the adminer image running so you can connect to the database and directly manipulate the data stored in its tables.</p>
 </div>
 <div class="paragraph">
-<p>Visit <a href="https://localhost:8080" class="bare">https://localhost:8080</a>. If ownCloud is stuck in maintenance mode, you can
-use the following command to get back to regular mode: <code>docker-compose exec
-owncloud occ maintenance:mode --off</code>. Refresh and sign in using the credentials
-in the <code>.env</code> file.</p>
+<p>Visit <a href="http://localhost:8080" class="bare">http://localhost:8080</a> and sign in using the credentials in the <code>.env</code> file.</p>
 </div>
 </div>
 </div>
@@ -540,7 +524,7 @@ questions.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-09-23 23:24:38 UTC
+Last updated 2022-06-21 01:13:34 UTC
 </div>
 </div>
 </body>
