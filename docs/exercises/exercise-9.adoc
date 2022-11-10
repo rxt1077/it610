@@ -1,0 +1,20 @@
+= Exercise 9
+
+Take a look at the Docker Compose examples in the https://github.com/docker/awesome-compose[Awesome Compose repo].
+Pick one of them that interests you and get it running on your local machine.
+
+== Questions
+
+[qanda]
+Which example did you pick and why?::
+    {empty}
+Were you able to run is successfully?::
+    {empty}
+What's one thing you learned about Docker Compose from running an example that you weren't able to glean from the lecture today?::
+    {empty}
+What is one service option that you learned about, and what does it do?::
+    {empty}
+Describe the directory structure of this example.::
+    {empty}
+How could you use this example to help with your final project?::
+    {empty}

@@ -9,7 +9,7 @@ bash prompt on any pod using `kubectl exec` just like you would with Docker.
 
 == Questions
 
-[quanda]
+[qanda]
 A systems architect was using a stock Docker Hub image with a custom ENTRYPOINT point script she had designed. This required a Dockerfile, BASH script, and a directory to store them. When she migrated to Kubernetes she was able to do this all in one YAML file. Describe how this is possible.::
     {empty}
 Why are *Services* essential to replication?::
