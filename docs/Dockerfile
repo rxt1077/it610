@@ -1,4 +1,4 @@
-FROM "ruby:2.7.1"
+FROM "ruby:3.2"
 WORKDIR /docs
 COPY Gemfile /docs/
 RUN apt-get update

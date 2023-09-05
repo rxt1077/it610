@@ -10,6 +10,10 @@ the development / operations team wants it to be configured.
 * more lightweight than virtual machines (VMs)
 * typically coordinated through a daemon process (docker for example)
 
+== cgroups?
+
+image::cgroups.jpg[]
+
 == Docker on a Desktop Machine
 
 [plantuml, container-desktop, svg, width=50%]
