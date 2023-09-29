@@ -1,7 +1,6 @@
 = Backup
 
-https://genius.com/Big-boi-back-up-plan-lyrics["I got a back up plan to the
-back up plan to back up my back up plan" -- Big Boi]
+"I got a back up plan to the back up plan to back up my back up plan" -- Big Boi
 
 == tar
 
