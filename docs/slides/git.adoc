@@ -1,6 +1,6 @@
 = git
 
-image::git.svg[]
+image::git.svg[width=25%]
 
 == What is git?
 
