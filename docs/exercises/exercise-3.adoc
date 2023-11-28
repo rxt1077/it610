@@ -2,7 +2,7 @@
 
 In this exercise we will be:
 
-. Installing https://github.com/jay0lee/GAM[GAM] on an Unbuntu container via
+. Installing https://github.com/jay0lee/GAM[GAM] on an Ubuntu container via
   their installation script.
 . Creating a Debian package for GAM.
 . Creating a Dockerfile for a container that installs GAM from your package.

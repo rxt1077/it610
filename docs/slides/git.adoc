@@ -1,0 +1,51 @@
+= git
+
+image::git.svg[]
+
+== What is git?
+
+* a version control system
+* command line based
+* keeps track of files and changes to them
+* works locally but can "push" to a remote
+
+== What do people think of git?
+
+image::git-bingo.png[width=50%]
+
+== Why do we need it?
+
+* make things less brittle
+* keep track of things
+* find out who changed things
+
+== How is it used?
+
+* create a repo: `git init` (local or remote, GitHub can do this for you)
+* clone the repo: `git clone`
+* add files you want tracked: `git add`
+* commit changes: `git commit`
+* push changes: `git push`
+
+== How do I collaborite with git?
+
+image::git-branch.png[]
+
+[.shrink]
+* fork a repo (create a branch)
+* make your changes
+* submit a PR
+* PR gets merged (hopefully)
+
+== Why are we talking about git in a sysadmin class?
+
+* configurations a typically lots of little files we need to track
+* Docker Compose projects can be tracked in git
+* Kubernetes projects can be tracked in git
+* git helps with change management
+
+== Online git services
+
+* https://github.com[GitHub]
+* https://gitlab.com[GitLab]
+* https://sr.ht[SourceHut]
