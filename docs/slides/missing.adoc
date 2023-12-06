@@ -1,0 +1,82 @@
+= What's Missing?
+
+We've been learning in a virtualized environment.
+What haven't we had a chance to work with?
+
+== The Boot Process
+
+[ditaa]
+....
++---------------+     +---------------+     +---------------------+
+|     BIOS      |     |  Bootloader   |     |       Kernel        |
+|               | --> |               | --> |                     |
+| configuration |     | GRUB, LILO    |     | via boot partition  |
+|      POST     |     | SYSLINUX, PXE |     | or possibly network |
++---------------+     +---------------+     +---------------------+
+
+                                                        |
+                                                        V
+
+    +-------------+     +--------------+     +-------------------+
+    |   daemons   |     | init scripts |     |       init        |
+    |             | <-- |              | <-- |                   |
+    |sevices, etc.|     | init system  |     |  systemd, runit,  |
+    +-------------+     |  dependent   |     | SysVinit, upstart |
+                        +--------------+     +-------------------+
+....
+
+== init system
+
+* PID 1
+* SysV was the old way of doing it
+* Most modern systems run systemd (it's contentious)
+* The init system brings up and monitors daemon processes
+
+=== Basic systemctl commands (systemd)
+
+* `systemctl list-units --type=service`
+* `systemctl start <servicename>`
+* `systemctl stop <servicename>`
+* `systemctl restart <servicename>`
+* `systemctl enable <servicename>`
+
+== Processes
+
+* OS kernel allows for multiple things to run at once
+* A process is one of those things
+* The kernel scheduler divies up the time
+* https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-tuning-taskscheduler.html[This can be adjusted!]
+
+=== Tuning the Process Scheduler
+
+* `/proc/sched_debug` shows all tunable variables
+* `sysctl` (not systemctl!) can be used to adjust them
+* `chrt` show the real-time attributes of a running process
+* If you make real-time changes, don't forget to make them permanent! (/etc/sysctl.conf)
+
+== Devices
+
+* Real systems have real devices
+* I/O is a pretty standard bottleneck in production systems
+* https://cromwell-intl.com/open-source/performance-tuning/disks.html[Sysfs allows for tuning of I/O devices]
+* I/O also has schedulers
+
+=== https://opensource.com/article/18/11/udev[udev]
+
+* A list of rules that determines what to do/create when a device is added
+* Devices can have persistent names through devfs (can be very useful for USB)
+* Initialization can take place automatically
+
+=== Sample udev rule
+
+./lib/udev/rules.d/80-usb.rules
+[source, text]
+----
+KERNEL=="sd*", SUBSYSTEMS=="scsi", ATTRS{model}=="USB 2.0 Storage Device", SYMLINK+="usbhd%n"
+----
+
+== General Advice for Tuning a Linux System
+
+* Determine your metric in advance!
+* Take slow steps and monitor changes
+* Be prepared to walk-back changes
