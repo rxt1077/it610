@@ -7,6 +7,9 @@ class git repository, building a custom Docker image, and running a container.
 
 == Installing git
 
+You have a few options for installing git, once of which is https://desktop.github.com/download/[GitHub Desktop] which includes a few cools tools for GitHub as well.
+If you want to install it without the GitHub tools you can also use:
+
 Windows::
 * https://gitforwindows.org/[git for windows]: Installs git, git BASH, and a
   GUI. The git command can then be run from PowerShell, CMD, or the BASH shell
