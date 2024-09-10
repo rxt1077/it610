@@ -1,0 +1,63 @@
+= Docker Best Practices
+
+image::docker-logo.png[]
+
+== Why Docker?
+
+* Creates a reproducible system to run software
+* "It runs on my machine!" -> "Great, let's ship your machine."
+* Makes sharing and collaboration easier
+* Forces focus on configuration
+
+== Why _Not_ Docker?
+
+* Don't use it just because containers are new or trendy
+* It won't fix crumby practices
+* It doesn't _necessarily_ simplify things
+
+== Directory Structure
+
+* A Dockerfile should be in its own directory
+* Support files, configuration etc., can be in any structure within that directory
+* You will COPY support files into the container
+* Avoid too much configuration in the Dockerfile if you can: RUN commands with sed, etc.
+
+== WORKDIR, ENTRYPOINT, CMD
+
+* WORKDIR is the "home" directory of the Docker user (usually root)
+* https://docs.docker.com/engine/reference/builder/#entrypoint[ENTRYPOINT is the command a container runs (possibly w/options)]
+* CMD provides defaults for executing a container, typically parameters
+
+== Running in the Foreground and Logging
+
+* Docker expects one process running in the foreground
+* Logs should go to stdout and will be stored by Docker
+* They can be retrieved with the https://docs.docker.com/engine/reference/commandline/logs/[docker logs] command
+
+== Docker Volumes
+
+* Docker volumes should be used for persistent data
+* Don't assume they will be ready to go when your container starts
+* May have to detect the state of the volume and build DB (or other things) as needed
+* Docker bind mounts can be used to edit configs while something is running
+* Bind mounts are typically used in debugging and stripped from production
+
+== https://docs.docker.com/network/[Docker Networks]
+
+* Single container systems will typically only need port forwarding
+* Docker Compose takes away some of the networking pain
+* Lots of options: bridge (default), host, overlay, macvlan, none, plugins
+* Networking is a pain point for deployment
+
+== Using Environment Variables
+
+* Secrets can be stored in environment variables
+* Environment variables can be stored in a `.env` file
+* Don't put your `.env` file in version control!
+* Environment variables can and should be used to make images modular
+
+== Dockerfile/Image/Container
+
+* We're making Dockerfiles to store configuration
+* IRL once you get an image you'll push it to an in-house container registry
+* When you run an image it becomes a container

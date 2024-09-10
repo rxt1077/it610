@@ -1,0 +1,6 @@
+services:
+  doc-build:
+    build: .
+    volumes:
+      -  .:/docs
+      - ../docs:/docs/output
