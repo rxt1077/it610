@@ -5,6 +5,7 @@
 // Modified by Ryan Tolboom
 // Originally contributed by Pol Dellaiera - https://github.com/drupol
 
+
 #let uni-colors = state("uni-colors", (:))
 #let uni-short-title = state("uni-short-title", none)
 #let uni-short-author = state("uni-short-author", none)
@@ -30,6 +31,10 @@
   )
   set text(size: 25pt)
   show footnote.entry: set text(size: .6em)
+  show link: it => [
+    #set text(blue)
+    #underline(it)
+  ]
 
   uni-progress-bar.update(progress-bar)
   uni-colors.update((a: color-a, b: color-b, c: color-c))
