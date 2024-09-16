@@ -6,6 +6,20 @@
 // Originally contributed by Pol Dellaiera - https://github.com/drupol
 
 
+#let code(body, title: none) = {
+  set text(size: 15pt)
+  if title != none {
+    set text(red)
+    block(below: 5pt, title)
+  }
+  box(
+    fill: rgb("#DCDCDC"),
+    inset: 8pt,
+    radius: 4pt,
+    body
+  )
+}
+
 #let uni-colors = state("uni-colors", (:))
 #let uni-short-title = state("uni-short-title", none)
 #let uni-short-author = state("uni-short-author", none)
@@ -35,6 +49,17 @@
     #set text(blue)
     #underline(it)
   ]
+  show raw.where(block: false): box.with(
+    fill: rgb("#DCDCDC"),
+    inset: (x: 3pt, y: 0pt),
+    outset: (y: 6pt),
+    radius: 2pt,
+  )
+  show raw.where(block: true): box.with(
+    fill: rgb("#DCDCDC"),
+    inset: 10pt,
+    radius: 4pt,
+  )
 
   uni-progress-bar.update(progress-bar)
   uni-colors.update((a: color-a, b: color-b, c: color-c))
