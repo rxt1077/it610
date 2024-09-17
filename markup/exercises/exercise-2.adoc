@@ -23,7 +23,7 @@ This is what they have so far (you'll find this in the class git repo as well):
 ----
 FROM tgagor/centos
 RUN yum -y update
-RUN yum -y install httpd
+RUN yum -y install httpd procps
 COPY httpd.conf /etc/httpd/conf/
 CMD httpd -DFOREGROUND
 ----

@@ -591,7 +591,7 @@ builds a working image the meets the requirements.</p>
 <div class="content">
 <pre class="rouge highlight"><code data-lang="docker"><span class="k">FROM</span><span class="s"> tgagor/centos</span>
 <span class="k">RUN </span>yum <span class="nt">-y</span> update
-<span class="k">RUN </span>yum <span class="nt">-y</span> <span class="nb">install </span>httpd
+<span class="k">RUN </span>yum <span class="nt">-y</span> <span class="nb">install </span>httpd procps
 <span class="k">COPY</span><span class="s"> httpd.conf /etc/httpd/conf/</span>
 <span class="k">CMD</span><span class="s"> httpd -DFOREGROUND</span></code></pre>
 </div>
@@ -695,7 +695,7 @@ right direction</em>.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2024-09-17 23:10:08 UTC
+Last updated 2024-09-17 23:22:06 UTC
 </div>
 </div>
 </body>
