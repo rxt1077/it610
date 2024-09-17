@@ -146,12 +146,10 @@
   - A list of rules that determines what to do/create when a device is added
   - Devices can have persistent names through devfs (can be very useful for USB)
   - Initialization can take place automatically
-  #align(center)[
-    #code(title: [/lib/udev/rules.d/80-usb.rules])[
-      ```udev
-        KERNEL=="sd*", SUBSYSTEMS=="scsi", ATTRS{model}=="USB 2.0 Storage Device", SYMLINK+="usbhd%n"
-      ```
-    ]
+  #code(title: [/lib/udev/rules.d/80-usb.rules])[
+    ```udev
+      KERNEL=="sd*", SUBSYSTEMS=="scsi", ATTRS{model}=="USB 2.0 Storage Device", SYMLINK+="usbhd%n"
+    ```
   ]
   #v(1fr)
 ]

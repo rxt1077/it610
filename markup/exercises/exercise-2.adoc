@@ -21,7 +21,7 @@ This is what they have so far (you'll find this in the class git repo as well):
 
 [source, docker]
 ----
-FROM centos
+FROM tgagor/centos
 RUN yum -y update
 RUN yum -y install httpd
 COPY httpd.conf /etc/httpd/conf/

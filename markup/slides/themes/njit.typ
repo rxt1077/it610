@@ -5,11 +5,33 @@
 // Modified by Ryan Tolboom
 // Originally contributed by Pol Dellaiera - https://github.com/drupol
 
+#let njit-red  = rgb("#D22630")
+#let njit-blue = rgb("#071D49")
 
-#let code(body, title: none) = {
+// ugly hack to convert callout number to a unicode character
+#let num2unicode(num) = {
+    set text(black, size: 18pt, weight: "bold")
+    if      num == "<0>" [\u{24FF}]
+    else if num == "<1>" [\u{2776}]
+    else if num == "<2>" [\u{2777}]
+    else if num == "<3>" [\u{2778}]
+    else if num == "<4>" [\u{2779}]
+    else if num == "<5>" [\u{2780}]
+    else if num == "<6>" [\u{2781}]
+    else if num == "<7>" [\u{2782}]
+    else if num == "<8>" [\u{2783}]
+    else if num == "<9>" [\u{2784}]
+}
+
+// code blocks in grey boxes with AsciiDoctor style callouts
+#let code(body, title: none, callouts: none) = {
   set text(size: 15pt)
+  show regex("<[0123456789]>"): it => {
+    num2unicode(it.text)
+  }
   if title != none {
-    set text(red)
+    // why can't I center this?
+    set text(njit-red)
     block(below: 5pt, title)
   }
   box(
@@ -18,6 +40,11 @@
     radius: 4pt,
     body
   )
+  if callouts != none {
+    for (num, desc) in callouts [
+      / #num2unicode(num): #desc
+    ]
+  }
 }
 
 #let uni-colors = state("uni-colors", (:))
@@ -31,8 +58,8 @@
   short-title: none,
   short-author: "Ryan Tolboom",
   short-date: none,
-  color-a: rgb("#071D49"),
-  color-b: rgb("#D22630"),
+  color-a: njit-blue,
+  color-b: njit-red,
   color-c: rgb("#FBFEF9"),
   progress-bar: true,
   body
