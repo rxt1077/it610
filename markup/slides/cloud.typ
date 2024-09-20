@@ -1,4 +1,4 @@
-#import "themes/njit.typ": *
+#import "/templates/slides.typ": *
 
 #show: university-theme.with(
   short-title: [Cloud]
@@ -12,7 +12,7 @@
   title: [What is it?],
   side-by-side[
     #v(1fr)
-    #image("images/cloud.jpg")
+    #image("/images/cloud.jpg")
     #v(1fr)
   ][
     #v(1fr)
@@ -74,11 +74,11 @@
       columns: (1fr, 1fr),
       rows: (1fr, 1fr),
       gutter: 20pt,
-      align(horizon, image("images/aws.svg", width: 100%)),
-      align(horizon, image("images/azure.svg", width: 100%)),
+      align(horizon, image("/images/aws.svg", width: 100%)),
+      align(horizon, image("/images/azure.svg", width: 100%)),
       grid.cell(
         colspan: 2,
-        align(center, image("images/gce.svg", height: 100%))
+        align(center, image("/images/gce.svg", height: 100%))
       )
     )
     #v(1fr)
@@ -88,7 +88,7 @@
 #slide(title: [Want to try it at home?],
   side-by-side(columns: (25%, 1fr))[
     #v(1fr)
-    #image("images/messy_homelab.jpg")
+    #image("/images/messy_homelab.jpg")
     #v(1fr)
   ][
     #v(1fr)
@@ -120,7 +120,7 @@
     #v(1fr)
   ][
     #v(1fr)
-    #image("images/aws-funny.png")
+    #image("/images/aws-funny.png")
     #v(1fr)
   ]
 )
@@ -128,7 +128,7 @@
 #slide(title: [How do you deploy to AWS?],
   side-by-side(columns: (33%, 1fr))[
     #v(1fr)
-    #image("images/aws-funny2.jpg")
+    #image("/images/aws-funny2.jpg")
     #v(1fr)
   ][
     #v(1fr)

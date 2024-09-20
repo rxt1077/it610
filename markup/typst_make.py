@@ -5,7 +5,7 @@ OUTPUT_DIR = "../docs"
 
 def compile(infile, outfile):
     print(f"Compiling {infile} to {outfile}...")
-    os.system(f"typst compile {infile} {outfile}")
+    os.system(f"typst compile --root . {infile} {outfile}")
 
 # build the syllabus
 compile("syllabus.typ", OUTPUT_DIR + "/syllabus.pdf")

@@ -1,4 +1,4 @@
-#import "themes/njit.typ": *
+#import "/templates/slides.typ": *
 
 #show: university-theme.with(
   short-title: [Buzzwords],
@@ -14,20 +14,20 @@
 
 #matrix-slide()[
   Configure
-  #image("images/configure-icon.svg")
+  #image("/images/configure-icon.svg")
 ][
   Operate
-  #image("images/operate-icon.svg")
+  #image("/images/operate-icon.svg")
 ][
   Maintain
-  #image("images/maintain-icon.svg")
+  #image("/images/maintain-icon.svg")
 ]
 
 #slide(
   title: [DevOps Patterns],
   side-by-side[
     #v(1fr) // this is a hack until align horizon is fixed: https://github.com/andreasKroepelin/polylux/issues/148 
-    #image("images/devops.jpg")
+    #image("/images/devops.jpg")
     #v(1fr)
   ][
     #v(1fr)
@@ -51,7 +51,7 @@
     #v(1fr)
   ][
     #v(1fr)
-    #image("images/sre.jpg")
+    #image("/images/sre.jpg")
     #v(1fr)
   ]
 )
@@ -103,7 +103,7 @@
     #v(1fr)
   ][
     #v(1fr)
-    #image("images/sysadmin-heroes.jpg")
+    #image("/images/sysadmin-heroes.jpg")
     #v(1fr)
   ]
 )

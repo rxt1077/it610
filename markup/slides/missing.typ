@@ -1,4 +1,4 @@
-#import "themes/njit.typ": *
+#import "/templates/slides.typ": *
 #import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
 
 #show: university-theme.with(short-title: [Missing])
@@ -76,14 +76,14 @@
     - The init system brings up and monitors daemon processes
     #v(1fr)
   ][
-    #image("images/number_one.png")
+    #image("/images/number_one.png")
   ]
 )
 
 #slide(title: [Basic systemctl Commands],
   side-by-side(columns: (30%, 70%))[
     #v(1fr)
-    #image("images/systemd-light.svg")
+    #image("/images/systemd-light.svg")
     #v(1fr)
   ][
     #v(1fr)
@@ -106,7 +106,7 @@
     #v(1fr)
   ][
     #v(1fr)
-    #image("images/ps.png")
+    #image("/images/ps.png")
     #v(1fr)
   ]
 )
@@ -114,7 +114,7 @@
 #slide(title: [Tuning the Process Scheduler],
   side-by-side(columns: (40%, 60%))[
     #v(1fr)
-    #image(width: 100%, "images/process-states.png")
+    #image(width: 100%, "/images/process-states.png")
     #v(1fr)
   ][
     #v(1fr)
@@ -136,7 +136,7 @@
     #v(1fr)
   ][
     #v(1fr)
-    #image("images/linux-kernel-overview.png")
+    #image("/images/linux-kernel-overview.png")
     #v(1fr)
   ]
 )
@@ -157,7 +157,7 @@
 #slide(title: [General Advice for Tuning Linux],
   side-by-side(columns: (35%, 1fr))[
     #v(1fr)
-    #image("images/advice.png", width: 100%)
+    #image("/images/advice.png", width: 100%)
     #v(1fr)
   ][
     #v(1fr)
