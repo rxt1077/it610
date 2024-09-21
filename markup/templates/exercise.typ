@@ -43,6 +43,15 @@
     outset: (y: 3pt),
     radius: 2pt,
   )
+  show quote: it => [
+    #grid(
+      columns: (5pt, 1fr),
+      rows: 1,
+      gutter: 0pt,
+      grid.cell(fill: secondary-color.lighten(50%))[],
+      it,
+    )
+  ]
 
   [
     = #exercise-name
