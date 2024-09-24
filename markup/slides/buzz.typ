@@ -108,7 +108,7 @@
   ]
 )
 
-#focus-slide(background-color: rgb("#071D49"))[
+#focus-slide()[
   What solutions are we using _now_?
 ]
 
