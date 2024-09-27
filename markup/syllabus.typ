@@ -9,14 +9,12 @@
   size: 10pt
 )
 
-#show heading.where(level: 1): it => [
-  #set align(center)
-  #it
-]
 #show link: it => [
   #set text(blue)
   #underline(it)
 ]
+
+#place(top + right, image("templates/njit_logo.svg"))
 
 = IT 610 Systems Administration
 
@@ -38,6 +36,12 @@ As a member of the NJIT community, it is your responsibility to protect your edu
 Please note that it is my professional obligation and responsibility to report any academic misconduct to the Dean of Students Office.
 Any student found in violation of the code by cheating, plagiarizing or using any online software inappropriately will result in disciplinary action. This may include a failing grade of F, and/or suspension or dismissal from the university.
 If you have any questions about the code of Academic Integrity, please contact the Dean of Students Office at dos\@njit.edu.
+
+== Generative AI
+
+Student use of artificial intelligence (AI) is permitted in this course for non-exam assignments and activities.
+Additionally, if and when students use AI in this course, the AI must be cited as is shown within the #link("https://researchguides.njit.edu/AI/home")[NJIT Library AI citation page] for AI.
+If you have any questions or concerns about AI technology use in this class, please reach out to your instructor prior to submitting any assignments.
 
 == Objective
 
@@ -113,16 +117,18 @@ The final project will utilize multiple containers and an orchestration framewor
     outcomes: ("shell", "ssh", "files", "permissions")
   ),
   (
-    topics: ("Permissions", "Managing Users", "Project Proposal Due"),
-    outcomes: ("shell", "files", "users", "permissions")
+    topics: ("Permissions", "Managing Users", "Package Management",
+    "Project Proposal Due"),
+    outcomes: ("shell", "files", "users", "permissions", "text", "use_pkg")
   ),
   (
-    topics: ("Package Management",),
-    outcomes: ("shell", "text", "files", "use_pkg", "create_pkg")
+    topics: ("Storage", "File Systems", "Backups"),
+    outcomes: ("shell", "files", "permissions", "use_pkg", "create_pkg",
+    "archive", "manage_containers", "create_images", "build_images")
   ),
   (
-    topics: ("File Systems",),
-    outcomes: ("shell", "files", "permissions")
+    topics: ("Automation",),
+    outcomes: ("shell", "files", "create_volumes", "automation")
   ),
   (
     topics: ("Patterns of Virtualization",),
