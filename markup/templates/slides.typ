@@ -8,6 +8,37 @@
 #let njit-red  = rgb("#D22630")
 #let njit-blue = rgb("#071D49")
 
+// display and image with licensing info
+#let licensed-image(
+  file: none,
+  license: none,
+  title: none,
+  url: none,
+  author: none,
+  author-url: none
+) = {
+  let license-text = ""
+  if license == "fairuse" {
+    license-text = [#link(url)[#title] is used under fair use]
+  } else if license == "cc0" {
+    license-text = [#link(url)[#title] is in the public domain under #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0]]
+  } else if license == "cc-by-2" {
+    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by/2.0/")[CC BY 2.0.]]
+  } else if license == "cc-by-sa-4" {
+    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]]
+  } else if license == "cc-by-nc-nd-4" {
+    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-nc-nd/4.0/")[CC BY-NC-ND 4.0]]
+  }
+
+  block(breakable: false)[
+    #set align(center)
+    #set text(size: 8pt)
+
+    #block(below: 5pt)[#image(file)]
+    #license-text
+  ]
+}
+
 // ugly hack to convert callout number to a unicode character
 #let num2unicode(num) = {
     set text(black, size: 18pt, weight: "bold")
@@ -299,4 +330,25 @@
   )
 
   logic.polylux-slide(content)
+}
+
+// display side-by-side slides alternating the image on the left/right
+#let alternate-counter = counter("alternate-counter")
+#let alternate(title: none, image: none, text: none) = {
+    slide(title: title)[
+      #alternate-counter.step()
+      #context [
+        #let value = alternate-counter.get().first()
+        #let image-on-left = calc.odd(value)
+        #grid(columns: (1fr, 1fr), gutter: 20pt)[
+          #v(1fr)
+          #if image-on-left { image } else { text }
+          #v(1fr)
+        ][
+          #v(1fr)
+          #if image-on-left { text } else { image }
+          #v(1fr)
+        ]
+      ]
+    ]
 }

@@ -14,46 +14,65 @@
 
 #matrix-slide()[
   Configure
-  #image("/images/configure-icon.svg")
+  #licensed-image(
+    file: "/images/configure-icon.svg",
+    license: "cc0",
+    title: [Settings SVG Vector],
+    url: "https://www.svgrepo.com/svg/13688/settings",
+  )
 ][
   Operate
-  #image("/images/operate-icon.svg")
+  #licensed-image(
+    file: "/images/operate-icon.svg",
+    license: "cc0",
+    title: [Press Button SVG Vector],
+    url: "https://www.svgrepo.com/svg/58818/press-button",
+  )
 ][
   Maintain
-  #image("/images/maintain-icon.svg")
+  #licensed-image(
+    file: "/images/maintain-icon.svg",
+    license: "cc0",
+    title: [Wrench SVG Vector],
+    url: "https://www.svgrepo.com/svg/535743/wrench",
+  )
 ]
 
-#slide(
+#alternate(
   title: [DevOps Patterns],
-  side-by-side[
-    #v(1fr) // this is a hack until align horizon is fixed: https://github.com/andreasKroepelin/polylux/issues/148 
-    #image("/images/devops.jpg")
-    #v(1fr)
-  ][
-    #v(1fr)
+  image: licensed-image(
+    file: "/images/devops.svg",
+    license: "cc-by-sa-4",
+    title: [Devops-toolchain.svg],
+    url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Devops-toolchain.svg",
+    author: [Kharnagy],
+    author-url: "https://commons.wikimedia.org/wiki/User:Kharnagy",
+  ),
+  text: [
     - Hardware in the cloud
     - Everything is code
     - "YAML engineers"
     - Devs doing sysadmin or sysadmins doing dev?
-    #v(1fr)
-  ]
+  ],
 )
 
-#slide(
+#alternate(
   title: [Site Reliability Engineering (SRE)],
-  side-by-side[
-    #v(1fr)
+  image: licensed-image(
+    file: "/images/sre.jpg",
+    license: "cc-by-nc-nd-4",
+    title: [Service Reliability Hierarchy],
+    url: "https://sre.google/sre-book/part-III-practices/#fig_part-practices_reliability-hierarchy",
+    author: [Betsy Beyer, Chris Jones, Niall Richard Murphy, Jennifer Petoff],
+    author-url: "https://www.oreilly.com/library/view/site-reliability-engineering/9781491929117/",
+  ),
+  text: [
     - Change management
     - Automation
     - CI/CD Pipelines
     - Testing
     - "Treat operations as if it's a software problem." -- Google
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/sre.jpg")
-    #v(1fr)
-  ]
+  ],
 )
 
 #slide(
@@ -88,10 +107,10 @@
   ]
 )
 
-#slide(
+#alternate(
   title: [What does it all mean?],
-  side-by-side(columns: (60%, 40%))[
-    #v(1fr)
+  image: image("/images/sysadmin-heroes.svg"),
+  text: [
     - Failure is an option!
     - A whole lot of virtualization
     - Continuous deployment is expected
@@ -100,12 +119,7 @@
     - Make it run on anything
     - Automate, automate, automate!
     - Save configurations, not images
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/sysadmin-heroes.jpg")
-    #v(1fr)
-  ]
+  ],
 )
 
 #focus-slide()[
