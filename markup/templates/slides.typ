@@ -8,6 +8,28 @@
 #let njit-red  = rgb("#D22630")
 #let njit-blue = rgb("#071D49")
 
+// https://github.com/typst/typst/discussions/4260
+#let resize-text(body) = layout(size => {
+  let font_size = text.size
+  let (height,) = measure(
+    block(width: size.width, text(size: font_size)[#body]),
+  )
+  let max_height = size.height;
+  
+  while height > max_height {
+      font_size -= 0.2pt
+      height = measure(
+        block(width: size.width, text(size: font_size)[#body]),
+      ).height
+  }
+  
+  block(
+      height: height,
+      width: 100%,
+      text(size: font_size)[#body]
+  )
+})
+
 // display and image with licensing info
 #let licensed-image(
   file: none,
@@ -333,9 +355,11 @@
 }
 
 // display side-by-side slides alternating the image on the left/right
+// also resizes text to fit in a single page
 #let alternate-counter = counter("alternate-counter")
 #let alternate(title: none, image: none, text: none) = {
     slide(title: title)[
+      #let text = resize-text(text)
       #alternate-counter.step()
       #context [
         #let value = alternate-counter.get().first()

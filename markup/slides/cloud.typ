@@ -8,20 +8,22 @@
   title: [Cloud Computing]
 )
 
-#slide(
+#alternate(
   title: [What is it?],
-  side-by-side[
-    #v(1fr)
-    #image("/images/cloud.jpg")
-    #v(1fr)
-  ][
-    #v(1fr)
+  image: licensed-image(
+    file: "/images/cloud.svg",
+    license: "cc-by-sa-4",
+    title: [FSFE There is no cloud postcard en.svg],
+    url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/FSFE_There_is_no_cloud_postcard_en.svg",
+    author: [Markus Meier, FSFE],
+    author-url: "https://fsfe.org/contribute/spreadtheword.html#nocloud",
+  ),
+  text: [
     - A silly catchphrase with a disheartening origin
     - Technically it can be IaaS, SaaS, PaaS
     - Is it new?
     - Why virtualize? Why not just rent servers?
-    #v(1fr)
-  ]
+  ],
 )
 
 #focus-slide([What's good about it?])
@@ -78,60 +80,67 @@
       align(horizon, image("/images/azure.svg", width: 100%)),
       grid.cell(
         colspan: 2,
-        align(center, image("/images/gce.svg", height: 100%))
+        align(center)[
+          #image("/images/gce.svg", height: 90%)
+          #text(size: 8pt, [AWS, Azure, and GCE logos are used under fair use])
+        ]
       )
     )
     #v(1fr)
   ]
 )
 
-#slide(title: [Want to try it at home?],
-  side-by-side(columns: (25%, 1fr))[
-    #v(1fr)
-    #image("/images/messy_homelab.jpg")
-    #v(1fr)
-  ][
-    #v(1fr)
-    #text(size: 22pt, [
-      - #link("https://www.reddit.com/r/homelab/")[/r/homelab]
-      - Server hardware is #link("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR0.TRC0.A0.H0.Xr710.TRS5&_nkw=r710&_sacat=0")[CHEAP] (data centers refresh often)
-      - Virtualization Platforms
-        - #link("https://www.proxmox.com/en/")[Proxmox]
-        - #link("https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx")[ESXi]
-        - #link("https://www.xenserver.com/")[XenServer]
-      - You will learn a lot
-      - You may also scare your family members and pets with loud noises and heavy computers!
-      - What is in the "bare metal" of a virtualization server?
-        Memory and processor cores.
-        The more the merrier.
-    ])
-    #v(1fr)
-  ]
+#alternate(
+  title: [Want to try it at home?],
+  image: licensed-image(
+    file: "/images/messy-servers.jpg",
+    license: "cc-by-2",
+    title: [servers],
+    url: "https://www.flickr.com/photos/40987321@N02/5580348753",
+    author: [hisperati],
+    author-url: "https://www.flickr.com/photos/40987321@N02",
+  ),
+  text: [
+    - #link("https://www.reddit.com/r/homelab/")[/r/homelab]
+    - Server hardware is #link("https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2380057.m570.l1313.TR0.TRC0.A0.H0.Xr710.TRS5&_nkw=r710&_sacat=0")[CHEAP] (data centers refresh often)
+    - Virtualization Platforms
+      - #link("https://www.proxmox.com/en/")[Proxmox]
+      - #link("https://www.vmware.com/products/cloud-infrastructure/esxi-and-esx")[ESXi]
+      - #link("https://www.xenserver.com/")[XenServer]
+    - You will learn a lot
+    - You may also scare your family members and pets with loud noises and heavy computers!
+    - What is in the "bare metal" of a virtualization server?
+      Memory and processor cores.
+      The more the merrier.
+  ],
 )
 
-#slide(title: [What can AWS do for you?],
-  side-by-side(columns: (55%, 1fr))[
-    #v(1fr)
+#alternate(
+  title: [What can AWS do for you?],
+  image: licensed-image(
+    file: "/images/aws-funny.png",
+    license: "fairuse",
+    title: [AWS in a Nutshell],
+    url: "https://www.reddit.com/r/ProgrammerHumor/comments/9ym7mj/aws_in_a_nutshell/",
+  ),
+  text: [
     - Network architecture as code (subnets, VPCs, internet gateways, NAT gateways, load balancers, etc).
     - Tons of services: S3 storage, RDS database, ECS containers, EC2 compute, IAM identity and access...
     - Deploy _quickly_
     - Scale _quickly_
     - Unique products: spot instances, AMI sharing, mechanical turk #emoji.face
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/aws-funny.png")
-    #v(1fr)
   ]
 )
 
-#slide(title: [How do you deploy to AWS?],
-  side-by-side(columns: (33%, 1fr))[
-    #v(1fr)
-    #image("/images/aws-funny2.jpg")
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [How do you deploy to AWS?],
+  image: licensed-image(
+    file: "/images/aws-funny2.jpg",
+    license: "fairuse",
+    title: [Using AWS],
+    url: "https://www.reddit.com/r/ProgrammerHumor/comments/w4eo12/using_aws/",
+  ),
+  text: [
     From least favorite to most favorite: \
     \
     + AWS Web Console / Instance Management
@@ -141,6 +150,5 @@
     + Terraform and Ansible
     \
     #link("https://thenewstack.io/hashicorp-abandons-open-source-for-business-source-license/")[Terraform licensing issue?]
-    #v(1fr)
-  ]
+  ],
 )
