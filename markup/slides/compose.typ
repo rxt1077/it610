@@ -10,47 +10,54 @@
   title: [Docker Compose],
 )
 
-#slide(title: [Goals],
-  side-by-side[
-    #v(1fr)
-    #image("/images/compose.png", width: 100%)
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [Goals],
+  image: licensed-image(
+    file: "/images/compose.png",
+    license: "fairuse",
+    title: [Docker Compose logo],
+    url: "https://codeblog.dotsandbrackets.com/quick-intro-to-docker-compose/compose-logo/",
+  ),
+  text: [
     - Run multiple containers
     - Have containers communicate with each other
     - Easily to bring a whole system up and down
-    #v(1fr)
-  ]
+  ],
 )
 
-#slide(title: [The Good],
-  side-by-side[
-    #v(1fr)
+#alternate(
+  title: [The Good],
+  image: licensed-image(
+    file: "/images/thumbs-up.jpg",
+    license: "cc-by-2",
+    title: [thumbs up],
+    url: "https://live.staticflickr.com/2426/3958637561_c266717b95_o_d.jpg",
+    author: [anthony kelly],
+    author-url: "https://www.flickr.com/photos/62337512@N00/",
+  ),
+  text: [ 
     - Already included with Docker Desktop
     - Easy to run
     - Can be used on dev machines
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/thumbs-up.jpg", width: 100%)
-    #v(1fr)
-  ]
+  ],
 )
 
-#slide(title: [The Bad],
-  side-by-side[
-    #v(1fr)
-    #image("/images/thumbs-down.jpg")
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [The Bad],
+  image: licensed-image(
+    file: "/images/thumbs-down.jpg",
+    license: "cc-by-nc-sa-2",
+    title: [2 thumbs down],
+    url: "https://www.flickr.com/photos/88494026@N00/2516298393",
+    author: [sparklemotion0],
+    author-url: "https://www.flickr.com/photos/88494026@N00",
+  ),
+  text: [
     - Strange persistence choices
     - Difficult to run on multiple machines
     - Not considered production stable
     - Path name issues
-    #v(1fr)
-  ]
+  ],
 )
 
 #slide(title: [Setup])[
@@ -61,19 +68,25 @@
           node-fill: gradient.radial(white, blue, radius: 200%),
           node-stroke: blue,
           (
-            node((2,0), [Project Root], shape: parallelogram.with(angle: 20deg)),
+            node((2,0), [Project Root],
+              shape: parallelogram.with(angle: 20deg),
+              fill: gradient.radial(white, green, radius: 200%)),
             edge((1,1), "-"),
             edge((2,1), "-"),
             edge((3,1), "-"),
             edge((5,1), "-"),
             node((1,1), [docker-compose.yml], shape: rect),
             node((2,1), [.env], shape: rect),
-            node((3,1), [web], shape: parallelogram.with(angle: 20deg)),
+            node((3,1), [web],
+              shape: parallelogram.with(angle: 20deg),
+              fill: gradient.radial(white, green, radius: 200%)),
             edge((2.5,2), "-"),
             edge((3.75,2), "-"),
             node((2.5,2), [Dockerfile]),
             node((3.75,2), [httpd.conf]),
-            node((5,1), [db], shape: parallelogram.with(angle: 20deg)),
+            node((5,1), [db],
+              shape: parallelogram.with(angle: 20deg),
+              fill: gradient.radial(white, green, radius: 200%)),
             edge("-"),
             node((5, 2), [Dockerfile])
           )
@@ -161,7 +174,17 @@ pihole:
 ]
 
 #slide(title: [Resources])[
-  #align(center, image(width: 75%, "/images/compose2.png"))
+  #align(center, 
+    licensed-image(
+      file: "/images/compose-diagram.svg",
+      license: "cc-by-nc-4",
+      title: [compose-diagram.svg],
+      url: "https://rxt1077.github.io/it610/docs/images/compose-diagram.svg",
+      author: [Ryan Tolboom],
+      author-url: "https://using.tech",
+      width: 75%,
+    )
+  )
   \
   - #link("https://docs.docker.com/compose/compose-file/)")[Full Compose File Spec]
   - #link("https://docs.docker.com/compose/reference/")[Docker Compose CLI reference]
