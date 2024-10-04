@@ -16,7 +16,7 @@
   Configure
   #licensed-image(
     file: "/images/configure-icon.svg",
-    license: "cc0",
+    license: "CC0",
     title: [Settings SVG Vector],
     url: "https://www.svgrepo.com/svg/13688/settings",
   )
@@ -24,7 +24,7 @@
   Operate
   #licensed-image(
     file: "/images/operate-icon.svg",
-    license: "cc0",
+    license: "CC0",
     title: [Press Button SVG Vector],
     url: "https://www.svgrepo.com/svg/58818/press-button",
   )
@@ -32,7 +32,7 @@
   Maintain
   #licensed-image(
     file: "/images/maintain-icon.svg",
-    license: "cc0",
+    license: "CC0",
     title: [Wrench SVG Vector],
     url: "https://www.svgrepo.com/svg/535743/wrench",
   )
@@ -42,7 +42,7 @@
   title: [DevOps Patterns],
   image: licensed-image(
     file: "/images/devops.svg",
-    license: "cc-by-sa-4",
+    license: "CC BY-SA 4.0",
     title: [Devops-toolchain.svg],
     url: "https://upload.wikimedia.org/wikipedia/commons/0/05/Devops-toolchain.svg",
     author: [Kharnagy],
@@ -60,7 +60,7 @@
   title: [Site Reliability Engineering (SRE)],
   image: licensed-image(
     file: "/images/sre.jpg",
-    license: "cc-by-nc-nd-4",
+    license: "CC BY-NC-ND 4.0",
     title: [Service Reliability Hierarchy],
     url: "https://sre.google/sre-book/part-III-practices/#fig_part-practices_reliability-hierarchy",
     author: [Betsy Beyer, Chris Jones, Niall Richard Murphy, Jennifer Petoff],

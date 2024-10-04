@@ -14,7 +14,7 @@
   title: [Goals],
   image: licensed-image(
     file: "/images/compose.png",
-    license: "fairuse",
+    license: "FAIRUSE",
     title: [Docker Compose logo],
     url: "https://codeblog.dotsandbrackets.com/quick-intro-to-docker-compose/compose-logo/",
   ),
@@ -29,7 +29,7 @@
   title: [The Good],
   image: licensed-image(
     file: "/images/thumbs-up.jpg",
-    license: "cc-by-2",
+    license: "CC BY 2.0",
     title: [thumbs up],
     url: "https://live.staticflickr.com/2426/3958637561_c266717b95_o_d.jpg",
     author: [anthony kelly],
@@ -46,7 +46,7 @@
   title: [The Bad],
   image: licensed-image(
     file: "/images/thumbs-down.jpg",
-    license: "cc-by-nc-sa-2",
+    license: "CC BY-NC-SA 2.0",
     title: [2 thumbs down],
     url: "https://www.flickr.com/photos/88494026@N00/2516298393",
     author: [sparklemotion0],
@@ -177,7 +177,7 @@ pihole:
   #align(center, 
     licensed-image(
       file: "/images/compose-diagram.svg",
-      license: "cc-by-nc-4",
+      license: "CC BY-NC 4.0",
       title: [compose-diagram.svg],
       url: "https://rxt1077.github.io/it610/docs/images/compose-diagram.svg",
       author: [Ryan Tolboom],

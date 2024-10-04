@@ -41,20 +41,23 @@
   width: 100%,
 ) = {
   let license-text = ""
-  if license == "fairuse" {
+  license = upper(license)
+  if license == "FAIRUSE" {
     license-text = [#link(url)[#title] is used under fair use]
-  } else if license == "cc0" {
+  } else if license == "PUBLIC" {
+    license-text = [#link(url)[#title] is in the public domain]
+  } else if license == "CC0" {
     license-text = [#link(url)[#title] is in the public domain under #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0]]
-  } else if license == "cc-by-2" {
-    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by/2.0/")[CC BY 2.0]]
-  } else if license == "cc-by-nc-sa-2" {
-    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-nc-sa/2.0/")[CC BY-NC-SA 2.0]]
-  } else if license == "cc-by-nc-4" {
-    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-nc/4.0/")[CC BY-NC 4.0]]
-  } else if license == "cc-by-sa-4" {
-    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-sa/4.0/")[CC BY-SA 4.0]]
-  } else if license == "cc-by-nc-nd-4" {
-    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/by-nc-nd/4.0/")[CC BY-NC-ND 4.0]]
+  } else if license.starts-with("CC") {
+    let license_parts = license.split()
+    let options = license_parts.at(1)
+    let version = license_parts.at(2)
+    if version.contains(".") != true {
+      version = version + ".0"
+    }
+    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/" + lower(options) + "/" + version + "/")[CC #options #version]]
+  } else {
+    panic("Unknown license: " + license)
   }
 
   block(breakable: false, width: width)[

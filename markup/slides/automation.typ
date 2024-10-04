@@ -47,7 +47,7 @@
   title: [Cron / At],
   image: licensed-image(
     file: "/images/crontab.png",
-    license: "cc-by-2",
+    license: "CC BY 2.0",
     title: [Cron Job],
     url: "https://www.flickr.com/photos/91795203@N02/16199272841",
     author: [xmodulo],
@@ -67,7 +67,7 @@
   title: [Push vs. Pull],
   image: licensed-image(
     file: "/images/push-pull.jpg",
-    license: "cc-by-2",
+    license: "CC BY 2.0",
     title: [Push and Pull Humour],
     url: "https://www.flickr.com/photos/89165847@N00/49319453518",
     author: [mikecogh],
@@ -119,7 +119,7 @@
   title: [Automation Mindset],
   image: licensed-image(
     file: "/images/mindset.jpg",
-    license: "cc-by-2",
+    license: "CC BY 2.0",
     title: [Mindset],
     url: "https://www.flickr.com/photos/128573122@N05/18658685910",
     author: [davis.steve32],

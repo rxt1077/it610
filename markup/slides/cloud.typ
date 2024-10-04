@@ -12,7 +12,7 @@
   title: [What is it?],
   image: licensed-image(
     file: "/images/cloud.svg",
-    license: "cc-by-sa-4",
+    license: "CC BY-SA 4.0",
     title: [FSFE There is no cloud postcard en.svg],
     url: "https://upload.wikimedia.org/wikipedia/commons/f/f5/FSFE_There_is_no_cloud_postcard_en.svg",
     author: [Markus Meier, FSFE],
@@ -94,7 +94,7 @@
   title: [Want to try it at home?],
   image: licensed-image(
     file: "/images/messy-servers.jpg",
-    license: "cc-by-2",
+    license: "CC BY 2.0",
     title: [servers],
     url: "https://www.flickr.com/photos/40987321@N02/5580348753",
     author: [hisperati],
@@ -119,7 +119,7 @@
   title: [What can AWS do for you?],
   image: licensed-image(
     file: "/images/aws-funny.png",
-    license: "fairuse",
+    license: "FAIRUSE",
     title: [AWS in a Nutshell],
     url: "https://www.reddit.com/r/ProgrammerHumor/comments/9ym7mj/aws_in_a_nutshell/",
   ),
@@ -136,7 +136,7 @@
   title: [How do you deploy to AWS?],
   image: licensed-image(
     file: "/images/aws-funny2.jpg",
-    license: "fairuse",
+    license: "FAIRUSE",
     title: [Using AWS],
     url: "https://www.reddit.com/r/ProgrammerHumor/comments/w4eo12/using_aws/",
   ),
