@@ -1,5 +1,5 @@
 # Do we want to look at building off of php-apache?
-FROM ubuntu:20.04
+FROM ubuntu:24.04
 
 # If we don't set this, apt-get prompts us to put in the timezone
 ENV DEBIAN_FRONTEND=noninteractive
