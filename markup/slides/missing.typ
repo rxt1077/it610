@@ -1,5 +1,6 @@
 #import "/templates/slides.typ": *
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
+//#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
+#import "/typst-fletcher/src/exports.typ" as fletcher: diagram, node, edge
 
 #show: university-theme.with(short-title: [Missing])
 
@@ -67,62 +68,107 @@
   )
 ]
 
-#slide(title: [Init System],
-  side-by-side[
-    #v(1fr)
+#alternate(
+  title: [Init System],
+  image: licensed-image(
+    file: "/images/number-one.jpg",
+    license: "CC BY-NC-ND 2.0",
+    title: [Foam Finger Fun!],
+    url: "https://www.flickr.com/photos/pecma/9449255933",
+    author: [Matthew Peck],
+    author-url: "https://www.flickr.com/photos/pecma/",
+  ),
+  text: [
     - PID 1
     - SysV was the old way of doing it
     - Most modern systems run sytemd (it's conentious)
     - The init system brings up and monitors daemon processes
-    #v(1fr)
-  ][
-    #image("/images/number_one.png")
-  ]
+  ],
 )
 
-#slide(title: [Basic systemctl Commands],
-  side-by-side(columns: (30%, 70%))[
-    #v(1fr)
-    #image("/images/systemd-light.svg")
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [Basic systemctl Commands],
+  image: licensed-image(
+    file: "/images/systemd-light.svg",
+    license: "CC BY-SA 4.0",
+    title: [Full Color Logo],
+    url: "https://brand.systemd.io/",
+    author: [Tobias Bernard],
+    author-url: "https://tobiasbernard.com/",
+  ),
+  text: text(size: 20pt)[
     - `systemctl list-units --type=service`
     - `systemctl start <servicename>`
     - `systemctl stop <servicename>`
     - `systemctl restart <servicename>`
     - `systemctl enable <servicename>`
-    #v(1fr)
-  ]
+  ],
 )
 
-#slide(title: [Processes],
-  side-by-side[
-    #v(1fr)
+#alternate(
+  title: [Processes],
+  image: image("/images/ps.png"),
+  text: [
     - OS kernel allows for multiple things to run at once
     - A process is one of those things
     - The kernel scheduler splits time between them
     - #link("https://documentation.suse.com/sles/15-SP1/html/SLES-all/cha-tuning-taskscheduler.html")[This can be adjusted!]
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/ps.png")
-    #v(1fr)
   ]
 )
 
-#slide(title: [Tuning the Process Scheduler],
-  side-by-side(columns: (40%, 60%))[
-    #v(1fr)
-    #image(width: 100%, "/images/process-states.png")
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [Tuning the Process Scheduler],
+  image: {
+    set text(size: 0.75em)
+    let R = (1, 1)
+    let D = (0, 0)
+    let S = (0, 2)
+    let T = (2, 0)
+    let Z = (2, 2)
+    diagram(
+      spacing: 1em,
+      label-sep: 0em,
+      label-size: 0.8em,
+      blob(R, [
+        Running \
+        Runnable \
+        (R)
+      ], tint: green),
+      blob(D, [
+        Uninterruptible \
+        Sleep \
+        (D)
+      ], tint: blue),
+      blob(S, [
+        Interruptible \
+        Sleep \
+        (S)
+      ], tint: blue),
+      blob(T, [
+        Stopped \
+        (T)
+      ], tint: yellow),
+      blob(Z, [
+        Zombie \
+        (Z)
+      ], tint: red),
+      edge(R, D, "-|>", bend: -20deg),
+      edge(D, R, "-|>", [wake up], bend: -20deg, label-angle: auto),
+      edge(R, S, "-|>", bend: -20deg),
+      edge(S, R, "-|>", [
+        wake up \
+        signal
+      ], bend: -20deg, label-angle: auto),
+      edge(R, T, "-|>", [SIGSTOP], bend: -20deg, label-angle: auto),
+      edge(T, R, "-|>", [SIGCONT], bend: -20deg, label-angle: auto),
+      edge(R, Z, "-|>", [exit()], label-side: left, bend: -20deg, label-angle: auto),
+    )
+  },
+  text: [
     - `/proc/sched_debug` shows all tunable variables
     - `sysctl` (not systemctl!) can be used to adjust them
     - `chrt` shows the real-time attributes of a running process
     - If you make changes, don't forget to make them permanent! (/etc/sysctl.conf)
-    #v(1fr)
   ]
 )
 
