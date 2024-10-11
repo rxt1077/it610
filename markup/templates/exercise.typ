@@ -100,18 +100,29 @@
 
 // AsciiDoctor style(ish) admonitions for things we want to point out
 #let admonition(body, symbol: emoji.face.think, color: secondary-color) = {
-  align(center,
-    rect(
-      width: 80%,
-      stroke: color + 2pt,
-      radius: 4pt,
-      fill: color.lighten(85%), 
-      grid(
-        columns: (60pt, 1fr),
-        gutter: 3pt,
-        text(color, size: 40pt, align(center + horizon, symbol)),
-        text(color, size: 10pt, align(left + horizon, body))
+  layout(size => {
+    set text(size: 10pt)
+    let width = 80%
+    // most of this logic is to force a minimum height for the admonition
+    let height = measure(box(width: (size.width * width), body)).height
+    if height < 60pt {
+      height = 60pt
+    }
+    align(center,
+      rect(
+        width: width,
+        stroke: color + 2pt,
+        radius: 4pt,
+        fill: color.lighten(85%),
+        grid(
+          rows: height,
+          columns: (60pt, 1fr),
+          gutter: 10pt,
+          // we have to use pad to nudge the symbol up a little
+          text(color, font: "Noto Emoji", size: 40pt, align(horizon, pad(bottom: 10pt, symbol))),
+          text(color, size: 10pt, align(left + horizon, body))
+        )
       )
     )
-  )
+  })
 }

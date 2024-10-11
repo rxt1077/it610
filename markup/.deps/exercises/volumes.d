@@ -1,1 +1,1 @@
-../docs/exercises/volumes.pdf: exercises\volumes.typ templates\exercise.typ
+../docs/exercises/volumes.pdf: templates\exercise.typ exercises\volumes.typ
