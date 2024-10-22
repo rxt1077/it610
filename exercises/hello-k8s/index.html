@@ -1,0 +1,27 @@
+<html>
+  <!-- Based on: https://github.com/earthly/example-dos-gaming/blob/main/index.html -->
+  <style type="text/css" media="screen">
+      canvas {
+          width: 800px; 
+          height: 600px;
+      }
+  </style>
+  <head>
+    <title>Elfland</title>
+    <script src="js-dos.js"></script>
+  </head>
+  <body>
+    <h2>Congratulations on Deploying a Web App on Kubernetes!</h2>
+    <p>Enjoy the astoundingly kid-friendly shareware game, Elfland</p>
+    <p>PS: feel free to hack things to play <a href="https://dosgames.com/game/doom/">Doom</a></p>
+    <canvas id="jsdos" width="800" height="600" ></canvas>
+    <script>
+      Dos(document.getElementById("jsdos"), {
+      }).ready((fs, main) => {
+        fs.extract("elf11.zip").then(() => {
+          main(["-c", "ELF1.EXE"])
+        });
+      });
+    </script>
+  </body>
+</html>
