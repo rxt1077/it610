@@ -172,19 +172,83 @@
   ]
 )
 
-#slide(title: [Devices],
-  side-by-side[
-    #v(1fr)
+#alternate(
+  title: [Devices],
+  image: [
+    #set text(size: 10pt)
+    #grid(
+      columns: (1fr),
+      rows: (20%, 60%, 20%),
+      grid.cell(
+        fill: green.lighten(80%),
+        box(
+          inset: 8pt,
+          grid(
+            columns: (1fr, 1fr, 1fr, 1fr, 1fr, 1fr),
+            rows: (1em, 1fr),
+            gutter: 10pt,
+            align: center + horizon,
+            fill: green.lighten(20%),
+            grid.cell(fill: none, colspan: 6, [User Space]),
+            [bash],
+            [neovim],
+            [wayland],
+            [ssh],
+            [python],
+            [firefox],
+          )
+        )
+      ),
+      grid.cell(
+        fill: yellow.lighten(80%),
+        box(
+          inset: 8pt,
+          grid(
+            columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+            rows: (1em, 1fr, 1fr, 1fr, 1fr),
+            gutter: 8pt,
+            align: center + horizon,
+            fill: yellow.lighten(20%),
+            grid.cell(fill: none, colspan: 5, [Kernel Space]), 
+            grid.cell(rowspan: 4, [Process Management and Architecture Dependent Code]),
+            grid.cell(rowspan: 4, [Memory Management for Physical and Virtual Memories]),
+            grid.cell(rowspan: 2, [Network Stack / Subsystem]),
+            grid.cell(colspan: 2, [Virtual File System]),
+            [File System Drivers],
+            grid.cell(rowspan: 2, [Character Drivers and Friends]),
+            [Network Device Drivers],
+            [Block Device Drivers],
+            grid.cell(colspan: 3, [Hardware Protocol Layers (PCI, USB, I#super[2]C...)]),
+          ),
+        ),
+      ),
+      grid.cell(
+        fill: red.lighten(80%),
+        box(
+          inset: 8pt,
+          grid(
+            columns: (1fr, 1fr, 1fr, 1fr, 1fr),
+            rows: (1em, 1fr),
+            gutter: 8pt,
+            align: center + horizon,
+            fill: red.lighten(20%),
+            grid.cell(fill: none, colspan: 5, [Hardware Space]),
+            [CPU],
+            [Memory],
+            [Network Interfaces],
+            [Storage Devices],
+            [All Other Devices],
+          ),
+        ),
+      ),
+    )
+  ],
+  text: [
     - Real systems have real devices
-    - I/O is a pretty standard bottleneck in production systems
+    - I/O is a typical bottleneck in production systems
     - #link("https://cromwell-intl.com/open-source/performance-tuning/disks.html")[Sysfs allows for tuning of I/O devices]
     - I/O also has schedulers
-    #v(1fr)
-  ][
-    #v(1fr)
-    #image("/images/linux-kernel-overview.png")
-    #v(1fr)
-  ]
+  ],
 )
 
 #slide(title: [udev])[
@@ -200,16 +264,17 @@
   #v(1fr)
 ]
 
-#slide(title: [General Advice for Tuning Linux],
-  side-by-side(columns: (35%, 1fr))[
-    #v(1fr)
-    #image("/images/advice.png", width: 100%)
-    #v(1fr)
-  ][
-    #v(1fr)
+#alternate(
+  title: [General Advice for Tuning Linux],
+  image: licensed-image(
+    file: "/images/advice-icon.svg",
+    license: "UXWING",
+    title: [Advice Icon],
+    url: "https://uxwing.com/advice-icon/",
+  ),
+  text: [
     - Determine your metric in advance!
     - Take slow steps and monitor changes
     - Be prepared to walk-back changes
-    #v(1fr)
-  ]
+  ],
 )

@@ -47,6 +47,8 @@
     license-text = [#link(url)[#title] is used under fair use]
   } else if license == "PUBLIC" {
     license-text = [#link(url)[#title] is in the public domain]
+  } else if license == "UXWING" {
+    license-text = [#link(url)[#title] is licensed under #link("https://uxwing.com/license/")[the uxwing license]]
   } else if license == "CC0" {
     license-text = [#link(url)[#title] is in the public domain under #link("https://creativecommons.org/publicdomain/zero/1.0/")[CC0]]
   } else if license.starts-with("CC") {
