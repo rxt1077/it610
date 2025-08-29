@@ -1,1 +1,1 @@
-../docs/exercises/dev-env.pdf: exercises\dev-env.typ templates\exercise.typ
+../docs/exercises/dev-env.pdf: templates\exercise.typ exercises\dev-env.typ

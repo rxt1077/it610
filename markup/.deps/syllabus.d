@@ -1,1 +1,1 @@
-../docs/syllabus.pdf: templates\njit_logo.svg syllabus.typ templates\syllabus.typ
+../docs/syllabus.pdf: templates\njit_logo.svg templates\syllabus.typ syllabus.typ
