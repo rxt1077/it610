@@ -68,7 +68,7 @@ Follow #link("https://docs.docker.com/desktop/")[these instructions] to install 
 #code([
   ```console
   $ cd it610/exercises/getting-started <1>
-  it610/exercises/1 $ docker build -t getting-started . <2>
+  it610/exercises/getting-started $ docker build -t getting-started . <2>
   Sending build context to Docker daemon  5.632kB <3>
   Step 1/2 : FROM ubuntu:20.04
   20.04: Pulling from library/ubuntu
