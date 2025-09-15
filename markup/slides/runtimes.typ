@@ -8,32 +8,36 @@
   title: [Container Runtimes],
 )
 
-#slide(title: [Background], side-by-side[
-  #v(1fr)
-  - Recall that containers are largely just #link("https://en.wikipedia.org/wiki/Linux_namespaces")[namespaces] and #link("https://en.wikipedia.org/wiki/Cgroups")[cgroups]
-  - A container runtime is the software that is used to support the containerization of software
-  #v(1fr)
-][
-  #v(1fr)
-  #image("/images/cgroups.jpg")
-  #v(1fr)
-])
+#alternate(
+  title: [Background],
+  image: licensed-image(
+    file: "/images/cgroups.jpg",
+    license: "CC BY-NC-SA 4.0",
+    title: [cgroups],
+    url: "https://wizardzines.com/comics/cgroups/",
+    author: [Julia Evans],
+    author-url: "https://wizardzines.com/",
+  ), text: [
+    - Recall that containers are largely just #link("https://en.wikipedia.org/wiki/Linux_namespaces")[namespaces] and #link("https://en.wikipedia.org/wiki/Cgroups")[cgroups]
+    - A container runtime is the software that is used to support the containerization of software
+  ]
+)
 
-#slide(title: [What specifically does a runtime do?], side-by-side[
-  #align(center, [
-    #v(1fr)
-    #image("/images/runtimes.png")
-    #text(12pt, link("https://landscape.cncf.io/guide#runtime")[Source: Cloud Native Landscape])
-    #v(1fr)
-  ])
-][
-  #v(1fr)
-  - image management
-  - lifecycle management
-  - creation
-  - resource management
-  #v(1fr)
-])
+#alternate(
+  title: [What specifically does a runtime do?],
+  image: licensed-image(
+    file: "/images/runtimes.png",
+    license: "FAIRUSE",
+    title: "Cloud Native Landscape",
+    url: "https://landscape.cncf.io/guide#runtime",
+    author: [The Linux Foundation],
+    author-url: "https://www.linuxfoundation.org/",), text: [
+    - image management
+    - lifecycle management
+    - creation
+    - resource management
+  ]
+)
 
 #slide(title: [Docker (original)])[
   - One of the first runtimes, and as such many things strive to be Docker compatible.
@@ -44,10 +48,28 @@
   - Losing ground in the production environment, but still common on dev machines
 ]
 
-#slide(title: [Old Docker], align(center, image("/images/old-docker.png")))
+#slide(
+  title: [Old Docker],
+  align(center, licensed-image(
+      file: "/images/old-docker.png",
+      license: "FAIRUSE",
+      title: [Docker and OCI Runtimes],
+      url: "https://medium.com/@avijitsarkar123/docker-and-oci-runtimes-a9c23a5646d6",
+      author: [Avijit Sarkar],
+      author-url: "https://medium.com/@avijitsarkar123",
+  ))
+)
 
 #slide(title: [containerd])[
-  #align(center, image("/images/containerd.png", height: 30%))
+  #align(center, licensed-image(
+      file: "/images/containerd.png",
+      license: "FAIRUSE",
+      title: [containerd logo],
+      url: "https://containerd.io",
+      author: [The Linux Foundation],
+      author-url: "https://www.linuxfoundation.org/",
+      width: 50%,
+  ))
   - Born from the Open Container Initiative (OCI) which was created to make open standards for containers
   - Daemon that runs in the background and supports app containers (sound familiar?)
   - Relies on a lower-level tool called runc (written by Docker)
@@ -55,85 +77,137 @@
 ]
 
 #slide(title: [runc])[
-  #align(center, image("/images/runc.png", height: 30%))
+  #align(center, licensed-image(
+      file: "/images/runc.png",
+      license: "FAIRUSE",
+      title: "runc logo",
+      url: "https://github.com/opencontainers/runc",
+      author: [Open Container Initiative],
+      author-url: "https://github.com/opencontainers",
+      width: 75%
+  ))
   - Universal, lightweight container runtime
   - Designed for security
   - No Docker dependencies
   - Supports a very simple model of container execution
 ]
 
-#slide(title: [New Docker], align(center, image("/images/new-docker.png")))
+#slide(title: [New Docker],
+  align(center, licensed-image(
+      file: "/images/new-docker.png",
+      license: "FAIRUSE",
+      title: [Docker and OCI Runtimes],
+      url: "https://medium.com/@avijitsarkar123/docker-and-oci-runtimes-a9c23a5646d6",
+      author: [Avijit Sarkar],
+      author-url: "https://medium.com/@avijitsarkar123",
+  ))
+)
 
-#slide(title: [CRI-O], side-by-side[
-  #v(1fr)
-  - Implements Kubernetes Container Runtime Interface (CRI) with OCI standards
-  - Runs as a daemon
-  - Support app containers
-  - Bridges the gap between K8s and containers, no need to run a `docker` command in-between
-  - Not meant for use by devs
-  #v(1fr)
-][
-  #image("/images/cri-o.png")
-])
+#alternate(
+  title: [CRI-O],
+  image: licensed-image(
+    file: "/images/cri-o.png",
+    license: "FAIRUSE",
+    title: [Introducing CRI-O 1.0],
+    url: "https://redhat.com/en/blog/introducing-cri-o-10",
+    author: [Joe Brockmeier],
+    author-url: "https://www.redhat.com/en/authors/joe-brockmeier",
+  ),
+  text: [
+    - Implements Kubernetes Container Runtime Interface (CRI) with OCI standards
+    - Runs as a daemon
+    - Support app containers
+    - Bridges the gap between K8s and containers, no need to run a `docker` command in-between
+    - Not meant for use by devs
+  ]
+)
 
-#slide(title: [Podman], side-by-side[
-  #v(1fr)
-  #image("/images/podman.png", width: 100%)
-  #v(1fr)
-][
-  #v(1fr)
-  - daemonless tool to use OCI containers
-  - has a similar CLI to `docker`
-  - supports similar features as `docker`
-  - Linux only
-  #v(1fr)
-])
+#alternate(
+  title: [Podman],
+  image: licensed-image(
+    file: "/images/podman.png",
+    license: "FAIRUSE",
+    title: [podman logo],
+    url: "https://podman.io",
+    author: "Podman Container Tools",
+    author-url: "https://podman.io",
+    width: 100%,
+  ),
+  text: [
+    - daemonless tool to use OCI containers
+    - has a similar CLI to `docker`
+    - supports similar features as `docker`
+    - Linux only
+  ]
+)
 
-#slide(title: [LXC], side-by-side[
-  #v(1fr)
-  - Container engine designed for _system_ containers
-  - Rootless, daemonless, and fast
-  - Keep this in mind if you encounter a _tough_ virtualization feature
-  - Works with tools Linux admins are already familiar with
-  - Linux only
-  #v(1fr)
-][
-  #v(1fr)
-  #image("/images/lxc.svg")
-  #v(1fr)
-])
+#alternate(
+  title: [LXC],
+  image: licensed-image(
+    file: "/images/lxc.svg",
+    license: "CC BY-NC-SA 4.0",
+    title: [LXC logo],
+    url: "https://linuxcontainers.org",
+    author: "LinuxContainers",
+    author-url: "https://linuxcontainers.org",
+  ),
+  text: [
+    - Container engine designed for _system_ containers
+    - Rootless, daemonless, and fast
+    - Keep this in mind if you encounter a _tough_ virtualization feature
+    - Works with tools Linux admins are already familiar with
+    - Linux only
+  ]
+)
 
-#slide(title: [Just for fun: #link("https://github.com/p8952/bocker")[Bocker]], side-by-side[
-  #v(1fr)
-  #image(width: 100%, "/images/container-funny.png") 
-  #v(1fr)
-][
-  #v(1fr)
-  - A lot of what Docker does can be implemented in around 100 lines of BASH!
-  - Remember these are things that are _already_ built in to the Linux kernel
-  - Obviously Linux only
-  #v(1fr)
-])
+#alternate(
+  title: [Just for fun: #link("https://github.com/p8952/bocker")[Bocker]],
+  image: licensed-image(
+    file: "/images/container-funny.png",
+    license: "FAIRUSE",
+    title: [You should use docker - it's so light weight!],
+    url: "https://www.reddit.com/r/ProgrammerHumor/comments/zg4wso/you_should_use_docker_its_so_light_weight/",
+    author: [AdequateSteve],
+    author-url: "https://www.reddit.com/user/AdequateSteve/",
+    width: 100%,
+  ),
+  text: [
+    - A lot of what Docker does can be implemented in around 100 lines of BASH!
+    - Remember these are things that are _already_ built in to the Linux kernel
+    - Obviously Linux only
+  ]
+)
 
-#slide(title: [What does this mean?], side-by-side[
-  #v(1fr)
-  - As a sysadmin, you have options
-  - Almost all Linux-based
-  - A few kernel features can spawn a massive shift in software deployment
-  #v(1fr)
-][
-  #v(1fr)
-  #image(width: 100%, "/images/docker-funny.png")
-  #v(1fr)
-])
+#alternate(
+  title: [What does this mean?],
+  image: licensed-image(
+    file: "/images/docker-funny.png",
+    license: "FAIRUSE",
+    title: [Docker does have some favorites though...],
+    url: "https://blog.stackademic.com/devops-notes-for-developers-what-is-docker-59d056345916",
+    author: [Michael],
+    author-url: "https://medium.com/@micodin0plant",
+    width: 100%
+  ),
+  text: [
+    - As a sysadmin, you have options
+    - Almost all Linux-based
+    - A few kernel features can spawn a massive shift in software deployment
+  ]
+)
 
-#slide(title: [Don't forget to demo...], side-by-side[
-  #v(1fr)
-  #image("/images/terminal.png")
-  #v(1fr)
-][
-  #v(1fr)
-  - the Docker daemon running
-  - a `docker save` to show the structure of the filesystem
-  #v(1fr)
-])
+#alternate(
+  title: [Don't forget to demo...],
+  image: licensed-image(
+    file: "/images/terminal.png",
+    license: "CC BY-SA 4.0",
+    title: [Terminal-linux-ubuntu.png],
+    url: "https://commons.wikimedia.org/wiki/File:Terminal-linux-ubuntu.png",
+    author: [Ricardoborges],
+    author-url: "https://commons.wikimedia.org/wiki/File:Terminal-linux-ubuntu.png", 
+  ),
+  text: [
+    - the Docker daemon running
+    - a `docker save` to show the structure of the filesystem
+  ],
+)

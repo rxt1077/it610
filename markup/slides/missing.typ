@@ -1,6 +1,6 @@
 #import "/templates/slides.typ": *
-//#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
-#import "/typst-fletcher/src/exports.typ" as fletcher: diagram, node, edge
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
+//#import "/typst-fletcher/src/exports.typ" as fletcher: diagram, node, edge
 
 #show: university-theme.with(short-title: [Missing])
 

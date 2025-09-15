@@ -77,7 +77,7 @@
 
 #slide(
   title: [Is the Sysadmin Dead?],
-  side-by-side(columns: (33%, 1fr))[
+  toolbox.side-by-side(columns: (33%, 1fr))[
     #v(1fr)
     #rect(
       stroke: 4pt,

@@ -1,5 +1,5 @@
 #import "/templates/slides.typ": *
-#import "@preview/fletcher:0.5.1" as fletcher: diagram, node, edge
+#import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import fletcher.shapes: diamond
 
 #show: university-theme.with(
@@ -94,7 +94,7 @@
     node-shape: circle,
     node-fill: njit-red,
     edge-stroke: 8pt + njit-blue.lighten(50%),
-    spacing: (4.8em, 4em),
+    spacing: (4em, 4em),
     label-size: 0.8em,
     node((0, 0), " "),
     node((1, 1), " ", fill: njit-blue),
@@ -160,6 +160,6 @@
     - #link("https://github.com")[GitHub]
     - #link("https://gitlab.com")[GitLab]
     - #link("https://sr.ht")[SourceHut]
-    - #link("https://radicle.xyz")[Radicle (p2p, v1.0 just came out!)]
+    - #link("https://radicle.xyz")[Radicle]
   ],
 )

@@ -44,7 +44,7 @@
 #slide(
   title: [How does it work?], [
   \
-  #side-by-side[
+  #toolbox.side-by-side[
     *Virtual Machines* \
     \
     - VirtualBox, QEMU, VMware, #link("https://aws.amazon.com/ec2/nitro/")[AWS Nitro], etc.
@@ -63,7 +63,7 @@
 
 #slide(
   title: [Who does it?],
-  side-by-side[
+  toolbox.side-by-side[
     #v(1fr)
     - #link("https://aws.amazon.com")[Amazon Web Services]
     - #link("https://azure.microsoft.com/en-us")[Microsoft Azure]

@@ -1,3 +1,4 @@
 markup/polylux
 markup/typst-fletcher
 markup/.deps/slides/*.d
+markup/.deps/exercises/*.d

@@ -1,5 +1,4 @@
-//#import "@preview/polylux:0.3.1": *
-#import "/polylux/polylux.typ": *
+#import "@preview/polylux:0.4.0": slide as polylux-slide, toolbox
 
 // NJIT theme based on University theme
 //
@@ -31,7 +30,7 @@
   )
 })
 
-// display and image with licensing info
+// display an image with licensing info
 #let licensed-image(
   file: none,
   license: none,
@@ -39,7 +38,7 @@
   url: none,
   author: none,
   author-url: none,
-  width: 100%,
+  width: auto,
 ) = {
   let license-text = ""
   license = upper(license)
@@ -63,14 +62,13 @@
     panic("Unknown license: " + license)
   }
 
-  block(breakable: false, width: width)[
+  block(breakable: false, width: 100%)[
     #set align(center)
     #set text(size: 8pt)
 
-    #block(below: 5pt)[#image(file)]
+    #block(below: 5pt)[#image(file, width: width)]
     #license-text
-  ]
-}
+  ] }
 
 // ugly hack to convert callout number to a unicode character
 #let num2unicode(num) = {
@@ -169,7 +167,7 @@
   date: none,
   logo: pad(right: 1em, top: 1em, image("njit_logo.svg")),
 ) = {
-  let authors = if type(authors) ==  "array" { authors } else { (authors,) }
+  let authors = if type(authors) ==  array { authors } else { (authors,) }
 
   let content = context {
     let colors = uni-colors.get()
@@ -210,7 +208,7 @@
     })
   }
 
-  logic.polylux-slide(content)
+  polylux-slide(content)
 }
 
 
@@ -229,7 +227,7 @@
       let cell = block.with( width: 100%, height: 100%, above: 0pt, below: 0pt, breakable: false )
       let colors = uni-colors.get()
 
-      utils.polylux-progress( ratio => {
+      toolbox.progress-ratio( ratio => {
         grid(
           rows: 2pt, columns: (ratio * 100%, 1fr),
           cell(fill: colors.a),
@@ -251,7 +249,7 @@
         block(fill: colors.c, inset: (x: .5em), grid(
           columns: (60%, 40%),
           align(top + left, heading(level: 2, text(fill: colors.a, title))),
-          align(top + right, text(fill: colors.a.lighten(65%), utils.current-section))
+          align(top + right, text(fill: colors.a.lighten(65%), toolbox.current-section))
         ))
       }
     } else { [] }
@@ -282,7 +280,7 @@
           cell(fill: colors.a, [#uni-short-author.get() #link("https://creativecommons.org/licenses/by-nc/4.0")[CC BY-NC 4.0]]),
           cell(uni-short-title.get()),
           cell(uni-short-date.get()),
-          cell(logic.logical-slide.display() + [~/~] + utils.last-slide-number)
+          cell([#toolbox.slide-number / #toolbox.last-slide-number])
         )
       }
     }
@@ -297,7 +295,7 @@
     header-ascent: .6em,
   )
 
-  logic.polylux-slide(body)
+  polylux-slide(body)
 }
 
 #let focus-slide(background-color: rgb("#071D49"), background-img: none, body) = {
@@ -318,13 +316,13 @@
 
   set text(fill: white, size: 2em)
 
-  logic.polylux-slide(align(horizon, body))
+  polylux-slide(align(horizon, body))
 }
 
 #let matrix-slide(columns: none, rows: none, ..bodies) = {
   let bodies = bodies.pos()
 
-  let columns = if type(columns) == "integer" {
+  let columns = if type(columns) == int {
     (1fr,) * columns
   } else if columns == none {
     (1fr,) * bodies.len()
@@ -333,7 +331,7 @@
   }
   let num-cols = columns.len()
 
-  let rows = if type(rows) == "integer" {
+  let rows = if type(rows) == int {
     (1fr,) * rows
   } else if rows == none {
     let quotient = calc.quo(bodies.len(), num-cols)
@@ -363,7 +361,7 @@
     ..bodies.enumerate().map(color-body)
   )
 
-  logic.polylux-slide(content)
+  polylux-slide(content)
 }
 
 // display side-by-side slides alternating the image on the left/right
