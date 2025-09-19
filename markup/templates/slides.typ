@@ -58,6 +58,18 @@
       version = version + ".0"
     }
     license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://creativecommons.org/licenses/" + lower(options) + "/" + version + "/")[CC #options #version]]
+  } else if license.starts-with("GPL") {
+    let version = ""
+    if license.ends-with("V1") {
+      version = "1"
+    } else if license.ends-with("V2") {
+      version = "2"
+    } else if license.ends-with("V3") {
+      version = "3"
+    } else {
+      panic("Unknown version of GPL license: " + license)
+    }
+    license-text = [#link(url)["#title"] by #link(author-url)[#author] is licensed under #link("https://www.gnu.org/licenses/gpl-" + version + ".0.en.html")[GPLv#version]]
   } else {
     panic("Unknown license: " + license)
   }
@@ -68,7 +80,8 @@
 
     #block(below: 5pt)[#image(file, width: width)]
     #license-text
-  ] }
+  ]
+}
 
 // ugly hack to convert callout number to a unicode character
 #let num2unicode(num) = {
@@ -242,7 +255,7 @@
       header
     } else if title != none {
       if new-section != none {
-        utils.register-section(new-section)
+        toolbox.register-section(new-section)
       }
       context {
         let colors = uni-colors.get()
