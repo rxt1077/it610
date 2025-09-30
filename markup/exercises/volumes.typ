@@ -1,17 +1,21 @@
 #import "/templates/exercise.typ": exercise, code, admonition
 
-#show: doc => exercise(
-  course-name: "Systems Administration",
-  exercise-name: "Docker Volumes",
-  doc,
+/* goals and exercise-name are used by index.typ
+   that's why we define and then pass them to the show rule */
+#let exercise-name = "Volumes"
+#let goals = ( 
+	"Create a new volume",
+    "Run a container with a volume mounted",
+    "Create data on a volume",
+    "Back up a volume",
 )
 
-== Goals
-
-+ Create a new volume in Docker
-+ Run a postgres container with the volume mounted
-+ Create a new database on the volume
-+ Back up the volume
+#show: doc => exercise(
+  course-name: "Systems Administration",
+  exercise-name: exercise-name,
+  goals: goals,
+  doc,
+)
 
 == Creating a Volume
 

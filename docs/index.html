@@ -1,1 +1,114 @@
-<h1>IT610 GitHub Pages Site</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="css/exercise.css">
+    <title>Sysadmin</title>
+  </head>
+  <body>
+    <div class="content">
+      <h2>Systems Administration Resources</h2>
+      <p>This website houses presentations and exercises for teaching Linux systems administration with containers.</p>
+      <p>All resources are generated using <a href="https://github.com/typst/typst">Typst</a>, are available on <a href="https://github.com/rxt1077/it610">GitHub</a>, and are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
+      <p>The current syllabus can be found <a href="syllabus.pdf">here</a>.</p>
+      <h3>Presentations</h3>
+      <p>The presentations are listed in the order they are used.</p>
+      <p>Italics indicated that a presentation still needs to be converted to use the Typst template.</p>
+      <ol>
+        <li><a href="slides/unix.html"><em>UNIX Systems</em></a></li>
+        <li><a href="slides/containers.html"><em>System Administration with Containers</em></a></li>
+        <li><a href="slides/best-practices.html"><em>Best Practices</em></a></li>
+        <li><a href="slides/terminal.html"><em>Terminal Tips and Tricks</em></a></li>
+        <li><a href="slides/docker.html"><em>Docker Best Practices</em></a></li>
+        <li><a href="slides/project.html"><em>The Project</em></a></li>
+        <li><a href="slides/users.pdf">Users and Permissions</a></li>
+        <li><a href="slides/packages.pdf">Package Management in Linux</a></li>
+        <li><a href="slides/storage.html"><em>Storage</em></a></li>
+        <li><a href="slides/backup.html"><em>Backups</em></a></li>
+        <li><a href="slides/automation.pdf">Automation</a></li>
+        <li><a href="slides/orchestration.pdf">Orchestration</a></li>
+        <li><a href="slides/k8s.pdf">Kubernetes</a></li>
+        <li><a href="slides/ha-postgres-in-k8s.html"><em>High Availability Postgres in Kubernetes</em></a></li>
+        <li><a href="slides/runtimes.pdf">Container Runtimes</a></li>
+        <li><a href="slides/k8s-deployment.pdf">Deploying an Application on Kubernetes</a></li>
+        <li><a href="slides/compose.pdf">Docker Compose</a></li>
+        <li><a href="slides/cloud.pdf">Cloud Computing</a></li>
+        <li><a href="slides/buzz.pdf">DevOps, SRE, and other Buzzwords</a></li>
+        <li><a href="slides/git.pdf">Git</a></li>
+        <li><a href="slides/missing.pdf">What's Missing?</a></li>
+      </ol>
+      <h3>Exercises</h3>
+      <p>The exercises are listed in the order they are used with the learning goals that they cover.</p>
+      <p>Italics indicated that an exercises still needs to be converted to use the Typst template.</p>
+      <ol>
+        <li>
+          <p><a href="exercises/getting-started.pdf">Getting Started</a></p>
+          <ul>
+            <li>Install git</li>
+            <li>Install Docker</li>
+            <li>git pull the class git repository</li>
+            <li>Build a container image</li>
+            <li>Run a container</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/create-image.pdf">Creating a Container Image</a></p>
+          <ul>
+            <li>Use users and permissions in Linux</li>
+            <li>Create a custom container image</li>
+            <li>Build a container image</li>
+            <li>Run a container</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/exercise-3.html"><em>Exercise 3</em></a></p>
+          <ul>
+            <li>Installing GAM on an Ubuntu container via their installation script</li>
+            <li>Creating a Debian package for GAM</li>
+            <li>Creating a Dockerfile for a container that installs GAM from your package</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/volumes.pdf">Volumes</a></p>
+          <ul>
+            <li>Create a new volume</li>
+            <li>Run a container with a volume mounted</li>
+            <li>Create data on a volume</li>
+            <li>Back up a volume</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/hello-k8s.pdf">Hello Kubernetes</a></p>
+          <ul>
+            <li>Start the built-in version of Kubernetes in Docker Desktop</li>
+            <li>Build a custom image for a web app</li>
+            <li>Create a Kubernetes Deployment</li>
+            <li>Create a Kubernetes Service</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/exercise-8.html"><em>Exercise 8</em></a></p>
+          <ul>
+            <li>Apply Kubernetes objects from a YAML file</li>
+            <li>Use kubectl to explore a running system</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/compose.pdf">Docker Compose</a></p>
+          <ul>
+            <li>Run a Docker Compose system</li>
+            <li>Examine a functioning Docker Compose system</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="exercises/dev-env.pdf">Creating a Developer Environment</a></p>
+          <ul>
+            <li>Create a multi-container development environment using a container orchestration tool</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+  </body>
+</html>

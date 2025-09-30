@@ -1,0 +1,30 @@
+:root {
+    --primary-color: #D22630;
+    --secondary-color: #071D49;
+    --code-bg-color: #DCDCDC;
+}
+
+body {
+    font-family: 'Roboto';
+}
+
+.content {
+    max-width: 960px;
+    margin: auto;
+}
+
+h3:before {
+    content: "";
+    background-color: var(--primary-color);
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+h3 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+}
+
+

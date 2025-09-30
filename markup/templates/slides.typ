@@ -99,8 +99,8 @@
 }
 
 // code blocks in grey boxes with AsciiDoctor style callouts
-#let code(body, title: none, callouts: none) = {
-  set text(size: 15pt)
+#let code(body, text-size: 15pt, title: none, callouts: none) = {
+  set text(size: text-size)
   show regex("<[0123456789]>"): it => {
     num2unicode(it.text)
   }
@@ -172,6 +172,9 @@
   body
 }
 
+/* we count our own slides so we can calculate the progress bar in the header */
+#let slide-counter = counter("slide-counter")
+
 #let title-slide(
   title: [],
   subtitle: none,
@@ -180,6 +183,7 @@
   date: none,
   logo: pad(right: 1em, top: 1em, image("njit_logo.svg")),
 ) = {
+  slide-counter.step()
   let authors = if type(authors) ==  array { authors } else { (authors,) }
 
   let content = context {
@@ -232,7 +236,7 @@
   new-section: none,
   body
 ) = {
-
+  slide-counter.step()
   let body = pad(x: 2em, y: .5em, body)
   
   let progress-barline = context {
@@ -240,15 +244,15 @@
       let cell = block.with( width: 100%, height: 100%, above: 0pt, below: 0pt, breakable: false )
       let colors = uni-colors.get()
 
-      toolbox.progress-ratio( ratio => {
+        let ratio = slide-counter.get().first() / slide-counter.final().first()
         grid(
           rows: 2pt, columns: (ratio * 100%, 1fr),
           cell(fill: colors.a),
           cell(fill: colors.b)
         )
-      })
     } else { [] }
   }
+
 
   let header-text = {
     if header != none {
@@ -312,6 +316,7 @@
 }
 
 #let focus-slide(background-color: rgb("#071D49"), background-img: none, body) = {
+  slide-counter.step()
   let background-color = if background-img == none and background-color ==  none {
     rgb("#0C6291")
   } else {
@@ -333,6 +338,7 @@
 }
 
 #let matrix-slide(columns: none, rows: none, ..bodies) = {
+  slide-counter.step()
   let bodies = bodies.pos()
 
   let columns = if type(columns) == int {

@@ -5,6 +5,7 @@
 #let exercise(
   course-name: none,
   exercise-name: none,
+  goals: (),
   doc,
 ) = {
   set page(
@@ -55,6 +56,11 @@
 
   [
     = #exercise-name
+
+    == Goals
+    #for goal in goals [
+	    - #goal
+    ]
 
     #doc
   ]

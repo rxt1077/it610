@@ -1,14 +1,18 @@
 #import "/templates/exercise.typ": exercise, code, admonition
 
-#show: doc => exercise(
-  course-name: "Systems Administration",
-  exercise-name: "Creating a Developer Environment",
-  doc,
+/* goals and exercise-name are used by index.typ
+   that's why we define and then pass them to the show rule */
+#let exercise-name = "Creating a Developer Environment"
+#let goals = ( 
+    "Create a multi-container development environment using a container orchestration tool",
 )
 
-== Goals
-
-- Create a multi-container development environment using a container orchestration tool
+#show: doc => exercise(
+  course-name: "Systems Administration",
+  exercise-name: exercise-name,
+  goals: goals,
+  doc,
+)
 
 == Background
 

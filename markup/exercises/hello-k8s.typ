@@ -1,17 +1,21 @@
 #import "/templates/exercise.typ": exercise, code, admonition
 
-#show: doc => exercise(
-  course-name: "Systems Administration",
-  exercise-name: "Hello Kubernetes",
-  doc,
+/* goals and exercise-name are used by index.typ
+   that's why we define them and then pass them to the show rule */
+#let exercise-name = "Hello Kubernetes"
+#let goals = (
+  "Start the built-in version of Kubernetes in Docker Desktop",
+  "Build a custom image for a web app",
+  "Create a Kubernetes Deployment",
+  "Create a Kubernetes Service",
 )
 
-== Goals
-
-+ Start the built-in version of Kubernetes in Docker Desktop
-+ Build a custom Docker image for a web app
-+ Create a Kubernetes deployment for the web app
-+ Create a Kubernetes service to access the web app
+#show: doc => exercise(
+  course-name: "Systems Administration",
+  exercise-name: exercise-name,
+  goals: goals,
+  doc,
+)
 
 == Kubernetes in Docker Desktop
 
