@@ -114,7 +114,7 @@ On the new container we will use the `tar` command to make a compressed archive 
 #code([
   ```console
   $ docker run --rm --volumes-from 26618a503c68 -v "$(pwd):/backup" ubuntu \ <1>
-  tar caf /backup/db-backup.tar.gz /var/lib/postgresql/data
+  tar caf /backup/db-backup.tar.gz /var/lib/postgresql
   tar: Removing leading `/' from member names
   $ ls
 
@@ -134,7 +134,7 @@ On the new container we will use the `tar` command to make a compressed archive 
     / `--volumes-from <CONTAINER ID>`: give us the same volumes at the same mountpoints as our running postgres container
     / `-v "$(pwd):/backup"`: bind mount the local working directory to `/backup` on the container we are creating
     / `ubuntu`: use the `ubuntu` base image
-    / `tar caf /backup/db-backup.tar.gz /var/lib/postgresql/data`: This is the command that is run on the container.
+    / `tar caf /backup/db-backup.tar.gz /var/lib/postgresql`: This is the command that is run on the container.
       It #link("https://www.gnu.org/software/tar/manual/html_node/gzip.html")[creates a compressed tar archive] from the database directory and writes it to `/backup/db-backup.tar.gz`.
   ]),
   ("<2>", [Here's our backup in the directory where we were working on the host machine.])
