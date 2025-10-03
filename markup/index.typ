@@ -36,7 +36,7 @@ Italics indicated that a presentation still needs to be converted to use the Typ
 + #link("slides/automation.pdf")[Automation]
 + #link("slides/orchestration.pdf")[Orchestration]
 + #link("slides/k8s.pdf")[Kubernetes]
-+ #link("slides/ha-postgres-in-k8s.html")[_High Availability Postgres in Kubernetes_]
++ #link("slides/ha-postgres-in-k8s.pdf")[High Availability Postgres in Kubernetes]
 + #link("slides/runtimes.pdf")[Container Runtimes]
 + #link("slides/k8s-deployment.pdf")[Deploying an Application on Kubernetes]
 + #link("slides/compose.pdf")[Docker Compose]
@@ -74,11 +74,7 @@ Italics indicated that an exercises still needs to be converted to use the Typst
     ],
     exercise-item("exercises/volumes.typ"),
     exercise-item("exercises/hello-k8s.typ"),
-    [
-        #link("exercises/exercise-8.html")[_Exercise 8_]
-        - Apply Kubernetes objects from a YAML file
-        - Use kubectl to explore a running system
-    ],
+    exercise-item("exercises/db-k8s.typ"),
     exercise-item("exercises/compose.typ"),
     exercise-item("exercises/dev-env.typ"),
 )
