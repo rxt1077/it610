@@ -32,7 +32,7 @@ Italics indicated that a presentation still needs to be converted to use the Typ
 + #link("slides/users.pdf")[Users and Permissions]
 + #link("slides/packages.pdf")[Package Management in Linux]
 + #link("slides/storage.html")[_Storage_]
-+ #link("slides/backup.html")[_Backups_]
++ #link("slides/backup.pdf")[Backup]
 + #link("slides/automation.pdf")[Automation]
 + #link("slides/orchestration.pdf")[Orchestration]
 + #link("slides/k8s.pdf")[Kubernetes]
