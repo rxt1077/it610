@@ -13,15 +13,15 @@
 
 This website houses presentations and exercises for teaching Linux systems administration with containers.
 
-All resources are generated using #link("https://github.com/typst/typst")[Typst], are available on #link("https://github.com/rxt1077/it610")[GitHub], and are licensed under #link("https://creativecommons.org/licenses/by-nc/4.0/")[CC BY-NC 4.0]
+All resources are created using #link("https://github.com/typst/typst")[Typst], are available on #link("https://github.com/rxt1077/it610")[GitHub], and are licensed under #link("https://creativecommons.org/licenses/by-nc/4.0/")[CC BY-NC 4.0]
 
 The current syllabus can be found #link("syllabus.pdf")[here].
+
+Italics indicated that a presentation or exercise still needs to be converted to use the Typst template.
 
 == Presentations
 
 The presentations are listed in the order they are used.
-
-Italics indicated that a presentation still needs to be converted to use the Typst template.
 
 + #link("slides/unix.html")[_UNIX Systems_]
 + #link("slides/containers.html")[_System Administration with Containers_]
@@ -31,7 +31,7 @@ Italics indicated that a presentation still needs to be converted to use the Typ
 + #link("slides/project.html")[_The Project_]
 + #link("slides/users.pdf")[Users and Permissions]
 + #link("slides/packages.pdf")[Package Management in Linux]
-+ #link("slides/storage.html")[_Storage_]
++ #link("slides/storage.pdf")[Storage]
 + #link("slides/backup.pdf")[Backup]
 + #link("slides/automation.pdf")[Automation]
 + #link("slides/orchestration.pdf")[Orchestration]
@@ -60,8 +60,6 @@ Italics indicated that a presentation still needs to be converted to use the Typ
 }
 
 The exercises are listed in the order they are used with the learning goals that they cover.
-
-Italics indicated that an exercises still needs to be converted to use the Typst template.
 
 #enum(
     exercise-item("exercises/getting-started.typ"),
