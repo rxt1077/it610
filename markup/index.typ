@@ -23,7 +23,7 @@ Italics indicated that a presentation or exercise still needs to be converted to
 
 The presentations are listed in the order they are used.
 
-+ #link("slides/unix.html")[_UNIX Systems_]
++ #link("slides/unix.pdf")[UNIX Systems]
 + #link("slides/containers.html")[_System Administration with Containers_]
 + #link("slides/best-practices.html")[_Best Practices_]
 + #link("slides/terminal.html")[_Terminal Tips and Tricks_]
