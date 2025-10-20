@@ -1,16 +1,26 @@
-// template for a general NJIT syllabus
+/* template for a general NJIT syllabus */
+#import "utils.typ": build-outcomes, get-outcome, print-outcomes
+
+#let outcomes-from-keys(keys, outcomes) = {
+  for outcome in keys.dedup()
+                     .map(key => get-outcome(outcomes, key))
+                     .sorted(key: it => it.enum) [
+    - #outcome.enum.map(str).join(".") #outcome.body
+  ]
+}
 
 #let syllabus( 
   course: none,
   instructor: [Ryan Tolboom],
   email: [Ryan.Tolboom\@njit.edu],
-  office: [3500 Guttenberg Information Technologies Center (GITC)],
+  office: [3506 Guttenberg Information Technologies Center (GITC)],
   office-hours: none,
   objective: none,
   grading: none,
   course-materials: none,
   outcomes: none,
   outline: none,
+  base-url: "https://rxt1077.github.io/it610",
   doc,
 ) = [
   #set page(
@@ -57,6 +67,16 @@
   Additionally, if and when students use AI in this course, the AI must be cited as is shown within the #link("https://researchguides.njit.edu/AI/home")[NJIT Library AI citation page] for AI.
   If you have any questions or concerns about AI technology use in this class, please reach out to your instructor prior to submitting any assignments.
 
+  == Student Absences for Religious Observations
+
+  NJIT is committed to supporting students observing religious holidays.
+  Students must notify their instructors in writing of any conflicts between course requirements and religious observances, ideally by the end of the second week of classes and no later than two weeks before the anticipated absence.
+  All instructors must include a reminder on the course syllabus about this notification process.
+  All instructors are required to provide academically reasonable accommodations, allowing students to complete missed assignments, exams, quizzes, or other coursework within the term.
+  Instructors are encouraged to consider the #link("https://www.njit.edu/inclusive/religious-and-spirituality-resources")[NJIT religious holiday calendar] and exercise cultural sensitivity when scheduling assessments or major assignments.
+  All instructors must ensure that students are not penalized for properly documented absences and maintain confidentiality regarding religious observances.
+  For questions or additional guidance, please #link("https://www.njit.edu/registrar/njit-policy-student-absences-religious-observances")[review the policy] or contact the Office of Inclusive Excellence at inclusiveexcellence\@njit.edu.
+    
   == Objective
 
   #objective
@@ -78,94 +98,56 @@
 
   #doc
 
-  // enumerate the learning outcomes and note which weeks the learning outcomes
-  // are reinforced
-  #let section_num = 1
-  #for (section, outcome_list) in outcomes {
-    let outcome_num = 1
-    for (key, desc) in outcome_list {
-      let weeks = ()
-      for (week_num, week) in outline.enumerate() {
-        if (key in week.at("outcomes")) {
-          weeks.push(week_num + 1)
-        }
-      }
-      outcomes.at(section).at(key) = (
-        section_num: section_num,
-        outcome_num: outcome_num,
-        weeks: weeks,
-        description: desc
-      )
-      outcome_num += 1
-   }
-   section_num += 1
-  }
-
-  == Learning Outcomes
-
-  #let section_num = 1
-  #for (section, section_outcomes) in outcomes {
-    [=== #section_num. #section]
-    grid(
-      columns: (16pt, 1fr),
-      gutter: 8pt,
-      ..for (key, outcome) in section_outcomes {
-        (
-          [#outcome.at("section_num").#outcome.at("outcome_num")],
-          [#outcome.at("description"). Weeks #outcome.at("weeks").map(str).join(", ", last: " and ").]
-        )
-      }
-    )
-    section_num += 1
-  }
+  #let outcomes = build-outcomes(outcomes)
+  #block()[
+    #set par(spacing: 0.5em)
+    #print-outcomes(outcomes)
+  ]
 
   == Course Outline
 
-  // takes a list of learning outcome keys and returns a sorted (by index), formated
-  // text representation of the learning outcomes
-  #let print_outcomes(key_list) = {
-    let week_outcomes = ()
-    for key in key_list {
-      // find the learning outcome based on its key
-      for (section, outcome_list) in outcomes {
-        if (key in outcome_list) {
-          week_outcomes.push(outcome_list.at(key))
-        }
-      }
-    }
-
-    // print them out in order
-    grid(
-      columns: (16pt, 1fr),
-      gutter: 8pt,
-      ..for outcome in week_outcomes
-        // seems hackish but as long as there aren't more than 100 outcomes per
-        // per section, this sorting key should work
-        .sorted(key: x => (x.at("section_num")*100 + x.at("outcome_num")))
-        .dedup() {
-          (
-            [#outcome.at("section_num").#outcome.at("outcome_num")],
-            [#outcome.at("description")]
-          )
-      }
-    )
-  }
-
-  #let week_num = 1
   #table(
-    columns: (1fr, 2fr, 4fr),
+    columns: (3.5em, 1fr, 1fr, 2fr),
     table.header(
       [*Week*],
-      [*Topics*],
+      [*Presentations*],
+      [*Exercises*],
       [*Learning Outcomes*],
     ),
     ..for week in outline {
-      (
-        [#week_num],
-        for topic in week.at("topics") [- #topic],
-        print_outcomes(week.at("outcomes"))
-      )
-      week_num += 1
+      if week._type == "standard" {
+        let week-outcomes = ()
+        (
+          week.week,
+          for slides-file in week.slides {
+            if type(slides-file) != str {
+              [- #slides-file]
+            } else {
+              let slides-pdf = slides-file.trim(".typ", at: end, repeat: false) + ".pdf"
+              import slides-file as slides
+              week-outcomes += slides.outcomes
+              [- #link(base-url + slides-pdf)[#slides.title]]
+            }
+          },
+          for exercise-file in week.exercises {
+            if type(exercise-file) != str {
+              [- #exercise-file]
+            } else {
+              let exercise-pdf = exercise-file.trim(".typ", at: end, repeat: false) + ".pdf"
+              import exercise-file as exercise
+              week-outcomes += exercise.outcomes
+              [- #link(base-url + exercise-pdf)[#exercise.exercise-name]]
+            }
+          },
+          outcomes-from-keys(week-outcomes, outcomes),
+        )
+      } else if week._type == "exam" {
+        (
+          week.week,
+          table.cell(colspan: 2, week.body),
+          outcomes-from-keys(week.outcomes, outcomes),
+        )
+      }
     }
   )
 ]

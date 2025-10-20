@@ -2,12 +2,15 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 #import fletcher.shapes: diamond
 
+#let title = "git"
+#let outcomes = ("shell", "git")
+
 #show: university-theme.with(
   short-title: [git],
 )
 
 #title-slide(
-  title: [git],
+  title: title,
 )
 
 #alternate(

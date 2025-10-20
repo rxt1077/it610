@@ -9,102 +9,268 @@
   </head>
   <body>
     <div class="content">
-      <h2>Systems Administration Resources</h2>
-      <p>This website houses presentations and exercises for teaching Linux systems administration with containers.</p>
+      <h2>Linux Systems Administration with Containers</h2>
+      <p>This website houses free, open source resources for teaching Linux systems administration with containers.</p>
       <p>All resources are created using <a href="https://github.com/typst/typst">Typst</a>, are available on <a href="https://github.com/rxt1077/it610">GitHub</a>, and are licensed under <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></p>
       <p>The current syllabus can be found <a href="syllabus.pdf">here</a>.</p>
-      <p>Italics indicated that a presentation or exercise still needs to be converted to use the Typst template.</p>
+      <p><em>Italics</em> indicate that a resource still needs to be converted to use a Typst template.</p>
+      <h3>Learning Outcomes</h3>
+      <h4>1. Linux</h4>
+      <div class="outcome"><span class="outcome-num">1.1</span> <span class="outcome-body">Access a shell prompt and issue commands with correct syntax</span></div>
+      <div class="outcome"><span class="outcome-num">1.2</span> <span class="outcome-body">Access remote systems using SSH</span></div>
+      <div class="outcome"><span class="outcome-num">1.3</span> <span class="outcome-body">Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2</span></div>
+      <div class="outcome"><span class="outcome-num">1.4</span> <span class="outcome-body">Create and edit text files</span></div>
+      <div class="outcome"><span class="outcome-num">1.5</span> <span class="outcome-body">Create, delete, copy, and move files and directories</span></div>
+      <div class="outcome"><span class="outcome-num">1.6</span> <span class="outcome-body">Add users, reset passwords, modify user groups, and delete users</span></div>
+      <div class="outcome"><span class="outcome-num">1.7</span> <span class="outcome-body">Basic git operations</span></div>
+      <div class="outcome"><span class="outcome-num">1.8</span> <span class="outcome-body">List, set, and change file permissions</span></div>
+      <div class="outcome"><span class="outcome-num">1.9</span> <span class="outcome-body">Utilize a package management system</span></div>
+      <div class="outcome"><span class="outcome-num">1.10</span> <span class="outcome-body">Create a package</span></div>
+      <h4>2. Containers</h4>
+      <div class="outcome"><span class="outcome-num">2.1</span> <span class="outcome-body">Configure container engines, create, and manage containers</span></div>
+      <div class="outcome"><span class="outcome-num">2.2</span> <span class="outcome-body">Create a container image</span></div>
+      <div class="outcome"><span class="outcome-num">2.3</span> <span class="outcome-body">Build a container image</span></div>
+      <div class="outcome"><span class="outcome-num">2.4</span> <span class="outcome-body">Create and backup container volumes</span></div>
+      <div class="outcome"><span class="outcome-num">2.5</span> <span class="outcome-body">Deploy a database in a container</span></div>
+      <h4>3. Container Orchestration</h4>
+      <div class="outcome"><span class="outcome-num">3.1</span> <span class="outcome-body">Use a container orchestration system to run a multi-container environment</span></div>
+      <div class="outcome"><span class="outcome-num">3.2</span> <span class="outcome-body">Automate a deployment using popular automation tools</span></div>
+      <div class="outcome"><span class="outcome-num">3.3</span> <span class="outcome-body">Design a custom deployment for a development environment</span></div>
       <h3>Presentations</h3>
-      <p>The presentations are listed in the order they are used.</p>
+      <p>The presentations are listed in the order they are used with the learning outcomes that they cover.</p>
       <ol>
-        <li><a href="slides/unix.pdf">UNIX Systems</a></li>
-        <li><a href="slides/containers.html"><em>System Administration with Containers</em></a></li>
-        <li><a href="slides/best-practices.html"><em>Best Practices</em></a></li>
-        <li><a href="slides/terminal.html"><em>Terminal Tips and Tricks</em></a></li>
-        <li><a href="slides/docker.html"><em>Docker Best Practices</em></a></li>
-        <li><a href="slides/project.html"><em>The Project</em></a></li>
-        <li><a href="slides/users.pdf">Users and Permissions</a></li>
-        <li><a href="slides/packages.pdf">Package Management in Linux</a></li>
-        <li><a href="slides/storage.pdf">Storage</a></li>
-        <li><a href="slides/backup.pdf">Backup</a></li>
-        <li><a href="slides/automation.pdf">Automation</a></li>
-        <li><a href="slides/orchestration.pdf">Orchestration</a></li>
-        <li><a href="slides/k8s.pdf">Kubernetes</a></li>
-        <li><a href="slides/ha-postgres-in-k8s.pdf">High Availability Postgres in Kubernetes</a></li>
-        <li><a href="slides/runtimes.pdf">Container Runtimes</a></li>
-        <li><a href="slides/k8s-deployment.pdf">Deploying an Application on Kubernetes</a></li>
-        <li><a href="slides/compose.pdf">Docker Compose</a></li>
-        <li><a href="slides/cloud.pdf">Cloud Computing</a></li>
-        <li><a href="slides/buzz.pdf">DevOps, SRE, and other Buzzwords</a></li>
-        <li><a href="slides/git.pdf">Git</a></li>
-        <li><a href="slides/missing.pdf">What's Missing?</a></li>
+        <li>
+          <p><a href="slides/unix.pdf">UNIX Systems</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/containers.html"><em>System Administration with Containers</em></a></p>
+        </li>
+        <li>
+          <p><a href="slides/best-practices.html"><em>Best Practices</em></a></p>
+        </li>
+        <li>
+          <p><a href="slides/terminal.html"><em>Terminal Tips and Tricks</em></a></p>
+        </li>
+        <li>
+          <p><a href="slides/docker.html"><em>Docker Best Practices</em></a></p>
+        </li>
+        <li>
+          <p><a href="slides/project.html"><em>The Project</em></a></p>
+        </li>
+        <li>
+          <p><a href="slides/users.pdf">Users and Permissions</a></p>
+          <ul>
+            <li>1.6 Add users, reset passwords, modify user groups, and delete users</li>
+            <li>1.8 List, set, and change file permissions</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/packages.pdf">Package Management in Linux</a></p>
+          <ul>
+            <li>1.3 Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2</li>
+            <li>1.9 Utilize a package management system</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/storage.pdf">Storage</a></p>
+          <ul>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>1.8 List, set, and change file permissions</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/backup.pdf">Backup</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.3 Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>2.4 Create and backup container volumes</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/automation.pdf">Automate the Boring Stuff</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>2.2 Create a container image</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/orchestration.pdf">Orchestration</a></p>
+          <ul>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/k8s.pdf">Kubernetes</a></p>
+          <ul>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/ha-postgres-in-k8s.pdf">High-Availability Postgres in Kubernetes</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.4 Create and edit text files</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.3 Design a custom deployment for a development environment</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/runtimes.pdf">Container Runtimes</a></p>
+          <ul>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.3 Build a container image</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/k8s-deployment.pdf">Deploying an Application on Kubernetes</a></p>
+          <ul>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.3 Design a custom deployment for a development environment</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/compose.pdf">Docker Compose</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.4 Create and edit text files</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>2.3 Build a container image</li>
+            <li>2.4 Create and backup container volumes</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.3 Design a custom deployment for a development environment</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/cloud.pdf">Cloud Computing</a></p>
+          <ul>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.5 Deploy a database in a container</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
+            <li>3.3 Design a custom deployment for a development environment</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/buzz.pdf">DevOps, SRE, and other Buzzwords</a></p>
+          <ul>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/git.pdf">git</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.7 Basic git operations</li>
+          </ul>
+        </li>
+        <li>
+          <p><a href="slides/missing.pdf">What's Missing?</a></p>
+          <ul>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+          </ul>
+        </li>
       </ol>
       <h3>Exercises</h3>
-      <p>The exercises are listed in the order they are used with the learning goals that they cover.</p>
+      <p>The exercises are listed in the order they are used with the learning outcomes that they cover.</p>
       <ol>
         <li>
           <p><a href="exercises/getting-started.pdf">Getting Started</a></p>
           <ul>
-            <li>Install git</li>
-            <li>Install Docker</li>
-            <li>git pull the class git repository</li>
-            <li>Build a container image</li>
-            <li>Run a container</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.7 Basic git operations</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.3 Build a container image</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/create-image.pdf">Creating a Container Image</a></p>
           <ul>
-            <li>Use users and permissions in Linux</li>
-            <li>Create a custom container image</li>
-            <li>Build a container image</li>
-            <li>Run a container</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.4 Create and edit text files</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>1.6 Add users, reset passwords, modify user groups, and delete users</li>
+            <li>1.8 List, set, and change file permissions</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>2.3 Build a container image</li>
           </ul>
         </li>
         <li>
-          <p><a href="exercises/exercise-3.html"><em>Exercise 3</em></a></p>
+          <p><a href="exercises/create-deb.pdf">Creating a Debian Package</a></p>
           <ul>
-            <li>Installing GAM on an Ubuntu container via their installation script</li>
-            <li>Creating a Debian package for GAM</li>
-            <li>Creating a Dockerfile for a container that installs GAM from your package</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.4 Create and edit text files</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>1.9 Utilize a package management system</li>
+            <li>1.10 Create a package</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>2.3 Build a container image</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/volumes.pdf">Volumes</a></p>
           <ul>
-            <li>Create a new volume</li>
-            <li>Run a container with a volume mounted</li>
-            <li>Create data on a volume</li>
-            <li>Back up a volume</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.3 Build a container image</li>
+            <li>2.4 Create and backup container volumes</li>
+            <li>2.5 Deploy a database in a container</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/hello-k8s.pdf">Hello Kubernetes</a></p>
           <ul>
-            <li>Start the built-in version of Kubernetes in Docker Desktop</li>
-            <li>Build a custom image for a web app</li>
-            <li>Create a Kubernetes Deployment</li>
-            <li>Create a Kubernetes Service</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
+            <li>3.3 Design a custom deployment for a development environment</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/db-k8s.pdf">Exploring a Kubernetes Database Deployment</a></p>
           <ul>
-            <li>Apply Kubernetes objects from a YAML file</li>
-            <li>Use kubectl to explore a running system</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
+            <li>3.2 Automate a deployment using popular automation tools</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/compose.pdf">Docker Compose</a></p>
           <ul>
-            <li>Run a Docker Compose system</li>
-            <li>Examine a functioning Docker Compose system</li>
+            <li>1.7 Basic git operations</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
           </ul>
         </li>
         <li>
           <p><a href="exercises/dev-env.pdf">Creating a Developer Environment</a></p>
           <ul>
-            <li>Create a multi-container development environment using a container orchestration tool</li>
+            <li>1.1 Access a shell prompt and issue commands with correct syntax</li>
+            <li>1.4 Create and edit text files</li>
+            <li>1.5 Create, delete, copy, and move files and directories</li>
+            <li>1.9 Utilize a package management system</li>
+            <li>2.1 Configure container engines, create, and manage containers</li>
+            <li>2.2 Create a container image</li>
+            <li>2.3 Build a container image</li>
+            <li>2.4 Create and backup container volumes</li>
+            <li>2.5 Deploy a database in a container</li>
+            <li>3.1 Use a container orchestration system to run a multi-container environment</li>
           </ul>
         </li>
       </ol>

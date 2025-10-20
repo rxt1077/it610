@@ -1,5 +1,9 @@
 #import "/templates/slides.typ": *
 
+#let title = [Deploying an Application on Kubernetes]
+#let outcomes = ("manage-containers", "create-images", "orchestration",
+                 "custom-deployment")
+
 #show: university-theme.with(
   short-title: [K8s Deployment],
 )

@@ -1,4 +1,4 @@
-TYPST := typst compile --root .
+TYPST := typst compile --features html --root .
 SRCS := $(wildcard slides/*.typ) $(wildcard exercises/*.typ) syllabus.typ
 OUTPUT_DIR := ../docs
 OUTPUT := $(SRCS:%.typ=$(OUTPUT_DIR)/%.pdf) $(OUTPUT_DIR)/index.html

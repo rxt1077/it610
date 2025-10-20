@@ -1,11 +1,14 @@
 #import "/templates/slides.typ": *
 
+#let title = [DevOps, SRE, and other Buzzwords]
+#let outcomes = ("orchestration", "automation")
+
 #show: university-theme.with(
   short-title: [Buzzwords],
 )
 
 #title-slide(
-  title: [DevOps, SRE, and other Buzzwords],
+  title: title
 )
 
 #focus-slide()[

@@ -1,12 +1,15 @@
 #import "/templates/slides.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
+#let title = [Orchestration]
+#let outcomes = ("manage-containers", "orchestration") 
+
 #show: university-theme.with(
   short-title: [Orchestration],
 )
 
 #title-slide(
-  title: [Container Orchestration],
+  title: title,
 )
 
 #alternate(

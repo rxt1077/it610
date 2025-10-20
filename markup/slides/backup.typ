@@ -1,5 +1,8 @@
 #import "/templates/slides.typ": *
 
+#let title = [Backup]
+#let outcomes = ("shell", "archive", "files", "create-volumes")
+
 #show: university-theme.with(
   short-title: [Backup],
 )

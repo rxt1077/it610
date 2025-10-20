@@ -1,11 +1,14 @@
 #import "/templates/slides.typ": *
 
+#let title = [UNIX Systems]
+#let outcomes = ("shell",)
+
 #show: university-theme.with(
   short-title: [UNIX],
 )
 
 #title-slide(
-  title: [UNIX Systems],
+  title: title,
 )
 
 #slide(

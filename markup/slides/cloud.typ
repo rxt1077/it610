@@ -1,11 +1,17 @@
 #import "/templates/slides.typ": *
 
+#let title = [Cloud Computing]
+#let outcomes = (
+  "manage-containers", "deploy-db", "orchestration", "automation",
+  "custom-deployment"
+)
+
 #show: university-theme.with(
   short-title: [Cloud]
 )
 
 #title-slide(
-  title: [Cloud Computing]
+  title: title
 )
 
 #alternate(

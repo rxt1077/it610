@@ -1,5 +1,8 @@
 #import "/templates/slides.typ": *
 
+#let title = [Automate the Boring Stuff]
+#let outcomes = ("shell", "create-images", "automation") 
+
 #show: university-theme.with(
   short-title: [Automation],
 )

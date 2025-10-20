@@ -3,19 +3,20 @@
 /* goals and exercise-name are used by index.typ
    that's why we define and then pass them to the show rule */
 #let exercise-name = "Volumes"
-#let goals = ( 
-	"Create a new volume",
-    "Run a container with a volume mounted",
-    "Create data on a volume",
-    "Back up a volume",
+#let outcomes = (
+  "shell", "manage-containers", "build-images", "create-volumes", "deploy-db"
 )
 
 #show: doc => exercise(
   course-name: "Systems Administration",
   exercise-name: exercise-name,
-  goals: goals,
+  outcomes: outcomes,
   doc,
 )
+
+== Background
+
+In this exercise you will have to opportunity to create a new volume, run a container with a volume mounted, create data on a volume, and back up a volume.
 
 == Creating a Volume
 

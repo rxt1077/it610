@@ -1,13 +1,15 @@
 #import "/templates/slides.typ": *
 
+#let title = [Users and Permissions]
+#let outcomes = ("users", "permissions")
+
 #show: university-theme.with(
   short-title: [Users and Permissions],
 )
 
 #title-slide(
-  title: [Users and Permissions],
+  title: title,
 )
-
 
 #alternate(
   title: [Users],

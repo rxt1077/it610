@@ -1,4 +1,5 @@
 #import "templates/syllabus.typ": syllabus
+#import "outcomes.typ": outcomes
 
 #show: doc => syllabus(
   course: [IT 610 Systems Administration],
@@ -20,77 +21,125 @@
     [#link("https://git-scm.com/downloads")[git] installed and working],
     [A #link("https://github.com")[GitHub] account],
   ),
-  outcomes: (
-    "Linux": (
-      shell: "Access a shell prompt and issue commands with correct syntax",
-      ssh: "Access remote systems using SSH",
-      archive: "Archive, compress, unpack, and uncompress files using tar, gzip, and bzip2",
-      text: "Create and edit text files",
-      files: "Create, delete, copy, and move files and directories",
-      users: "Add users, reset passwords, modify user groups, and delete users", 
-      git: "Basic git operations",
-      permissions: "List, set, and change file permissions",
-      use_pkg: "Utilize a package management system",
-      create_pkg: "Create a package"
-    ),
-    "Containers": (
-      manage_containers: "Configure container engines, create, and manage containers",
-      create_images: "Create a container image",
-      build_images: "Build a container image",
-      create_volumes: "Create and backup container volumes",
-      deploy_db: "Deploy a database in a container"
-    ),
-    "Container Orchestration": (
-      orchestration: "Use a container orchestration system to run a multi-container environment",
-      automation: "Automate a deployment using popular automation tools",
-      custom_deployment: "Design a custom deployment for a development environment"
-    )
-  ),
+  outcomes: outcomes,
   outline: (
-    ( topics: ("Introduction", "UNIX Systems", "Containers"),
-      outcomes: ("files", "shell", "git", "manage_containers", "build_images")),
-    ( topics: ("Best Practices", "Linux Systems", "Command Line Review",
-               "Project Specifications"),
-      outcomes: ("shell", "ssh", "files", "permissions")),
-    ( topics: ("Permissions", "Managing Users", "Package Management",
-               "Project Proposal Due"),
-      outcomes: ("shell", "files", "users", "permissions", "text", "use_pkg")),
-    ( topics: ("Storage", "File Systems", "Backups"),
-      outcomes: ("shell", "files", "permissions", "use_pkg", "create_pkg",
-                 "archive", "manage_containers", "create_images", "build_images")),
-    ( topics: ("Automation",),
-      outcomes: ("shell", "files", "create_volumes", "automation")),
-    ( topics: ("Patterns of Virtualization",),
-      outcomes: ("shell", "manage_containers", "create_images", "build_images",
-                 "create_volumes")),
-    ( topics: ("Backups", "Disaster Recovery"),
-      outcomes: ("shell", "archive", "manage_containers", "create_images",
-                 "build_images", "create_volumes", "deploy_db")),
-    ( topics: ("Midterm Exam", "Midterm Project Due"),
-      outcomes: ("shell", "ssh", "archive", "text", "files", "users", "git",
-                 "permissions", "use_pkg", "create_pkg", "manage_containers",
-                 "create_images", "build_images", "create_volumes", "deploy_db",
-                 "automation")),
-    ( topics: ("Infrastructure as a Service",),
-      outcomes: ("shell", "ssh", "manage_containers", "orchestration")),
-    ( topics: ("Container Runtime Options",),
-      outcomes: ("shell", "manage_containers", "orchestration", "deploy_db",
-                 "custom_deployment")),
-    ( topics: ("Container Orchestration",),
-      outcomes: ("shell", "manage_containers", "orchestration", "deploy_db",
-                 "custom_deployment")),
-    ( topics: ("Load Balancing", "High Availability"),
-      outcomes: ("shell", "manage_containers", "deploy_db", "orchestration")),
-    ( topics: ("Update Cycles", "DevOps"),
-      outcomes: ("shell", "manage_containers", "build_images", "create_images",
-                 "create_volumes", "orchestration")),
-    ( topics: ("Kubernetes", "Cloud Deployments"),
-      outcomes: ("shell", "orchestration", "custom_deployments", "ssh")),
-    ( topics: ("Final Exam Review", "Project Work Session"),
-      outcomes: ("shell", "ssh", "archive", "text", "files", "users", "git",
-                 "permissions", "use_pkg", "create_pkg", "manage_containers",
-                 "create_images", "build_images", "create_volumes", "deploy_db",
-                 "orchestration", "automation", "custom_deployment")),
+    (
+      _type: "standard",
+      week: [1],
+      slides: (
+        "/slides/unix.typ",
+        link("https://rxt1077.github.io/it610/slides/containers.html", [System Administration with Containers]),
+      ),
+      exercises: ("/exercises/getting-started.typ",)
+    ),
+    (
+      _type: "standard",
+      week: [2],
+      slides: (
+        link("https://rxt1077.github.io/it610/slides/best-practices.html", [Best Practices]),
+        link("https://rxt1077.github.io/it610/slides/terminal.html", [Terminal Tips and Tricks]),
+        link("https://rxt1077.github.io/it610/slides/docker.html", [Docker Best Practices]),
+        link("https://rxt1077.github.io/it610/slides/project.html", [Project]),
+      ),
+      exercises: ([Project Proposal],)
+    ),
+    (
+      _type: "standard",
+      week: [3],
+      slides: ("/slides/users.typ", "/slides/packages.typ"),
+      exercises: ("/exercises/create-image.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [4],
+      slides: ("/slides/storage.typ", "/slides/backup.typ"),
+      exercises: ("/exercises/create-deb.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [5],
+      slides: ("/slides/automation.typ",),
+      exercises: ("/exercises/volumes.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [6],
+      slides: ([Midterm Review],),
+      exercises: ([Practice Midterm],),
+    ),
+    (
+      _type: "exam",
+      week: [7],
+      body: [
+        - Midterm
+        - Midterm Deliverables Due
+      ],
+      outcomes: (
+        "shell", "ssh", "archive", "text", "files", "users", "git",
+        "permissions", "use-pkg", "create-pkg", "manage-containers",
+        "create-images", "build-images", "create-volumes", "deploy-db"
+      ),
+    ),
+    (
+      _type: "standard",
+      week: [8],
+      slides: (
+        "/slides/orchestration.typ",
+        "/slides/k8s.typ",
+        "/slides/ha-postgres-in-k8s.typ",
+      ),
+      exercises: ("/exercises/hello-k8s.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [9],
+      slides: ("/slides/runtimes.typ", "/slides/k8s-deployment.typ"),
+      exercises: ("/exercises/db-k8s.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [10],
+      slides: ("/slides/compose.typ",),
+      exercises: ("/exercises/compose.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [11],
+      slides: ("/slides/cloud.typ", "/slides/buzz.typ"),
+      exercises: ("/exercises/dev-env.typ",),
+    ),
+    (
+      _type: "standard",
+      week: [12],
+      slides: ("/slides/git.typ",),
+      exercises: ([GitHub Exploration],),
+    ),
+    (
+      _type: "standard",
+      week: [13],
+      slides: ("/slides/missing.typ",),
+      exercises: ([Updating a Linux Kernel],),
+    ),
+    (
+      _type: "standard",
+      week: [14],
+      slides: ([Final Review],),
+      exercises: ([Practice Final],),
+    ),
+    (
+      _type: "exam",
+      week: [15],
+      body: [
+        - Final
+        - Final Deliverables Due
+      ],
+      outcomes: (
+        "shell", "ssh", "archive", "text", "files", "users", "git",
+        "permissions", "use-pkg", "create-pkg", "manage-containers",
+        "create-images", "build-images", "create-volumes", "deploy-db",
+        "orchestration", "automation", "custom-deployment",
+      ),
+    ),
   ),
   doc,
 )
@@ -99,11 +148,10 @@
 The following web pages will be very helpful while working on projects:
 - #link("https://canvas.njit.edu")[Canvas] - be sure your credentials are up to date
 - #link("https://hub.docker.com")[Docker Hub] - most images have excellent documentation
+- #link("https://www.aholdengouveia.name/advlinux.html")[Linux Administration] - this hands-on, OER course in Linux Administration by Adrianna Holden-Gouveia is a great resource for additional help
 
 == Project Guidelines
-
 Each project will be given a set of common deliverables that all student projects must meet for credit.
 Individual project deliverables will be settled upon after submission of the project proposal.
 The midterm project will be a basic, single-container deployment.
 The final project will utilize multiple containers and an orchestration framework.
-#pagebreak()

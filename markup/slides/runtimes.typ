@@ -1,5 +1,8 @@
 #import "/templates/slides.typ": *
 
+#let title = [Container Runtimes]
+#let outcomes = ("manage-containers", "build-images")
+
 #show: university-theme.with(
   short-title: [Runtimes],
 )
@@ -17,7 +20,8 @@
     url: "https://wizardzines.com/comics/cgroups/",
     author: [Julia Evans],
     author-url: "https://wizardzines.com/",
-  ), text: [
+  ),
+  text: [
     - Recall that containers are largely just #link("https://en.wikipedia.org/wiki/Linux_namespaces")[namespaces] and #link("https://en.wikipedia.org/wiki/Cgroups")[cgroups]
     - A container runtime is the software that is used to support the containerization of software
   ]
@@ -31,7 +35,8 @@
     title: "Cloud Native Landscape",
     url: "https://landscape.cncf.io/guide#runtime",
     author: [The Linux Foundation],
-    author-url: "https://www.linuxfoundation.org/",), text: [
+    author-url: "https://www.linuxfoundation.org/",),
+  text: [
     - image management
     - lifecycle management
     - creation

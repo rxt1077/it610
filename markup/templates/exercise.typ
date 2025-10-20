@@ -1,11 +1,16 @@
+#import "/outcomes.typ": outcomes as unbuilt-all-outcomes
+#import "utils.typ": build-outcomes, get-outcome
+
 #let primary-color = rgb("#D22630")
 #let secondary-color = rgb("#071D49")
 #let code-bg-color = rgb("#DCDCDC")
 
+#let all-outcomes = build-outcomes(unbuilt-all-outcomes)
+
 #let exercise(
   course-name: none,
   exercise-name: none,
-  goals: (),
+  outcomes: (),
   doc,
 ) = {
   set page(
@@ -57,10 +62,14 @@
   [
     = #exercise-name
 
-    == Goals
-    #for goal in goals [
-	    - #goal
-    ]
+    == Outcomes
+    #grid(
+      columns: (2em, 1fr),
+      gutter: 0.5em,
+      ..outcomes.map(key => get-outcome(all-outcomes, key))
+                .sorted(key: it => it.enum)
+                .map(outcome => ([#outcome.enum.map(str).join(".")]))
+    )
 
     #doc
   ]
@@ -74,11 +83,11 @@
     else if num == "<2>" [\u{2777}]
     else if num == "<3>" [\u{2778}]
     else if num == "<4>" [\u{2779}]
-    else if num == "<5>" [\u{2780}]
-    else if num == "<6>" [\u{2781}]
-    else if num == "<7>" [\u{2782}]
-    else if num == "<8>" [\u{2783}]
-    else if num == "<9>" [\u{2784}]
+    else if num == "<5>" [\u{277A}]
+    else if num == "<6>" [\u{277B}]
+    else if num == "<7>" [\u{277C}]
+    else if num == "<8>" [\u{277D}]
+    else if num == "<9>" [\u{277E}]
 }
 
 // code blocks in boxes with AsciiDoctor style callouts

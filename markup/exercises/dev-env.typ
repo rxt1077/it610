@@ -3,14 +3,15 @@
 /* goals and exercise-name are used by index.typ
    that's why we define and then pass them to the show rule */
 #let exercise-name = "Creating a Developer Environment"
-#let goals = ( 
-    "Create a multi-container development environment using a container orchestration tool",
+#let outcomes = (
+  "shell", "text", "files", "use-pkg", "manage-containers", "create-images",
+  "build-images", "create-volumes", "deploy-db", "orchestration"
 )
 
 #show: doc => exercise(
   course-name: "Systems Administration",
   exercise-name: exercise-name,
-  goals: goals,
+  outcomes: outcomes,
   doc,
 )
 

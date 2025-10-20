@@ -3,20 +3,18 @@
 /* goals and exercise-name are used by index.typ
    that's why we define and then pass them to the show rule */
 #let exercise-name = "Getting Started"
-#let goals = ( 
-	"Install git",
-	"Install Docker",
-	"git pull the class git repository",
-	"Build a container image",
-	"Run a container",
-)
+#let outcomes = ("shell", "git", "manage-containers", "build-images")
 
 #show: doc => exercise(
   course-name: "Systems Administration",
   exercise-name: exercise-name,
-  goals: goals,
+  outcomes: outcomes,
   doc,
 )
+
+== Background
+
+In this lab you will have the opportunity to install git, install Docker, pull the class git repository, build a container image, and run a container.
 
 == Installing git
 

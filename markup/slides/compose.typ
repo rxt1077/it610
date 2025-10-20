@@ -2,12 +2,18 @@
 #import fletcher.shapes: parallelogram
 #import "/templates/slides.typ": *
 
+#let title = [Docker Compose]
+#let outcomes = (
+  "shell", "text", "manage-containers", "create-images", "build-images",
+  "create-volumes", "orchestration", "custom-deployment"
+)
+
 #show: university-theme.with(
   short-title: [Compose],
 )
 
 #title-slide(
-  title: [Docker Compose],
+  title: title
 )
 
 #alternate(

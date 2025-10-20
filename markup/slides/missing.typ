@@ -1,10 +1,12 @@
 #import "/templates/slides.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
-//#import "/typst-fletcher/src/exports.typ" as fletcher: diagram, node, edge
+
+#let title = [What's Missing?]
+#let outcomes = ("shell", "files")
 
 #show: university-theme.with(short-title: [Missing])
 
-#title-slide(title: [What's missing?])
+#title-slide(title: title)
 
 #focus-slide()[
   We've been learning in a virtualized environment.
@@ -81,7 +83,7 @@
   text: [
     - PID 1
     - SysV was the old way of doing it
-    - Most modern systems run sytemd (it's conentious)
+    - Most modern systems run systemd (it's contentious)
     - The init system brings up and monitors daemon processes
   ],
 )

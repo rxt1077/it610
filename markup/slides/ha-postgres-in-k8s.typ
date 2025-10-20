@@ -1,11 +1,15 @@
 #import "/templates/slides.typ": *
 
+#let title = [High-Availability Postgres in Kubernetes]
+#let outcomes = ("shell", "text", "files", "manage-containers",
+                 "create-images", "orchestration", "custom-deployment")
+
 #show: university-theme.with(
   short-title: [HA Postgres in K8s],
 )
 
 #title-slide(
-  title: [High-Availability Postgres in Kubernetes]
+  title: title
 )
 
 #alternate(

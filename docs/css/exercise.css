@@ -27,4 +27,11 @@ h3 {
     border-bottom: 2px solid var(--primary-color);
 }
 
+h4 {
+    margin-bottom: 0.25em;
+}
 
+span.outcome-num {
+    display: inline-block;
+    width: 2em;
+}

@@ -3,17 +3,18 @@
 /* goals and exercise-name are used by index.typ
    that's why we define and then pass them to the show rule */
 #let exercise-name = "Docker Compose"
-#let goals = ( 
-	"Run a Docker Compose system",
-    "Examine a functioning Docker Compose system",
-)
+#let outcomes = ("git", "orchestration")
 
 #show: doc => exercise(
   course-name: "Systems Administration",
   exercise-name: exercise-name,
-  goals: goals,
+  outcomes: outcomes,
   doc,
 )
+
+== Background
+
+In this lab you will have an opportunity to run and examine a functioning Docker Compose system.
 
 == Tasks
 

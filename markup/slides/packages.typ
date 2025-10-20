@@ -1,14 +1,16 @@
 #import "/templates/slides.typ": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, node, edge
 
+#let title = [Package Management in Linux]
+#let outcomes = ("use-pkg", "archive")
+
 #show: university-theme.with(
   short-title: [Packages],
 )
 
 #title-slide(
-  title: [Package Management in Linux],
+  title: title
 )
-
 
 #let blob(pos, label, tint: white, ..args) = node(
   pos, align(center, label),

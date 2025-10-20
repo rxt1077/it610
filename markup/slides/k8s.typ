@@ -1,8 +1,11 @@
 #import "/templates/slides.typ": *
 
+#let title = [Kubernetes]
+#let outcomes = ("manage-containers", "orchestration", "automation")
+
 #show: university-theme.with(short-title: [Kubernetes])
 
-#title-slide(title: [Kubernetes])
+#title-slide(title: title)
 
 #alternate(
   title: [Local K8s Cluster Options],

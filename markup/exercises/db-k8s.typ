@@ -3,19 +3,18 @@
 /* goals and exercise-name are used by index.typ
    that's why we define them and then pass them to the show rule */
 #let exercise-name = "Exploring a Kubernetes Database Deployment"
-#let goals = (
-  "Apply Kubernetes objects from a YAML file",
-  "Use kubectl to explore a running system",
-)
+#let outcomes = ("shell", "orchestration", "automation")
 
 #show: doc => exercise(
   course-name: "Systems Administration",
   exercise-name: exercise-name,
-  goals: goals,
+  outcomes: outcomes,
   doc,
 )
 
 == Background
+
+In this exercise you will have to opportunity to apply Kubernetes objects from a YAML file and use `kubectl` to explore a running system.
 
 Inside the `exercises/db-k8s` directory you will find a `db-k8s.yml` file that has all of the objects we discussed during the presentation.
 Your goal for this exercise is to `apply` those objects to your local Kubernetes instance using kubectl and explore the running system using the `get`, `describe`, and `logs` commands.
