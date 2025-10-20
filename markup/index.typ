@@ -42,7 +42,7 @@ The presentations are listed in the order they are used with the learning outcom
 
 #enum(
   slides-item("slides/unix.typ"),
-  par(link("slides/containers.html")[_System Administration with Containers_]),
+  slides-item("slides/containers.typ"),
   par(link("slides/best-practices.html")[_Best Practices_]),
   par(link("slides/terminal.html")[_Terminal Tips and Tricks_]),
   par(link("slides/docker.html")[_Docker Best Practices_]),

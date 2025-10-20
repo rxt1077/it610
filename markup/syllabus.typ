@@ -26,10 +26,7 @@
     (
       _type: "standard",
       week: [1],
-      slides: (
-        "/slides/unix.typ",
-        link("https://rxt1077.github.io/it610/slides/containers.html", [System Administration with Containers]),
-      ),
+      slides: ("/slides/unix.typ", "/slides/containers.typ"),
       exercises: ("/exercises/getting-started.typ",)
     ),
     (
