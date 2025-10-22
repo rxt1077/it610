@@ -68,7 +68,7 @@
       gutter: 0.5em,
       ..outcomes.map(key => get-outcome(all-outcomes, key))
                 .sorted(key: it => it.enum)
-                .map(outcome => ([#outcome.enum.map(str).join(".")]))
+                .fold((), (acc, outcome) => acc + ([#outcome.enum.map(str).join(".")], [#outcome.body]))
     )
 
     #doc
