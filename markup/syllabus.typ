@@ -3,7 +3,7 @@
 
 #show: doc => syllabus(
   course: [IT 610 Systems Administration],
-  office-hours: [2:00PM to 4:00PM on Tuesdays or via Zoom (email to schedule)],
+  office-hours: [12:00PM to 1:00PM on Thursdays and Fridays or via Zoom (email to schedule)],
   objective: [
     This course is a hands-on project intensive exploration of the advanced topics in systems administration.
     In addition to learning core competencies administering a Linux environment, students will also learn about the best practices for supporting a system or multi-server system in a containerized environment.
