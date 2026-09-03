@@ -89,7 +89,7 @@ Follow #link("https://docs.docker.com/desktop/")[these instructions] to install 
   Successfully tagged getting-started:latest
   ```
   ], callouts: (
-    ("<1>", [Make sure you are in the `it610/exercises/1` directory]),
+    ("<1>", [Make sure you are in the `it610/exercises/getting-started` directory]),
     ("<2>", [This tells Docker to build an image based on the Dockerfile in _this_ (`.`) directory and tag it as getting-started]),
     ("<3>", [It may take a moment to pull down the images this image is built from.]),
   )
