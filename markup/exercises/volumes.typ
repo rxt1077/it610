@@ -41,11 +41,11 @@ there with the `docker volume ls` command:
 
 == Running PostgreSQL
 
-Now let's run a postgres container in the background with our volume mounted in `/var/lib/postgresql/data`, which is the path where the PostgreSQL database information is stored by default:
+Now let's run a postgres container in the background with our volume mounted in `/var/lib/postgresql`, which is the path where the PostgreSQL database information is stored by default:
 
 #code([
   ```console
-  $ docker run -d --mount source=db-data,target=/var/lib/postgresql/data -e \ <1> <2>
+  $ docker run -d --mount source=db-data,target=/var/lib/postgresql -e \ <1> <2>
   POSTGRES_PASSWORD=changeme postgres
   26618a503c688c19728c87190beb7497f68b6e7d350b09e3eae7f2f71b1c8738 <3>
   $ docker ps <4>
@@ -62,7 +62,7 @@ Now let's run a postgres container in the background with our volume mounted in 
     Here's an explanation of some of the options and arguments:
 
     / `-d`: run in the background (daemon)
-    / `--mount source=db-data,target=/var/lib/postgresql/data`: mount the `exercise4-db` local volume in the `/var/lib/postgresql/data` directory of the container
+    / `--mount source=db-data,target=/var/lib/postgresql`: mount the `exercise4-db` local volume in the `/var/lib/postgresql` directory of the container
     / `-e POSTGRES_PASSWORD=changeme`: set the environment variable fo the postgres password to `changeme`.
       PostgreSQL won't start without a password.
     / `postgres`: run the postgres image]),
